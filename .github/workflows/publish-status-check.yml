@@ -1,0 +1,21 @@
+name: Check BuildWithPankaj Publish Status
+on:
+  push:
+    paths:
+      - "publish-status-check.txt"
+permissions:
+  contents: read
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+    steps:
+      - name: Check approved asset status
+        run: |
+          RESPONSE=$(curl --fail-with-body --silent --show-error \
+            "${PRIVATE_MEDIA_BASE_URL}/publish/status?approvalId=791a11c93e7548588c8fe3e9d657e02e" \
+            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}")
+          echo "$RESPONSE"
