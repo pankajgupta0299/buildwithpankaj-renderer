@@ -11,19 +11,31 @@ import sys
 
 OUT = sys.argv[1] if len(sys.argv) > 1 else "music-bed.wav"
 DURATION = float(sys.argv[2]) if len(sys.argv) > 2 else 36.0
+STYLE = sys.argv[3] if len(sys.argv) > 3 else "default"
 SR = 44100
-BPM = 105.0
+
+if STYLE == "spark-agentic":
+    BPM = 112.0
+    random.seed(20260729)
+    # Brighter, forward-moving tech bed for agentic/productivity content.
+    CHORDS = [
+        (146.83, [0, 3, 7, 10]),  # Dm7
+        (174.61, [0, 4, 7, 11]),  # Fmaj7
+        (130.81, [0, 4, 7, 11]),  # Cmaj7
+        (196.00, [0, 2, 7, 9]),   # Gsus2/add6
+    ]
+else:
+    BPM = 105.0
+    random.seed(20260919)
+    CHORDS = [
+        (164.81, [0, 3, 7, 10]),   # Em7
+        (130.81, [0, 4, 7, 11]),   # Cmaj7
+        (196.00, [0, 4, 7, 11]),   # Gmaj7
+        (146.83, [0, 2, 7, 9]),    # Dsus2/add6
+    ]
+
 BEAT = 60.0 / BPM
 BAR = BEAT * 4.0
-random.seed(20260919)
-
-# Modern, restrained progression: Em7 -> Cmaj7 -> Gmaj7 -> Dsus2/add6
-CHORDS = [
-    (164.81, [0, 3, 7, 10]),   # Em7
-    (130.81, [0, 4, 7, 11]),   # Cmaj7
-    (196.00, [0, 4, 7, 11]),   # Gmaj7
-    (146.83, [0, 2, 7, 9]),    # Dsus2/add6
-]
 
 def hz(root, semitones):
     return root * (2.0 ** (semitones / 12.0))
@@ -123,4 +135,4 @@ with wave.open(OUT, "wb") as wf:
             frames.append(struct.pack("<hh", l16, r16))
         wf.writeframes(b"".join(frames))
 
-print(f"Generated original BuildWithPankaj music bed: {OUT} ({DURATION:.2f}s)")
+print(f"Generated original BuildWithPankaj music bed: {OUT} ({DURATION:.2f}s, style={STYLE}, bpm={BPM:.0f})")
