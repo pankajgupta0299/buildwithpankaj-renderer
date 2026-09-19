@@ -1,0 +1,47 @@
+name: Approve Exact BuildWithPankaj Asset
+on:
+  push:
+    paths:
+      - "approval-command.json"
+permissions:
+  contents: read
+jobs:
+  approve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate explicit approval command
+        run: |
+          APPROVAL_ID=$(jq -r '.approvalId // empty' approval-command.json)
+          USER_APPROVED=$(jq -r '.userApproved // false' approval-command.json)
+          CONFIRMATION=$(jq -r '.confirmation // empty' approval-command.json)
+
+          if [ -z "$APPROVAL_ID" ]; then
+            echo "Missing approvalId"
+            exit 1
+          fi
+
+          if [ "$USER_APPROVED" != "true" ]; then
+            echo "userApproved must be true"
+            exit 1
+          fi
+
+          if [ "$CONFIRMATION" != "APPROVE_EXACT_ASSET" ]; then
+            echo "Invalid confirmation phrase"
+            exit 1
+          fi
+      - name: Approve exact private manifest
+        run: |
+          APPROVAL_ID=$(jq -r '.approvalId' approval-command.json)
+
+          RESPONSE=$(curl --fail-with-body --silent --show-error \
+            -X POST "${PRIVATE_MEDIA_BASE_URL}/publish/approve" \
+            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data "{\"approvalId\":\"${APPROVAL_ID}\",\"confirmation\":\"APPROVE_EXACT_ASSET\"}")
+
+          echo "$RESPONSE"
