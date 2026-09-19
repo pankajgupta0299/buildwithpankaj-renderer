@@ -23,7 +23,7 @@ await fs.mkdir(publicDir, {recursive: true});
 
 const downloadAsset = async (assetId, extensionHint = 'bin') => {
   if (!/^[A-Za-z0-9._-]+$/.test(assetId)) throw new Error(`Unsafe assetId: ${assetId}`);
-  const url = `${baseUrl.replace(/\/$/, '')}/${encodeURIComponent(assetId)}`;
+  const url = `${baseUrl.replace(/\/$/, '')}/media/${encodeURIComponent(assetId)}`;
   const response = await fetch(url, {headers: {Authorization: `Bearer ${token}`}});
   if (!response.ok) throw new Error(`Private media fetch failed for ${assetId}: HTTP ${response.status}`);
   const contentType = response.headers.get('content-type') || '';
