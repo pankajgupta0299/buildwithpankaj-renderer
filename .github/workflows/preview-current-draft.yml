@@ -1,0 +1,22 @@
+name: Generate Temporary Reel Preview
+on:
+  push:
+    paths:
+      - "preview-trigger.txt"
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+    steps:
+      - name: Generate 5-minute signed preview URL
+        shell: bash
+        run: |
+          KEY="draft-run-35456875889.mp4"
+          EXP=$(( $(date +%s) + 300 ))
+          SIG=$(printf "%s" "${KEY}:${EXP}" | openssl dgst -sha256 -hmac "${PRIVATE_MEDIA_TOKEN}" -binary | base64 | tr '+/' '-_' | tr -d '=' | tr -d '\n')
+          echo "PREVIEW_URL=${PRIVATE_MEDIA_BASE_URL}/delivery/${KEY}?exp=${EXP}&sig=${SIG}"
