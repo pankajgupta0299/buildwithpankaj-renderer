@@ -32,12 +32,19 @@ jobs:
           END=$(date +%s)
           echo "render_seconds=$((END-START))" >> "$GITHUB_STEP_SUMMARY"
           ls -lh out/reel.mp4 >> "$GITHUB_STEP_SUMMARY"
-      - name: Remove resolved private inputs
+      - name: Store rendered draft privately in R2
+        env:
+          DRAFT_KEY: draft-run-${{ github.run_id }}.mp4
+        run: |
+          curl --fail-with-body --silent --show-error \
+            -X PUT "${PRIVATE_MEDIA_BASE_URL}/media/${DRAFT_KEY}" \
+            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}" \
+            -H "Content-Type: video/mp4" \
+            --data-binary @out/reel.mp4
+          curl --fail-with-body --silent --show-error \
+            -I "${PRIVATE_MEDIA_BASE_URL}/media/${DRAFT_KEY}" \
+            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}"
+          echo "private_draft_key=${DRAFT_KEY}" >> "$GITHUB_STEP_SUMMARY"
+      - name: Remove local private inputs and output
         if: always()
-        run: rm -rf public/private-media resolved-content.json
-      - name: Upload private-draft artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: buildwithpankaj-reel-draft
-          path: out/reel.mp4
-          retention-days: 1
+        run: rm -rf public/private-media resolved-content.json out/reel.mp4
