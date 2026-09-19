@@ -73,7 +73,7 @@ const Scene = ({scene, footer, badge}) => {
       {scene.type==='text' && <TextBlock headline={scene.headline} body={scene.body}/>}
       {scene.type==='media' && <div><TextBlock headline={scene.headline} body={scene.body}/><div style={{marginTop:55}}><MediaPane scene={scene}/></div></div>}
       {scene.type==='cta' && <div style={{backgroundColor:BRAND.soft,borderRadius:48,padding:70}}><TextBlock eyebrow="BUILDWITHPANKAJ" headline={scene.headline} body={scene.body}/></div>}
-      <div style={{position:'absolute',bottom:72,left:110,fontSize:28,color:'#555'}}>{footer} · {badge}</div>
+      <div style={{position:'absolute',bottom:72,left:110,fontSize:28,color:'#555'}}>{footer}{badge ? ` · ${badge}` : ''}</div>
     </AbsoluteFill>
   </Fade>;
 };
