@@ -1,0 +1,1 @@
+Verify approval endpoint rejects an invalid confirmation. No approval and no publishing.
