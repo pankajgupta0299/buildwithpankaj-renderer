@@ -33,7 +33,8 @@ const downloadAsset = async (assetId, extensionHint = 'bin') => {
     : contentType.includes('audio/mpeg') ? 'mp3'
     : contentType.includes('audio/wav') ? 'wav'
     : extensionHint;
-  const filename = `${assetId}.${ext}`;
+  const base = assetId.replace(/\.[A-Za-z0-9]+$/, '');
+  const filename = `${base}.${ext}`;
   const bytes = Buffer.from(await response.arrayBuffer());
   await fs.writeFile(path.join(publicDir, filename), bytes);
   return `private-media/${filename}`;
