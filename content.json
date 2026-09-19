@@ -20,8 +20,9 @@
       "type": "media",
       "durationFrames": 240,
       "headline": "Screen recordings, images and demos",
-      "body": "Private media will be injected later through the secure backend.",
-      "mediaKind": "placeholder"
+      "body": "This image is being fetched privately from R2 through the authenticated BuildWithPankaj Worker.",
+      "mediaKind": "image",
+      "assetId": "test-image.jpg"
     },
     {
       "type": "text",
@@ -37,8 +38,20 @@
     }
   ],
   "captions": [
-    {"startFrame": 12, "endFrame": 110, "text": "BUILD WITH AI"},
-    {"startFrame": 355, "endFrame": 455, "text": "REAL DEMOS"},
-    {"startFrame": 585, "endFrame": 705, "text": "CLEAR CAPTIONS"}
+    {
+      "startFrame": 12,
+      "endFrame": 110,
+      "text": "BUILD WITH AI"
+    },
+    {
+      "startFrame": 355,
+      "endFrame": 455,
+      "text": "REAL DEMOS"
+    },
+    {
+      "startFrame": 585,
+      "endFrame": 705,
+      "text": "CLEAR CAPTIONS"
+    }
   ]
 }
