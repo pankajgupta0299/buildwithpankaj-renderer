@@ -14,10 +14,34 @@ jobs:
       PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
     steps:
       - name: Create private ready-for-approval manifest
+        env:
+          FINAL_CAPTION: |
+            ChatGPT just landed inside Microsoft Word — and this is a bigger shift than it looks.
+            
+            OpenAI released ChatGPT for Word on September 17. From the sidebar, you can:
+            • draft from notes
+            • summarize a document
+            • rewrite selected text
+            • clean up headings and formatting
+            
+            It’s available on all ChatGPT plans, including Free. Your plan limits still apply, and workplace admins can restrict the add-in.
+            
+            The interesting part isn’t just Word. AI is moving from a separate destination into the tools where work already happens.
+            
+            Would you use this inside Word, or do you still prefer ChatGPT in a separate window?
+            
+            Save this for later and send it to someone who spends half their day in Word.
+            
+            #ChatGPT #MicrosoftWord #AIForWork #ProductivityAI #BuildWithPankaj
         run: |
+          PAYLOAD=$(jq -n \
+            --arg draftKey "draft-run-35459679690.mp4" \
+            --arg caption "$FINAL_CAPTION" \
+            --arg postType "reel" \
+            '{draftKey:$draftKey,caption:$caption,postType:$postType}')
           RESPONSE=$(curl --fail-with-body --silent --show-error \
             -X POST "${PRIVATE_MEDIA_BASE_URL}/publish/preflight" \
             -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}" \
             -H "Content-Type: application/json" \
-            --data '{"draftKey":"draft-run-35453410308.mp4","caption":"Infrastructure-only private draft test","postType":"reel"}')
+            --data "$PAYLOAD")
           echo "$RESPONSE"
