@@ -16,7 +16,7 @@ jobs:
       - name: Generate 15-minute signed preview URL
         shell: bash
         run: |
-          KEY="draft-run-35459160625.mp4"
+          KEY="draft-run-35459679690.mp4"
           EXP=$(( $(date +%s) + 900 ))
           SIG=$(printf "%s" "${KEY}:${EXP}" | openssl dgst -sha256 -hmac "${PRIVATE_MEDIA_TOKEN}" -binary | base64 | tr '+/' '-_' | tr -d '=' | tr -d '\n')
           echo "PREVIEW_URL=${PRIVATE_MEDIA_BASE_URL}/delivery/${KEY}?exp=${EXP}&sig=${SIG}"
