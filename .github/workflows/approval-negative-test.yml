@@ -1,0 +1,33 @@
+name: Approval Gate Negative Test
+on:
+  push:
+    paths:
+      - "approval-negative-test-trigger.txt"
+permissions:
+  contents: read
+jobs:
+  test-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+    steps:
+      - name: Verify wrong confirmation is rejected
+        run: |
+          BODY_FILE=$(mktemp)
+          STATUS=$(curl --silent --show-error \
+            -o "$BODY_FILE" \
+            -w "%{http_code}" \
+            -X POST "${PRIVATE_MEDIA_BASE_URL}/publish/approve" \
+            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data '{"approvalId":"791a11c93e7548588c8fe3e9d657e02e","confirmation":"DO_NOT_APPROVE"}')
+          cat "$BODY_FILE"
+          echo
+          if [ "$STATUS" != "400" ]; then
+            echo "Expected HTTP 400, got $STATUS"
+            exit 1
+          fi
+          grep -q "Explicit approval confirmation missing" "$BODY_FILE"
+          rm -f "$BODY_FILE"
