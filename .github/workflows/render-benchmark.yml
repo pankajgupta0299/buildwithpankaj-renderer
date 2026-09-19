@@ -10,6 +10,9 @@ jobs:
   render:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -17,6 +20,10 @@ jobs:
           node-version: '22'
       - name: Install dependencies
         run: npm install
+      - name: Validate public content spec
+        run: npm run validate
+      - name: Resolve private media
+        run: npm run resolve-media
       - name: Render 1080x1920 Reel
         run: |
           mkdir -p out
@@ -25,6 +32,9 @@ jobs:
           END=$(date +%s)
           echo "render_seconds=$((END-START))" >> "$GITHUB_STEP_SUMMARY"
           ls -lh out/reel.mp4 >> "$GITHUB_STEP_SUMMARY"
+      - name: Remove resolved private inputs
+        if: always()
+        run: rm -rf public/private-media resolved-content.json
       - name: Upload private-draft artifact
         uses: actions/upload-artifact@v4
         with:
