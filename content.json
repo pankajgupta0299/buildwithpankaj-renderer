@@ -1,7 +1,44 @@
 {
-  "eyebrow": "BUILDWITHPANKAJ",
-  "headline": "Professionals can\nbuild with AI.",
-  "body": "Reusable 1080×1920 Reel rendering engine.",
   "footer": "@buildwith_pankaj",
-  "badge": "PRIVATE DRAFT • NOT FOR PUBLISHING"
+  "badge": "PRIVATE DRAFT • NOT FOR PUBLISHING",
+  "audioSrc": null,
+  "scenes": [
+    {
+      "type": "title",
+      "durationFrames": 150,
+      "eyebrow": "BUILDWITHPANKAJ",
+      "headline": "Professionals can\nbuild with AI.",
+      "body": "A reusable multi-scene Reel engine."
+    },
+    {
+      "type": "text",
+      "durationFrames": 180,
+      "headline": "One idea.\nOne clear scene.",
+      "body": "Each scene has its own timing, layout and animation."
+    },
+    {
+      "type": "media",
+      "durationFrames": 240,
+      "headline": "Screen recordings, images and demos",
+      "body": "Private media will be injected later through the secure backend.",
+      "mediaKind": "placeholder"
+    },
+    {
+      "type": "text",
+      "durationFrames": 180,
+      "headline": "Animated captions",
+      "body": "Captions can appear at exact frames and stay inside mobile-safe areas."
+    },
+    {
+      "type": "cta",
+      "durationFrames": 150,
+      "headline": "Build. Test. Improve.",
+      "body": "Final publishing remains locked until explicit approval."
+    }
+  ],
+  "captions": [
+    {"startFrame": 12, "endFrame": 110, "text": "BUILD WITH AI"},
+    {"startFrame": 355, "endFrame": 455, "text": "REAL DEMOS"},
+    {"startFrame": 585, "endFrame": 705, "text": "CLEAR CAPTIONS"}
+  ]
 }
