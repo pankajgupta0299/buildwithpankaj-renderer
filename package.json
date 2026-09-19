@@ -1,1 +1,15 @@
-{"name":"buildwithpankaj-renderer","version":"0.1.0","private":true,"scripts":{"render":"remotion render src/index.jsx BuildWithPankajBenchmark out/benchmark.mp4 --codec=h264 --crf=18"},"dependencies":{"@remotion/cli":"4.0.344","remotion":"4.0.344","react":"19.1.1","react-dom":"19.1.1"}}
+{
+  "name": "buildwithpankaj-renderer",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "render": "remotion render src/index.jsx BuildWithPankajReel out/reel.mp4 --codec=h264 --crf=18",
+    "render:spec": "remotion render src/index.jsx BuildWithPankajReel out/reel.mp4 --codec=h264 --crf=18 --props=content.json"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.344",
+    "remotion": "4.0.344",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  }
+}
