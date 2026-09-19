@@ -1,0 +1,67 @@
+name: Publish Endpoint Readiness Test
+on:
+  push:
+    paths:
+      - "publish-readiness-trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+      APPROVAL_ID: "791a11c93e7548588c8fe3e9d657e02e"
+
+    steps:
+      - name: Verify approved manifest is still unattempted
+        run: |
+          RESPONSE=$(curl --fail-with-body --silent --show-error             "${PRIVATE_MEDIA_BASE_URL}/media/approval-${APPROVAL_ID}.json"             -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}")
+
+          echo "$RESPONSE" | jq '{
+            status,
+            approved: .approval.approved,
+            attempted: .publishing.attempted,
+            published: .publishing.published
+          }'
+
+          test "$(echo "$RESPONSE" | jq -r '.status')" = "approved"
+          test "$(echo "$RESPONSE" | jq -r '.approval.approved')" = "true"
+          test "$(echo "$RESPONSE" | jq -r '.publishing.attempted')" = "false"
+          test "$(echo "$RESPONSE" | jq -r '.publishing.published')" = "false"
+
+      - name: Verify publish endpoint fails closed without exact confirmation
+        run: |
+          BODY_FILE=$(mktemp)
+
+          STATUS=$(curl --silent --show-error             -o "$BODY_FILE"             -w "%{http_code}"             -X POST "${PRIVATE_MEDIA_BASE_URL}/publish/execute"             -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}"             -H "Content-Type: application/json"             --data "{\"approvalId\":\"${APPROVAL_ID}\",\"confirmation\":\"DO_NOT_PUBLISH\"}")
+
+          cat "$BODY_FILE"
+          echo
+
+          if [ "$STATUS" != "400" ]; then
+            echo "Expected HTTP 400, got $STATUS"
+            exit 1
+          fi
+
+          grep -q "Explicit publish confirmation missing" "$BODY_FILE"
+          rm -f "$BODY_FILE"
+
+      - name: Verify failed safety test did not mutate publishing state
+        run: |
+          RESPONSE=$(curl --fail-with-body --silent --show-error             "${PRIVATE_MEDIA_BASE_URL}/media/approval-${APPROVAL_ID}.json"             -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}")
+
+          echo "$RESPONSE" | jq '{
+            status,
+            approved: .approval.approved,
+            attempted: .publishing.attempted,
+            published: .publishing.published
+          }'
+
+          test "$(echo "$RESPONSE" | jq -r '.status')" = "approved"
+          test "$(echo "$RESPONSE" | jq -r '.approval.approved')" = "true"
+          test "$(echo "$RESPONSE" | jq -r '.publishing.attempted')" = "false"
+          test "$(echo "$RESPONSE" | jq -r '.publishing.published')" = "false"
