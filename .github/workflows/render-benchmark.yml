@@ -24,6 +24,15 @@ jobs:
         run: npm run validate
       - name: Resolve private media
         run: npm run resolve-media
+      - name: Generate original royalty-free music when requested
+        run: |
+          MODE=$(node -p "require('./content.json').musicMode || ''")
+          if [ "$MODE" = "generated-original" ]; then
+            mkdir -p public
+            DURATION=$(node -e "const c=require('./content.json'); console.log(c.scenes.reduce((s,x)=>s+x.durationFrames,0)/30)")
+            python3 scripts/generate-original-music.py public/generated-music.wav "$DURATION"
+            node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('resolved-content.json','utf8')); p.audioSrc='generated-music.wav'; fs.writeFileSync('resolved-content.json',JSON.stringify(p,null,2));"
+          fi
       - name: Render 1080x1920 Reel
         run: |
           mkdir -p out
