@@ -1,1 +1,1 @@
-Generate refreshed short-lived preview URL for current draft.
+Generate preview for final first BuildWithPankaj reel draft.
