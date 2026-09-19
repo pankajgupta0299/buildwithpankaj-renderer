@@ -1,0 +1,28 @@
+name: Verify BuildWithPankaj Buffer Channel
+on:
+  push:
+    paths:
+      - "buffer-discovery-trigger.txt"
+permissions:
+  contents: read
+jobs:
+  verify-buffer-channel:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+    steps:
+      - name: Lock exact BuildWithPankaj Instagram channel
+        run: |
+          RESPONSE=$(curl --fail-with-body --silent --show-error \
+            -X POST "${PRIVATE_MEDIA_BASE_URL}/buffer/lock-buildwithpankaj" \
+            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}" \
+            -H "Content-Type: application/json")
+          echo "$RESPONSE"
+      - name: Verify channel lock status
+        run: |
+          RESPONSE=$(curl --fail-with-body --silent --show-error \
+            "${PRIVATE_MEDIA_BASE_URL}/buffer/status" \
+            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}")
+          echo "$RESPONSE"
