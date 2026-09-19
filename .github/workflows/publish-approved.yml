@@ -1,0 +1,79 @@
+name: Publish Approved BuildWithPankaj Asset
+on:
+  push:
+    paths:
+      - "publish-command.json"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate explicit publish command
+        run: |
+          APPROVAL_ID=$(jq -r '.approvalId // empty' publish-command.json)
+          USER_CONFIRMED=$(jq -r '.userConfirmedPublish // false' publish-command.json)
+          CONFIRMATION=$(jq -r '.confirmation // empty' publish-command.json)
+
+          if [ -z "$APPROVAL_ID" ]; then
+            echo "Missing approvalId"
+            exit 1
+          fi
+
+          if [ "$USER_CONFIRMED" != "true" ]; then
+            echo "userConfirmedPublish must be true"
+            exit 1
+          fi
+
+          if [ "$CONFIRMATION" != "PUBLISH_EXACT_APPROVED_ASSET" ]; then
+            echo "Invalid publish confirmation phrase"
+            exit 1
+          fi
+
+      - name: Publish exact approved manifest
+        run: |
+          APPROVAL_ID=$(jq -r '.approvalId' publish-command.json)
+
+          RESPONSE=$(curl --fail-with-body --silent --show-error \
+            -X POST "${PRIVATE_MEDIA_BASE_URL}/publish/execute" \
+            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data "{\"approvalId\":\"${APPROVAL_ID}\",\"confirmation\":\"PUBLISH_EXACT_APPROVED_ASSET\"}")
+
+          echo "$RESPONSE"
+
+      - name: Verify Buffer / Instagram status
+        run: |
+          APPROVAL_ID=$(jq -r '.approvalId' publish-command.json)
+
+          for ATTEMPT in 1 2 3 4 5 6; do
+            RESPONSE=$(curl --fail-with-body --silent --show-error \
+              "${PRIVATE_MEDIA_BASE_URL}/publish/status?approvalId=${APPROVAL_ID}" \
+              -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}")
+
+            echo "Status check ${ATTEMPT}: $RESPONSE"
+
+            STATUS=$(echo "$RESPONSE" | jq -r '.status // empty')
+
+            if [ "$STATUS" = "published-live" ]; then
+              exit 0
+            fi
+
+            if [ "$STATUS" = "failed" ]; then
+              echo "Publishing failed"
+              exit 1
+            fi
+
+            sleep 15
+          done
+
+          echo "Post was accepted by Buffer but is not yet confirmed live."
