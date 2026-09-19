@@ -1,0 +1,6 @@
+import React from 'react';
+import {registerRoot,Composition,AbsoluteFill,interpolate,spring,useCurrentFrame,useVideoConfig} from 'remotion';
+const OLIVE='#6B6F2A';
+const Reel=()=>{const f=useCurrentFrame();const {fps}=useVideoConfig();const enter=spring({frame:f,fps,config:{damping:18}});const y=interpolate(enter,[0,1],[80,0]);const opacity=interpolate(f,[0,15,820,899],[0,1,1,0],{extrapolateLeft:'clamp',extrapolateRight:'clamp'});return <AbsoluteFill style={{backgroundColor:'#FFFFFF',fontFamily:'Arial, sans-serif',padding:110,justifyContent:'center',opacity}}><div style={{fontSize:34,letterSpacing:4,color:OLIVE,fontWeight:700,marginBottom:35}}>BUILDWITHPANKAJ</div><div style={{fontSize:94,lineHeight:1.04,fontWeight:800,color:'#202020',transform:`translateY(${y}px)`}}>Professionals can<br/>build with AI.</div><div style={{width:180,height:14,backgroundColor:OLIVE,borderRadius:20,marginTop:48}}/><div style={{fontSize:38,lineHeight:1.35,color:'#444',marginTop:45,maxWidth:760}}>A 30-second 1080×1920 benchmark rendered automatically with Remotion.</div><div style={{position:'absolute',bottom:90,left:110,fontSize:30,color:'#555'}}>@buildwith_pankaj · PRIVATE PRODUCTION TEST</div></AbsoluteFill>};
+const Root=()=> <Composition id="BuildWithPankajBenchmark" component={Reel} durationInFrames={900} fps={30} width={1080} height={1920}/>;
+registerRoot(Root);
