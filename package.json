@@ -1,10 +1,12 @@
 {
   "name": "buildwithpankaj-renderer",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
+    "validate": "node scripts/validate-content.mjs",
+    "resolve-media": "node scripts/resolve-private-media.mjs",
     "render": "remotion render src/index.jsx BuildWithPankajReel out/reel.mp4 --codec=h264 --crf=18",
-    "render:spec": "remotion render src/index.jsx BuildWithPankajReel out/reel.mp4 --codec=h264 --crf=18 --props=content.json"
+    "render:spec": "remotion render src/index.jsx BuildWithPankajReel out/reel.mp4 --codec=h264 --crf=18 --props=resolved-content.json"
   },
   "dependencies": {
     "@remotion/cli": "4.0.344",
