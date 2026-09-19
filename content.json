@@ -20,7 +20,7 @@
       "type": "media",
       "durationFrames": 240,
       "headline": "Screen recordings, images and demos",
-      "body": "Authenticated private media test — R2 to Worker to GitHub to Remotion.",
+      "body": "Authenticated private media test — R2 input and private R2 draft output.",
       "mediaKind": "image",
       "assetId": "test-image.jpg"
     },
