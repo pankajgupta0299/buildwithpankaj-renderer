@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "brand": "BuildWithPankaj",
+  "destination": "@buildwith_pankaj",
+  "approvalId": "REPLACE_AFTER_APPROVAL",
+  "approved": false,
+  "status": "draft",
+  "postType": "carousel",
+  "schedulingType": "automatic",
+  "mode": "shareNow",
+  "caption": "",
+  "firstComment": "",
+  "shouldShareToFeed": true,
+  "isAiGenerated": false,
+  "assets": [
+    {
+      "type": "image",
+      "key": "example-slide-01.png",
+      "altText": ""
+    },
+    {
+      "type": "image",
+      "key": "example-slide-02.png",
+      "altText": ""
+    }
+  ]
+}
