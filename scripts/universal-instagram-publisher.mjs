@@ -106,6 +106,11 @@ const assets = Array.isArray(pkg.assets) ? pkg.assets : [];
 if (!assets.length) throw new Error('Package must contain at least one asset');
 if (assets.length > 10) throw new Error('Buffer/Instagram third-party carousel limit is 10 assets');
 
+const hashtagCount = ((pkg.caption || '').match(/#[\p{L}\p{N}_]+/gu) || []).length;
+if (hashtagCount > 5) {
+  throw new Error(`Instagram currently allows a maximum of 5 hashtags per post through this publishing path; found ${hashtagCount}`);
+}
+
 const exp = expiryForPackage();
 const gqlAssets = [];
 for (const asset of assets) {
@@ -147,6 +152,12 @@ if (pkg.postType === 'story' && assets.length !== 1) {
 if (pkg.postType === 'carousel' && assets.length < 2) {
   throw new Error('Carousel requires at least two assets');
 }
+if (pkg.postType === 'carousel') {
+  const kinds = new Set(assets.map(a => a.type));
+  if (kinds.size !== 1) {
+    throw new Error('Instagram carousels through Buffer cannot mix images and videos');
+  }
+}
 
 const schedulingType = pkg.schedulingType || 'automatic';
 if (!['automatic','notification'].includes(schedulingType)) throw new Error('Invalid schedulingType');
@@ -168,6 +179,8 @@ const input = {
   assets: gqlAssets,
   metadata: { instagram },
   aiAssisted: true,
+  needsApproval: false,
+  saveToDraft: false,
 };
 if (input.mode === 'customScheduled') {
   if (!pkg.dueAt) throw new Error('customScheduled requires dueAt');
