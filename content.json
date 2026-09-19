@@ -1,72 +1,72 @@
 {
   "footer": "@buildwith_pankaj",
-  "badge": "PRIVATE DRAFT • NOT FOR PUBLISHING",
+  "badge": "",
   "audioSrc": null,
   "scenes": [
     {
       "type": "title",
-      "durationFrames": 180,
-      "eyebrow": "NEW • CHATGPT",
-      "headline": "ChatGPT is now\ninside Microsoft Word.",
-      "body": "And OpenAI says it is available on all ChatGPT plans — including Free."
+      "durationFrames": 150,
+      "eyebrow": "JUST RELEASED",
+      "headline": "ChatGPT just moved\ninside Microsoft Word.",
+      "body": "And yes — OpenAI says it works on every ChatGPT plan, including Free."
     },
     {
       "type": "text",
-      "durationFrames": 180,
-      "headline": "Not just another\nchat window.",
-      "body": "ChatGPT opens in a sidebar and can work with the document you already have open."
+      "durationFrames": 150,
+      "headline": "No more constant\ncopy-paste.",
+      "body": "ChatGPT now opens in a sidebar beside the document you're already working on."
     },
     {
       "type": "text",
-      "durationFrames": 180,
+      "durationFrames": 165,
       "headline": "What can it do?",
-      "body": "Draft from notes. Summarize documents. Rewrite selected text. Adjust headings, structure and formatting."
+      "body": "Draft from notes. Summarize documents. Rewrite selected text. Reorganize headings, numbering and formatting."
     },
     {
       "type": "text",
-      "durationFrames": 180,
-      "headline": "The useful part?",
-      "body": "Less copy-pasting between Word and ChatGPT. The AI is moving directly into the tool where the work happens."
+      "durationFrames": 150,
+      "headline": "This is the real shift.",
+      "body": "AI is moving from a separate chat window into the tools professionals already use every day."
     },
     {
       "type": "text",
-      "durationFrames": 180,
-      "headline": "Who gets access?",
-      "body": "OpenAI says ChatGPT for Word is available on every ChatGPT plan, including Free. Workplace admins can still restrict the add-in."
-    },
-    {
-      "type": "text",
-      "durationFrames": 180,
+      "durationFrames": 165,
       "headline": "How to try it",
-      "body": "Install the ChatGPT Microsoft add-in, open Word, sign in, then use ChatGPT from the sidebar."
+      "body": "Install the ChatGPT Microsoft add-in, open it from Word's ribbon, sign in, then work from the sidebar."
+    },
+    {
+      "type": "text",
+      "durationFrames": 150,
+      "headline": "One thing to know",
+      "body": "Your ChatGPT plan limits still apply, and workplace admins can restrict the add-in."
     },
     {
       "type": "cta",
-      "durationFrames": 180,
-      "headline": "AI at work is changing.",
-      "body": "Less tab-switching. More AI inside the tools you already use. Follow @buildwith_pankaj for practical AI updates."
+      "durationFrames": 150,
+      "headline": "This is what practical AI looks like.",
+      "body": "Less switching. More building. Follow @buildwith_pankaj for AI updates that actually matter at work."
     }
   ],
   "captions": [
     {
-      "startFrame": 18,
-      "endFrame": 145,
-      "text": "NEW: CHATGPT FOR WORD"
+      "startFrame": 12,
+      "endFrame": 115,
+      "text": "CHATGPT IS NOW IN WORD"
     },
     {
-      "startFrame": 375,
-      "endFrame": 505,
+      "startFrame": 325,
+      "endFrame": 430,
+      "text": "NO MORE COPY-PASTE LOOP"
+    },
+    {
+      "startFrame": 490,
+      "endFrame": 610,
       "text": "DRAFT • SUMMARIZE • REWRITE"
     },
     {
-      "startFrame": 735,
-      "endFrame": 865,
+      "startFrame": 790,
+      "endFrame": 910,
       "text": "AVAILABLE ON FREE"
-    },
-    {
-      "startFrame": 1090,
-      "endFrame": 1225,
-      "text": "AI IS MOVING INTO YOUR WORKFLOW"
     }
   ]
 }
