@@ -20,7 +20,7 @@
       "type": "media",
       "durationFrames": 240,
       "headline": "Screen recordings, images and demos",
-      "body": "This image is being fetched privately from R2 through the authenticated BuildWithPankaj Worker.",
+      "body": "Authenticated private media test — R2 to Worker to GitHub to Remotion.",
       "mediaKind": "image",
       "assetId": "test-image.jpg"
     },
