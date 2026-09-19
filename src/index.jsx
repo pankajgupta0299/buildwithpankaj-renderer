@@ -11,6 +11,7 @@ import {
   spring,
   useCurrentFrame,
   useVideoConfig,
+  staticFile,
 } from 'remotion';
 
 const BRAND = {
@@ -60,8 +61,8 @@ const TextBlock = ({eyebrow, headline, body, align='left'}) => {
 
 const MediaPane = ({scene}) => {
   const common={width:820,height:680,borderRadius:42,objectFit:'cover'};
-  if(scene.mediaSrc && scene.mediaKind==='video') return <OffthreadVideo src={scene.mediaSrc} muted style={common}/>;
-  if(scene.mediaSrc && scene.mediaKind==='image') return <Img src={scene.mediaSrc} style={common}/>;
+  if(scene.mediaSrc && scene.mediaKind==='video') return <OffthreadVideo src={staticFile(scene.mediaSrc)} muted style={common}/>;
+  if(scene.mediaSrc && scene.mediaKind==='image') return <Img src={staticFile(scene.mediaSrc)} style={common}/>;
   return <div style={{...common,backgroundColor:BRAND.soft,border:'3px solid #DDDCCF',display:'flex',alignItems:'center',justifyContent:'center',color:BRAND.olive,fontSize:34,fontWeight:700,letterSpacing:2}}>MEDIA / SCREEN RECORDING</div>;
 };
 
@@ -98,7 +99,7 @@ const Reel = (props) => {
       return <Sequence key={index} from={from} durationInFrames={scene.durationFrames}><Scene scene={scene} footer={spec.footer} badge={spec.badge}/></Sequence>;
     })}
     <CaptionLayer captions={spec.captions}/>
-    {spec.audioSrc ? <Audio src={spec.audioSrc}/> : null}
+    {spec.audioSrc ? <Audio src={staticFile(spec.audioSrc)}/> : null}
   </AbsoluteFill>;
 };
 
