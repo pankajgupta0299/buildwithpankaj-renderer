@@ -1,0 +1,32 @@
+name: Universal Instagram Publish
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "publish-package.json"
+      - "universal-publish-command.json"
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Publish approved universal Instagram package'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Validate secrets
+        run: |
+          test -n "$PRIVATE_MEDIA_BASE_URL"
+          test -n "$PRIVATE_MEDIA_TOKEN"
+          test -n "$BUFFER_API_KEY"
+      - name: Publish exact approved package
+        run: node scripts/universal-instagram-publisher.mjs
