@@ -1,0 +1,23 @@
+name: BuildWithPankaj Publish Preflight
+on:
+  push:
+    paths:
+      - "publish-preflight-trigger.txt"
+permissions:
+  contents: read
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+    steps:
+      - name: Create private ready-for-approval manifest
+        run: |
+          RESPONSE=$(curl --fail-with-body --silent --show-error \
+            -X POST "${PRIVATE_MEDIA_BASE_URL}/publish/preflight" \
+            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}" \
+            -H "Content-Type: application/json" \
+            --data '{"draftKey":"draft-run-35453410308.mp4","caption":"Infrastructure-only private draft test","postType":"reel"}')
+          echo "$RESPONSE"
