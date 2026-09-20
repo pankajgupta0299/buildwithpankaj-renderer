@@ -1,1 +1,1 @@
-Cleanup approved published carousel R2 assets.
+Verify cleanup of approved published carousel R2 assets.
