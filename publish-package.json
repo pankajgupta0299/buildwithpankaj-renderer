@@ -2,25 +2,50 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "REPLACE_AFTER_APPROVAL",
+  "approvalId": "bwp-india-ai-workforce-carousel-20260920-v1",
   "approved": false,
-  "status": "draft",
+  "status": "ready_for_approval",
   "postType": "carousel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "",
+  "caption": "India isn’t just using AI more.\n\nIt’s starting to redesign work around it. 🇮🇳\n\nMicrosoft’s 2026 Work Trend Index found that 32% of Indian AI users now qualify as “Frontier Professionals” — people using AI agents for multi-step workflows and rethinking how work gets done.\n\nThat’s:\n\n32% in India\nvs\n16% globally.\n\nBut the part I found more interesting is this:\n\n63% of Indian respondents prioritize quality control of AI output.\n\n59% rank critical thinking as a top skill.\n\nAnd 87% say humans still remain responsible for the thinking — treating AI output as a starting point, not the final answer.\n\nThere’s another big signal:\n\n78% of Indian AI users say AI is helping them do work that wasn’t possible a year ago.\n\nThe lesson for professionals is becoming clearer:\n\nDon’t stop at learning prompts.\n\nLearn how to break work into systems.\nLearn what to delegate to AI agents.\nLearn how to verify the output.\nAnd keep ownership of the final decision.\n\nThat’s where the real advantage is.\n\nSave this if you’re building AI into your work.\n\nShare it with someone who still thinks AI is only about asking better questions.\n\nFollow @buildwith_pankaj for practical AI for professionals.\n\nSource: Microsoft Work Trend Index 2026 — India\n\n#AIForWork #FutureOfWork #AgenticAI #MicrosoftAI #BuildWithPankaj",
   "firstComment": "",
   "shouldShareToFeed": true,
   "isAiGenerated": false,
   "assets": [
     {
       "type": "image",
-      "key": "example-slide-01.png",
+      "key": "india-ai-workforce-01-cover.png",
       "altText": ""
     },
     {
       "type": "image",
-      "key": "example-slide-02.png",
+      "key": "india-ai-workforce-02-frontier-meaning.png",
+      "altText": ""
+    },
+    {
+      "type": "image",
+      "key": "india-ai-workforce-03-india-vs-global.png",
+      "altText": ""
+    },
+    {
+      "type": "image",
+      "key": "india-ai-workforce-04-human-judgment.png",
+      "altText": ""
+    },
+    {
+      "type": "image",
+      "key": "india-ai-workforce-05-new-work.png",
+      "altText": ""
+    },
+    {
+      "type": "image",
+      "key": "india-ai-workforce-06-takeaway.png",
+      "altText": ""
+    },
+    {
+      "type": "image",
+      "key": "india-ai-workforce-07-cta.png",
       "altText": ""
     }
   ]
