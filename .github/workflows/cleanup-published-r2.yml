@@ -1,0 +1,24 @@
+name: Cleanup Published R2 Media
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "cleanup-r2-trigger.txt"
+
+permissions:
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Delete published package media from private R2
+        run: node scripts/cleanup-r2-media.mjs
