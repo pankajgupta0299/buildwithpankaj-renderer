@@ -1,6 +1,9 @@
 name: Discover Trending Instagram Audio
 on:
   workflow_dispatch:
+  push:
+    paths:
+      - "trending-audio-trigger.txt"
 
 permissions:
   contents: read
