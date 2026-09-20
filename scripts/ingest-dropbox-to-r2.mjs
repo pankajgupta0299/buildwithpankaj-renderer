@@ -1,10 +1,10 @@
 import fs from 'node:fs/promises';
 
-const BASE = process.env.PRIVATE_MEDIA_BASE_URL;
-const MEDIA_TOKEN = process.env.PRIVATE_MEDIA_TOKEN;
-const APP_KEY = process.env.DROPBOX_APP_KEY;
-const APP_SECRET = process.env.DROPBOX_APP_SECRET;
-const REFRESH_TOKEN = process.env.DROPBOX_REFRESH_TOKEN;
+const BASE = (process.env.PRIVATE_MEDIA_BASE_URL || '').trim();
+const MEDIA_TOKEN = (process.env.PRIVATE_MEDIA_TOKEN || '').trim();
+const APP_KEY = (process.env.DROPBOX_APP_KEY || '').trim();
+const APP_SECRET = (process.env.DROPBOX_APP_SECRET || '').trim();
+const REFRESH_TOKEN = (process.env.DROPBOX_REFRESH_TOKEN || '').trim();
 const MANIFEST = process.env.DROPBOX_INGEST_MANIFEST || 'dropbox-ingest-manifest.json';
 
 for (const [k,v] of Object.entries({
@@ -38,6 +38,16 @@ async function getDropboxAccessToken() {
   if (!j.access_token) throw new Error('Dropbox access token missing');
   return j.access_token;
 }
+
+console.log(JSON.stringify({
+  diagnostics: {
+    appKeyLength: APP_KEY.length,
+    appSecretLength: APP_SECRET.length,
+    refreshTokenLength: REFRESH_TOKEN.length,
+    refreshTokenHasWhitespace: /\\s/.test(REFRESH_TOKEN),
+    refreshTokenPrefixLooksPlausible: /^[A-Za-z0-9._~-]+$/.test(REFRESH_TOKEN)
+  }
+}, null, 2));
 
 const accessToken = await getDropboxAccessToken();
 const results=[];
