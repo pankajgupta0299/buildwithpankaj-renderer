@@ -893,3 +893,17 @@ Established and production-tested:
 - operational status model.
 
 First real automation test successfully published to @buildwith_pankaj and was subsequently deleted manually after verification.
+
+
+## Post-Publish Storage Cleanup (mandatory)
+
+After a post is confirmed **published-live** on the destination platform, temporary media must be cleaned up to minimize storage usage and cost.
+
+Sequence:
+1. Confirm the post is live via platform/Buffer status. Never clean up while status is queued, sending, processing, scheduled, or failed.
+2. Delete the exact source media from `/BUILDWITHPANKAJ/Instagram-Staging/` in Dropbox after explicit user confirmation for that deletion operation.
+3. Delete the matching private R2 media objects and verify each object returns HTTP 404 on a HEAD check.
+4. Keep only lightweight metadata/code in GitHub. Do not retain duplicate media files in GitHub.
+5. Leave the reusable staging folder itself in place for future posts.
+
+Safety rule: cleanup is fail-closed. If live publication cannot be verified, no source media is deleted. If any cleanup step fails, report the exact remaining storage location and retry only that cleanup step; do not republish the post.
