@@ -13,7 +13,9 @@ for(const asset of pkg.assets||[]){
   const url=`${BASE}/media/${encodeURIComponent(asset.key)}`;
   const r=await fetch(url,{method:'DELETE',headers:{Authorization:`Bearer ${TOKEN}`}});
   const body=await r.text();
-  if(!r.ok && r.status!==404) throw new Error(`R2 delete failed for ${asset.key}: HTTP ${r.status} ${body}`);
-  results.push({key:asset.key,status:r.status,deleted:r.ok||r.status===404});
+  if(!r.ok && r.status!==404 && r.status!==405) throw new Error(`R2 delete failed for ${asset.key}: HTTP ${r.status} ${body}`);
+  const verify=await fetch(url,{method:'HEAD',headers:{Authorization:`Bearer ${TOKEN}`}});
+  results.push({key:asset.key,deleteStatus:r.status,headStatus:verify.status,deleted:verify.status===404});
+  if(verify.status!==404) throw new Error(`R2 cleanup verification failed for ${asset.key}: HEAD ${verify.status}`);
 }
 console.log(JSON.stringify({ok:true,count:results.length,results},null,2));
