@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "brand": "BuildWithPankaj",
+  "files": [
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/01_cover.png",
+      "r2Key": "carousel-india-ai-workforce/01_cover.png",
+      "contentType": "image/png"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/02_frontier_meaning.png",
+      "r2Key": "carousel-india-ai-workforce/02_frontier_meaning.png",
+      "contentType": "image/png"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/03_india_vs_global.png",
+      "r2Key": "carousel-india-ai-workforce/03_india_vs_global.png",
+      "contentType": "image/png"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/04_human_judgment.png",
+      "r2Key": "carousel-india-ai-workforce/04_human_judgment.png",
+      "contentType": "image/png"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/05_new_work.png",
+      "r2Key": "carousel-india-ai-workforce/05_new_work.png",
+      "contentType": "image/png"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/06_takeaway.png",
+      "r2Key": "carousel-india-ai-workforce/06_takeaway.png",
+      "contentType": "image/png"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/07_cta.png",
+      "r2Key": "carousel-india-ai-workforce/07_cta.png",
+      "contentType": "image/png"
+    }
+  ]
+}
