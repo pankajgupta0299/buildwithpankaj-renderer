@@ -1,121 +1,137 @@
 {
   "footer": "@buildwith_pankaj",
-  "badge": "",
+  "badge": "PRIVATE DRAFT \u2022 NOT FOR PUBLISHING",
   "audioSrc": null,
   "musicMode": "generated-original",
   "musicStyle": "default",
-  "musicVolume": 0.07,
-  "voiceoverText": "Seen this 1980s AI photo trend? Here’s how it’s made. Upload your photo to ChatGPT. Ask it to preserve your face, move the scene to 1985, and change the styling, background and camera look. Add film grain, direct flash and a date stamp. The exact prompt is in the caption.",
+  "musicVolume": 0.055,
+  "voiceoverText": "I don't upload my Instagram Reels manually anymore. My workflow prepares the Reel and stages it privately. But I locked one step: nothing publishes until I've reviewed and approved the exact final video. After Instagram confirms it's live, the system clears the temporary media. Automate the work. Keep the judgment.",
   "ttsVoice": "en-IN-Wavenet-B",
   "ttsLanguageCode": "en-IN",
   "ttsSpeakingRate": 1.1,
   "ttsPitch": 0,
   "scenes": [
     {
-      "type": "fullImage",
-      "durationFrames": 15,
-      "assetId": "reel03-modern-overlook.jpg",
-      "mediaKind": "image",
-      "kicker": "Seen this 1980s AI photo trend?"
+      "type": "workflow",
+      "durationFrames": 46,
+      "headline": "I stopped uploading\nReels manually.",
+      "variant": "result",
+      "progress": 0.09090909090909091,
+      "eyebrow": "A REAL WORKFLOW / BUILDWITHPANKAJ"
     },
     {
-      "type": "fullImage",
-      "durationFrames": 27,
-      "assetId": "reel03-1985-overlook.png",
-      "mediaKind": "image",
-      "label": "1985"
+      "type": "workflow",
+      "durationFrames": 70,
+      "headline": "The workflow does\nthe repeatable work.",
+      "variant": "build",
+      "progress": 0.18181818181818182,
+      "steps": [
+        "ChatGPT",
+        "Render",
+        "Private review"
+      ],
+      "active": 2
     },
     {
-      "type": "split",
-      "durationFrames": 33,
-      "assetId": "reel03-modern-overlook.jpg",
-      "mediaKind": "image",
-      "assetId2": "reel03-1985-overlook.png",
-      "label": "2026 → 1985"
+      "type": "workflow",
+      "durationFrames": 58,
+      "headline": "It prepares the Reel.",
+      "variant": "build",
+      "progress": 0.2727272727272727,
+      "steps": [
+        "CREATE",
+        "RENDER"
+      ],
+      "active": 1
     },
     {
-      "type": "promptUI",
-      "durationFrames": 57,
-      "assetId": "reel03-modern-overlook.jpg",
-      "mediaKind": "image",
-      "eyebrow": "Upload your photo",
-      "headline": "Add a clear photo to ChatGPT"
+      "type": "workflow",
+      "durationFrames": 67,
+      "headline": "Then it stages\na private preview.",
+      "variant": "build",
+      "progress": 0.36363636363636365,
+      "steps": [
+        "RENDER",
+        "REVIEW"
+      ],
+      "active": 1
     },
     {
-      "type": "promptUI",
-      "durationFrames": 102,
-      "eyebrow": "Prompt it",
-      "headline": "Preserve my face.\\nMove the scene to 1985.",
-      "body": "Change the styling, background and camera look.",
-      "pills": [
-        "Preserve face",
-        "1985",
-        "Styling",
-        "Setting"
-      ]
+      "type": "workflow",
+      "durationFrames": 61,
+      "headline": "But one step\nis locked.",
+      "variant": "gate",
+      "progress": 0.45454545454545453
     },
     {
-      "type": "fullImage",
-      "durationFrames": 30,
-      "assetId": "reel03-modern-roadside.jpg",
-      "mediaKind": "image",
-      "kicker": "Try a second photo"
+      "type": "workflow",
+      "durationFrames": 55,
+      "headline": "NO AUTO-PUBLISH.",
+      "variant": "gate",
+      "progress": 0.5454545454545454,
+      "steps": [
+        "EXACT ASSET",
+        "MY APPROVAL"
+      ],
+      "active": 1,
+      "small": true
     },
     {
-      "type": "fullImage",
-      "durationFrames": 48,
-      "assetId": "reel03-1985-roadside.png",
-      "mediaKind": "image",
-      "label": "Same idea. Different scene."
-    },
-    {
-      "type": "detail",
-      "durationFrames": 93,
-      "assetId": "reel03-1985-roadside.png",
-      "mediaKind": "image",
-      "pills": [
-        "Film grain",
-        "Direct flash",
-        "Date stamp"
-      ]
-    },
-    {
-      "type": "split",
+      "type": "workflow",
       "durationFrames": 69,
-      "assetId": "reel03-modern-overlook.jpg",
-      "mediaKind": "image",
-      "assetId2": "reel03-1985-overlook.png",
-      "label": "Keep the identity. Change the era."
+      "headline": "I review the\nfinished Reel.",
+      "variant": "build",
+      "progress": 0.6363636363636364,
+      "steps": [
+        "REVIEW",
+        "APPROVE"
+      ],
+      "active": 1
     },
     {
-      "type": "fullImage",
-      "durationFrames": 72,
-      "assetId": "reel03-1985-overlook.png",
-      "mediaKind": "image",
-      "label": "EXACT PROMPT ↓ IN CAPTION"
+      "type": "workflow",
+      "durationFrames": 62,
+      "headline": "Only then does\nit publish.",
+      "variant": "success",
+      "progress": 0.7272727272727273,
+      "steps": [
+        "APPROVED",
+        "PUBLISH"
+      ],
+      "active": 1
+    },
+    {
+      "type": "workflow",
+      "durationFrames": 62,
+      "headline": "Instagram confirms\nit is live.",
+      "variant": "success",
+      "progress": 0.8181818181818182,
+      "steps": [
+        "PUBLISH",
+        "VERIFY LIVE"
+      ],
+      "active": 1
+    },
+    {
+      "type": "workflow",
+      "durationFrames": 62,
+      "headline": "Temporary files\nget cleared.",
+      "variant": "build",
+      "progress": 0.9090909090909091,
+      "steps": [
+        "VERIFY LIVE",
+        "CLEANUP"
+      ],
+      "active": 1
+    },
+    {
+      "type": "workflow",
+      "durationFrames": 87,
+      "headline": "Automate the work.\nKeep the judgment.",
+      "variant": "success",
+      "progress": 1.0
     }
   ],
-  "captions": [
-    {
-      "startFrame": 45,
-      "endFrame": 75,
-      "text": "2026 → 1985"
-    },
-    {
-      "startFrame": 145,
-      "endFrame": 230,
-      "text": "Preserve face • 1985 • Styling • Setting"
-    },
-    {
-      "startFrame": 315,
-      "endFrame": 405,
-      "text": "Grain • Flash • Date stamp"
-    },
-    {
-      "startFrame": 475,
-      "endFrame": 545,
-      "text": "EXACT PROMPT ↓ IN CAPTION"
-    }
-  ],
-  "renderRevision": "reel03-v3-approved-1.1"
+  "captions": [],
+  "renderRevision": "reel04-private-review-v1"
 }
