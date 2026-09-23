@@ -2,21 +2,21 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-reel03-1980s-ai-photo-20260923-v1-1",
+  "approvalId": "bwp-reel04-doodle-dash-20260923-v2",
   "approved": true,
   "status": "approved",
   "postType": "reel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "Copy this prompt 👇\n\nWant to try the 1980s AI photo trend yourself?\n\nUpload a clear photo to ChatGPT and paste this:\n\nUsing my uploaded photo, show me what I would have looked like around 1985.\n\nPreserve my identity, facial features, skin tone, age, and recognizable appearance.\n\nReimagine my hair, clothing, accessories, and surroundings with unmistakably mid-1980s styling — expressive silhouettes, statement accessories, layered details, distinctive colors, and period-appropriate textures.\n\nMake the environment look authentic to 1985 with no modern objects or technology visible.\n\nMake the final image feel like a genuine photograph taken in 1985 using analog film: natural film grain, slightly faded colors, subtle softness, direct flash, minor photographic imperfections, and a period-accurate red-orange date stamp in the lower corner.\n\nKeep the pose and overall identity recognizable while changing the styling and environment naturally.\n\nNo modern text, objects, clothing, or accessories.\n\nSave this for later and follow @buildwith_pankaj for practical AI content for professionals.\n\n#ChatGPT #AIPrompt #AIPhotos #AITools #BuildWithPankaj",
+  "caption": "A doodle can become a playable game. Here’s the starter prompt 👇\n\nAttach your character sketch to an AI coding tool and paste:\n\n“Build a simple mobile-friendly browser game using this frog drawing as the character reference. Put the HTML, CSS, and JavaScript in one runnable index.html file. The frog runs automatically. A tap or Space key makes it jump; rocks end the run if hit. Add collectible stars worth 10 points each, a visible score that updates immediately, a game-over screen, and a Play Again button that resets the score and starts a new run. Keep the controls simple. Tell me how to save and open the file in a browser.”\n\nThen test three things yourself: Does jumping clear a rock? Does a star change 000 to 010? Does Play Again reset the run? If one fails, describe the bug and ask AI to fix that specific behavior.\n\nSave this to try later. Follow @buildwith_pankaj for practical AI builds.\n\n#AIBuilding #VibeCoding #AIGameDev #BuildWithAI #BuildWithPankaj",
   "firstComment": "",
   "shouldShareToFeed": true,
   "isAiGenerated": true,
   "assets": [
     {
       "type": "video",
-      "key": "draft-run-35855532769.mp4",
-      "altText": "A short Reel showing how to turn a modern photo into a 1985-style AI image in ChatGPT using before-and-after transformations and an exact prompt provided in the caption.",
+      "key": "draft-run-35893728504.mp4",
+      "altText": "A private-review approved tutorial reel showing a frog doodle, an AI game-building prompt, and animated checks of jumping, star scoring from 000 to 010, and game over with a Play Again button.",
       "thumbnailOffset": 0
     }
   ]
