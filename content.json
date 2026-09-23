@@ -17,7 +17,14 @@
       "headline": "I stopped uploading\nReels manually.",
       "variant": "result",
       "progress": 0.09090909090909091,
-      "eyebrow": "A REAL WORKFLOW / BUILDWITHPANKAJ"
+      "eyebrow": "A REAL WORKFLOW / BUILDWITHPANKAJ",
+      "panelTitle": "INSTAGRAM REEL",
+      "panelState": "MANUAL UPLOAD \u2192 REMOVED",
+      "panelLines": [
+        "One approved video",
+        "One controlled workflow"
+      ],
+      "panelProgress": false
     },
     {
       "type": "workflow",
@@ -30,7 +37,14 @@
         "Render",
         "Private review"
       ],
-      "active": 2
+      "active": 2,
+      "panelTitle": "BUILD PIPELINE",
+      "panelState": "IN PROGRESS",
+      "panelLines": [
+        "ChatGPT \u2192 content spec",
+        "Remotion \u2192 1080 \u00d7 1920"
+      ],
+      "panelProgress": false
     },
     {
       "type": "workflow",
@@ -42,7 +56,14 @@
         "CREATE",
         "RENDER"
       ],
-      "active": 1
+      "active": 1,
+      "panelTitle": "GITHUB ACTIONS",
+      "panelState": "RENDERED",
+      "panelLines": [
+        "Voice + original music",
+        "Vertical MP4 generated"
+      ],
+      "panelProgress": true
     },
     {
       "type": "workflow",
@@ -54,14 +75,28 @@
         "RENDER",
         "REVIEW"
       ],
-      "active": 1
+      "active": 1,
+      "panelTitle": "PRIVATE STAGING",
+      "panelState": "READY FOR REVIEW",
+      "panelLines": [
+        "Draft stored privately",
+        "Preview sent for inspection"
+      ],
+      "panelProgress": false
     },
     {
       "type": "workflow",
       "durationFrames": 61,
       "headline": "But one step\nis locked.",
       "variant": "gate",
-      "progress": 0.45454545454545453
+      "progress": 0.45454545454545453,
+      "panelTitle": "APPROVAL GATE",
+      "panelState": "LOCKED",
+      "panelLines": [
+        "Render complete",
+        "Publishing blocked"
+      ],
+      "panelProgress": false
     },
     {
       "type": "workflow",
@@ -74,7 +109,14 @@
         "MY APPROVAL"
       ],
       "active": 1,
-      "small": true
+      "small": true,
+      "panelTitle": "PUBLISH RULE",
+      "panelState": "WAITING FOR PANKAJ",
+      "panelLines": [
+        "Exact video reviewed",
+        "Explicit approval required"
+      ],
+      "panelProgress": false
     },
     {
       "type": "workflow",
@@ -86,7 +128,14 @@
         "REVIEW",
         "APPROVE"
       ],
-      "active": 1
+      "active": 1,
+      "panelTitle": "HUMAN REVIEW",
+      "panelState": "DECISION POINT",
+      "panelLines": [
+        "Watch the exact MP4",
+        "Approve or request changes"
+      ],
+      "panelProgress": false
     },
     {
       "type": "workflow",
@@ -98,7 +147,14 @@
         "APPROVED",
         "PUBLISH"
       ],
-      "active": 1
+      "active": 1,
+      "panelTitle": "BUFFER \u2192 INSTAGRAM",
+      "panelState": "AFTER APPROVAL",
+      "panelLines": [
+        "Destination locked",
+        "Publish request sent"
+      ],
+      "panelProgress": true
     },
     {
       "type": "workflow",
@@ -110,7 +166,14 @@
         "PUBLISH",
         "VERIFY LIVE"
       ],
-      "active": 1
+      "active": 1,
+      "panelTitle": "INSTAGRAM STATUS",
+      "panelState": "LIVE CONFIRMED",
+      "panelLines": [
+        "Check platform status",
+        "Record live post"
+      ],
+      "panelProgress": false
     },
     {
       "type": "workflow",
@@ -122,16 +185,30 @@
         "VERIFY LIVE",
         "CLEANUP"
       ],
-      "active": 1
+      "active": 1,
+      "panelTitle": "STORAGE CLEANUP",
+      "panelState": "AFTER LIVE",
+      "panelLines": [
+        "Remove temporary media",
+        "Keep lightweight record"
+      ],
+      "panelProgress": false
     },
     {
       "type": "workflow",
       "durationFrames": 87,
       "headline": "Automate the work.\nKeep the judgment.",
       "variant": "success",
-      "progress": 1.0
+      "progress": 1.0,
+      "panelTitle": "WORKFLOW PRINCIPLE",
+      "panelState": "HUMAN IN CONTROL",
+      "panelLines": [
+        "Automate repetition",
+        "Keep the final decision"
+      ],
+      "panelProgress": false
     }
   ],
   "captions": [],
-  "renderRevision": "reel04-private-review-v1"
+  "renderRevision": "reel04-private-review-v2-visual-proof"
 }
