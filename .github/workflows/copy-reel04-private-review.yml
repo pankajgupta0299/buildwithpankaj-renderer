@@ -1,0 +1,24 @@
+name: Copy Reel 4 Draft to Private Review
+on:
+  push:
+    paths:
+      - review-transfer-trigger.txt
+permissions:
+  contents: read
+jobs:
+  transfer:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+      DROPBOX_APP_KEY: ${{ secrets.DROPBOX_APP_KEY }}
+      DROPBOX_APP_SECRET: ${{ secrets.DROPBOX_APP_SECRET }}
+      DROPBOX_REFRESH_TOKEN: ${{ secrets.DROPBOX_REFRESH_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Copy verified draft privately
+        run: node scripts/copy-reel04-private-review.mjs
