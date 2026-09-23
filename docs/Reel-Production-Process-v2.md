@@ -1,6 +1,6 @@
 # BuildWithPankaj — Reel Production Process
 
-**Version:** 2.1  
+**Version:** 2.2  
 **Updated:** 2026-09-23  
 **Status:** Active process; every individual Reel still needs its own approval.
 
@@ -28,7 +28,7 @@ Use the existing brand identity and design system: olive, white, charcoal; clear
 
 1. **Establish status.** For a published Reel, verify it is live before removing delivery media. For a rejected Reel, record that the concept or exact draft was rejected and confirm it is not queued, publishing, or needed for a revision. Do not run the publish workflow for a rejected draft.
 2. **Inventory exact targets.** Match local files, Dropbox staging/review copies, R2 object keys, and any workflow artifacts to the specific Reel and version. Use render run IDs to identify R2 `draft-run-<run-id>.mp4` keys. Exclude other posts and reusable project files. Check sharing and confirm exact Dropbox paths before deletion.
-3. **Delete and verify by location.** Remove disposable local exports and preview images; delete the confirmed Dropbox files and check the folder listing; delete each confirmed R2 object using the authenticated route and verify a `HEAD` returns `404`. Check workflow artifacts only if the run produced them. Report successes and remaining items separately.
+3. **Delete and verify by location.** Pankaj's standing instruction authorizes routine cleanup of unambiguously disposable Reel files after verified publication or rejection; do not request the same cleanup approval each time. Remove exact local exports and preview images; delete exact Dropbox staging/review files after checking metadata and sharing, then verify they are gone; delete each exact R2 object using the authenticated route and verify a `HEAD` returns `404`. Check workflow artifacts only if the run produced them. Ask Pankaj only when an item is ambiguous, shared directly, needed for an active revision, or outside this routine scope. Report successes and remaining items separately.
 4. **Keep credentials private.** Run R2 deletion inside the existing credentialed environment. Never print a bearer token or signed media URL into public logs. For a rejected draft, use an exact-key, one-time cleanup rather than the approved publish package, which can point to a different Reel; restore the normal cleanup code afterward.
 5. **Close the loop.** Record the deleted paths/keys and verification result. Retain the approved master if required, the live link, lightweight metadata, and reusable source/code. If any deletion cannot be verified, mark cleanup incomplete and retry only that location; never claim full cleanup early.
 
