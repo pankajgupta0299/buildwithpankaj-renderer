@@ -127,7 +127,29 @@ const MediaPane = ({scene}) => {
   return <div style={{...common,backgroundColor:BRAND.soft,border:'3px solid #DDDCCF',display:'flex',alignItems:'center',justifyContent:'center',color:BRAND.olive,fontSize:34,fontWeight:700,letterSpacing:2}}>MEDIA / SCREEN RECORDING</div>;
 };
 
+const WorkflowBeat = ({scene}) => {
+  const frame = useCurrentFrame();
+  const {durationInFrames, fps} = useVideoConfig();
+  const progress = spring({frame, fps, config:{damping:17, stiffness:150}});
+  const lift = interpolate(progress,[0,1],[65,0]);
+  const danger = scene.variant === 'gate';
+  const success = scene.variant === 'success';
+  const dark = danger || success;
+  const bg = danger ? BRAND.charcoal : success ? BRAND.olive : BRAND.white;
+  const ink = dark ? BRAND.white : BRAND.charcoal;
+  return <AbsoluteFill style={{backgroundColor:bg,fontFamily:'Arial,sans-serif',padding:'165px 80px 190px',justifyContent:'center',overflow:'hidden'}}>
+    <div style={{position:'absolute',top:120,left:80,color:dark?'#E9EBD4':BRAND.olive,fontWeight:800,fontSize:29,letterSpacing:3}}>{scene.eyebrow || 'BUILDWITHPANKAJ / REAL WORKFLOW'}</div>
+    <div style={{transform:`translateY(${lift}px)`,opacity:progress}}>
+      <div style={{color:ink,fontSize:scene.small ? 70 : 88,lineHeight:1.06,fontWeight:900,whiteSpace:'pre-line',letterSpacing:-3}}>{scene.headline}</div>
+      {scene.body ? <div style={{color:dark?'#EEE':'#494949',fontSize:35,lineHeight:1.3,marginTop:40,maxWidth:840}}>{scene.body}</div> : null}
+      {scene.steps?.length ? <div style={{display:'flex',flexWrap:'wrap',gap:14,marginTop:58}}>{scene.steps.map((s,i)=><div key={i} style={{backgroundColor:dark?'rgba(255,255,255,.16)':i===scene.active?BRAND.olive:BRAND.soft,color:dark?BRAND.white:i===scene.active?BRAND.white:BRAND.charcoal,borderRadius:18,padding:'18px 24px',fontSize:31,fontWeight:800}}>{s}</div>)}</div> : null}
+    </div>
+    <div style={{position:'absolute',bottom:145,left:80,right:80,height:8,borderRadius:8,backgroundColor:dark?'rgba(255,255,255,.2)':'#E5E5DC'}}><div style={{width:`${Math.round((scene.progress || 0.1)*100)}%`,height:'100%',backgroundColor:dark?'#fff':BRAND.olive,borderRadius:8}}/></div>
+  </AbsoluteFill>;
+};
+
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='workflow') return <WorkflowBeat scene={scene}/>;
   if(scene.type==='fullImage') return <Fade fast><FullImage scene={scene}/></Fade>;
   if(scene.type==='split') return <Fade fast><SplitReveal scene={scene}/></Fade>;
   if(scene.type==='promptUI') return <Fade fast><PromptUI scene={scene}/></Fade>;
