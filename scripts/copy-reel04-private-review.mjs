@@ -1,7 +1,7 @@
 const required = ['PRIVATE_MEDIA_BASE_URL','PRIVATE_MEDIA_TOKEN','DROPBOX_APP_KEY','DROPBOX_APP_SECRET','DROPBOX_REFRESH_TOKEN'];
 for (const key of required) if (!process.env[key]) throw new Error('Missing required private configuration: ' + key);
-const key = 'draft-run-35885337813.mp4';
-const destination = '/BUILDWITHPANKAJ/Instagram-Staging/Reel-04-Meeting-Notes-Charon-v1.mp4';
+const key = 'draft-run-35892234513.mp4';
+const destination = '/BUILDWITHPANKAJ/Instagram-Staging/Reel-04-Doodle-Dash-Charon-v1.mp4';
 const source = await fetch(process.env.PRIVATE_MEDIA_BASE_URL.replace(/[/]$/, '') + '/media/' + key, {headers:{Authorization:'Bearer ' + process.env.PRIVATE_MEDIA_TOKEN}});
 if (!source.ok) throw new Error('Private draft fetch failed: HTTP ' + source.status);
 const bytes = Buffer.from(await source.arrayBuffer());
@@ -14,5 +14,5 @@ if (!token) throw new Error('Dropbox authentication returned no token');
 const upload = await fetch('https://content.dropboxapi.com/2/files/upload',{method:'POST',headers:{Authorization:'Bearer ' + token,'Dropbox-API-Arg':JSON.stringify({path:destination,mode:'add',autorename:false,mute:true}), 'Content-Type':'application/octet-stream'},body:bytes});
 if (!upload.ok) throw new Error('Private Dropbox upload failed: HTTP ' + upload.status);
 const result=await upload.json();
-if (result.size !== bytes.length || result.name !== 'Reel-04-Meeting-Notes-Charon-v1.mp4') throw new Error('Private copy failed verification');
+if (result.size !== bytes.length || result.name !== 'Reel-04-Doodle-Dash-Charon-v1.mp4') throw new Error('Private copy failed verification');
 console.log('Private review copy verified in Dropbox; size=' + result.size + ' bytes');
