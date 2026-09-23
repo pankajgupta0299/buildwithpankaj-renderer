@@ -1,6 +1,6 @@
 # BuildWithPankaj — Reel Production Process
 
-**Version:** 2.0  
+**Version:** 2.1  
 **Updated:** 2026-09-23  
 **Status:** Active process; every individual Reel still needs its own approval.
 
@@ -22,7 +22,17 @@ Use the existing brand identity and design system: olive, white, charcoal; clear
 | 6. Quality check | Watch the whole MP4 with sound at normal speed, especially on a phone-sized view. Check the hook, pace, pronunciation, every transition, scene synchronization, legibility, audio balance, spelling, factual claims, final frame, and whether the video feels worth watching. | Fix defects and render a new version before sending a preview. Technical duration checks alone do not replace watching and listening. |
 | 7. Private review | Send Pankaj the exact rendered MP4 in chat and invite feedback on topic, pace, voice, visuals, and content. | Pankaj may approve, request changes, or reject the topic. Any revised cut gets its own review. Concept approval does not approve an MP4. |
 | 8. Publish | Only after Pankaj approves the **exact final MP4** for publishing, prepare caption, cover, and hashtags, then use the configured publishing flow. Verify the resulting Instagram post and report the live link. | Publication approval is separate from approval to render or privately transfer a draft. If the publish path is unavailable, report the obstacle; never claim a post is live without verification. |
-| 9. Clean up and learn | After publication is verified, remove temporary render inputs, intermediate drafts, and staging copies according to the existing retention/cleanup workflow; preserve only the approved master and any records needed for audit or recovery. Record feedback for the next Reel. | Avoid deleting the approved master or anything still needed for a retry. |
+| 9. Clean up and learn | After a post is confirmed live **or a concept/asset is rejected**, inventory and remove its temporary render inputs, review copies, and private staging objects from scratch, Dropbox, R2, and any workflow artifacts. Record feedback for the next Reel. | Verify the exact files and keys, delete only the affected Reel's disposable media, and confirm deletion in each location. Preserve published assets, reusable source/code, and records needed for audit or recovery. |
+
+## Cleanup procedure for published and rejected Reels
+
+1. **Establish status.** For a published Reel, verify it is live before removing delivery media. For a rejected Reel, record that the concept or exact draft was rejected and confirm it is not queued, publishing, or needed for a revision. Do not run the publish workflow for a rejected draft.
+2. **Inventory exact targets.** Match local files, Dropbox staging/review copies, R2 object keys, and any workflow artifacts to the specific Reel and version. Use render run IDs to identify R2 `draft-run-<run-id>.mp4` keys. Exclude other posts and reusable project files. Check sharing and confirm exact Dropbox paths before deletion.
+3. **Delete and verify by location.** Remove disposable local exports and preview images; delete the confirmed Dropbox files and check the folder listing; delete each confirmed R2 object using the authenticated route and verify a `HEAD` returns `404`. Check workflow artifacts only if the run produced them. Report successes and remaining items separately.
+4. **Keep credentials private.** Run R2 deletion inside the existing credentialed environment. Never print a bearer token or signed media URL into public logs. For a rejected draft, use an exact-key, one-time cleanup rather than the approved publish package, which can point to a different Reel; restore the normal cleanup code afterward.
+5. **Close the loop.** Record the deleted paths/keys and verification result. Retain the approved master if required, the live link, lightweight metadata, and reusable source/code. If any deletion cannot be verified, mark cleanup incomplete and retry only that location; never claim full cleanup early.
+
+The rejected Reel #4 cleanup established this separate path: its three Dropbox review copies and local exports were removed, then R2 deleted `draft-run-35863604573.mp4`, `draft-run-35864721504.mp4`, and `draft-run-35885337813.mp4` (each returned deletion `200` and verification `HEAD 404`). The standard R2 cleanup script was restored after that one-time run.
 
 ## Pace and synchronization standard
 
