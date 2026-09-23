@@ -2,67 +2,18 @@
   "footer": "@buildwith_pankaj",
   "badge": "PRIVATE DRAFT • NOT FOR PUBLISHING",
   "audioSrc": null,
-  "musicMode": "generated-original",
-  "musicStyle": "default",
-  "musicVolume": 0.035,
   "ttsVoice": "en-IN-Chirp3-HD-Charon",
   "ttsLanguageCode": "en-IN",
+  "musicMode": "generated-original",
+  "musicStyle": "warm-playful",
+  "musicVolume": 0.026,
   "scenes": [
-    {
-      "type": "meeting",
-      "stage": "notes",
-      "durationFrames": 90,
-      "headline": "Three tasks hid\nin these notes.",
-      "voiceText": "Three tasks were hiding in these meeting notes.",
-      "postSpeechFrames": 6,
-      "progress": 0.16666666666666666
-    },
-    {
-      "type": "meeting",
-      "stage": "owner",
-      "durationFrames": 90,
-      "headline": "Who owns\nthe proposal?",
-      "voiceText": "The proposal had no owner.",
-      "postSpeechFrames": 6,
-      "progress": 0.3333333333333333
-    },
-    {
-      "type": "meeting",
-      "stage": "deadline",
-      "durationFrames": 90,
-      "headline": "When is the\nbudget due?",
-      "voiceText": "The budget review had no deadline.",
-      "postSpeechFrames": 6,
-      "progress": 0.5
-    },
-    {
-      "type": "meeting",
-      "stage": "before",
-      "durationFrames": 90,
-      "headline": "One task never\nreached the tracker.",
-      "voiceText": "And the client follow-up never made it into the tracker.",
-      "postSpeechFrames": 6,
-      "progress": 0.6666666666666666
-    },
-    {
-      "type": "meeting",
-      "stage": "extract",
-      "durationFrames": 90,
-      "headline": "Turn notes into\nactionable work.",
-      "voiceText": "I had AI extract the tasks and flag what was missing.",
-      "postSpeechFrames": 6,
-      "progress": 0.8333333333333334
-    },
-    {
-      "type": "meeting",
-      "stage": "result",
-      "durationFrames": 90,
-      "headline": "The gaps are\nnow visible.",
-      "voiceText": "Now the team can see what needs a decision.",
-      "postSpeechFrames": 6,
-      "progress": 1
-    }
+    {"type":"game","stage":"doodle","durationFrames":165,"postSpeechFrames":15,"headline":"I DREW THIS FROG." ,"voiceText":"I drew this frog in ten seconds. Could AI turn it into a playable game?"},
+    {"type":"game","stage":"rules","durationFrames":170,"postSpeechFrames":18,"headline":"THREE SIMPLE RULES.","voiceText":"I gave it three rules: tap to jump, dodge the rocks, and collect stars."},
+    {"type":"game","stage":"jump","durationFrames":180,"postSpeechFrames":15,"headline":"DOES THE JUMP WORK?","voiceText":"Here is the test. One tap makes the frog jump. The rock passes underneath."},
+    {"type":"game","stage":"star","durationFrames":150,"postSpeechFrames":15,"headline":"A STAR ADDS TEN.","voiceText":"Catch a star, and the score goes up by ten."},
+    {"type":"game","stage":"hit","durationFrames":180,"postSpeechFrames":15,"headline":"MISS THE JUMP...","voiceText":"Miss the jump, and the run ends. The restart button lets you try again."},
+    {"type":"game","stage":"final","durationFrames":190,"postSpeechFrames":24,"headline":"THE DOODLE WAS THE START.","voiceText":"The drawing was the easy part. A playable game needed rules I could actually test."}
   ],
-  "captions": [],
-  "renderRevision": "reel04-meeting-notes-charon-private-v2-audio-timing"
+  "captions": []
 }
