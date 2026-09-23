@@ -1,7 +1,5 @@
 import fs from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
-import os from 'node:os';
-import path from 'node:path';
 
 const specPath = 'resolved-content.json';
 const spec = JSON.parse(await fs.readFile(specPath, 'utf8'));
@@ -58,35 +56,56 @@ if (!payload.audioContent) throw new Error('Google Cloud TTS response did not co
 return Buffer.from(payload.audioContent, 'base64');
 };
 
+const readWav = (bytes) => {
+  if (bytes.toString('ascii', 0, 4) !== 'RIFF' || bytes.toString('ascii', 8, 12) !== 'WAVE') throw new Error('TTS did not return a WAV file');
+  let format, data;
+  for (let pos = 12; pos + 8 <= bytes.length;) {
+    const name = bytes.toString('ascii', pos, pos + 4);
+    const size = bytes.readUInt32LE(pos + 4);
+    if (pos + 8 + size > bytes.length) throw new Error('Malformed WAV chunk');
+    if (name === 'fmt ') format = {codec:bytes.readUInt16LE(pos+8),channels:bytes.readUInt16LE(pos+10),rate:bytes.readUInt32LE(pos+12),bits:bytes.readUInt16LE(pos+22)};
+    if (name === 'data') data = bytes.subarray(pos+8,pos+8+size);
+    pos += 8 + size + (size % 2);
+  }
+  if (!format || !data || format.codec !== 1 || format.bits !== 16 || ![1,2].includes(format.channels)) throw new Error('Unsupported TTS WAV format');
+  return {format,data};
+};
+
+const writeWav = (format,data) => {
+  const out=Buffer.alloc(44+data.length);
+  out.write('RIFF',0);out.writeUInt32LE(out.length-8,4);out.write('WAVEfmt ',8);out.writeUInt32LE(16,16);
+  out.writeUInt16LE(1,20);out.writeUInt16LE(format.channels,22);out.writeUInt32LE(format.rate,24);
+  const alignment=format.channels*2;
+  out.writeUInt32LE(format.rate*alignment,28);out.writeUInt16LE(alignment,32);out.writeUInt16LE(16,34);
+  out.write('data',36);out.writeUInt32LE(data.length,40);data.copy(out,44);
+  return out;
+};
+
 await fs.mkdir('public', {recursive: true});
 if (segmented) {
   if (text) throw new Error('Use either scene voiceText or voiceoverText, not both.');
   if (segments.some((s) => !s)) throw new Error('Every scene must have voiceText in segmented mode.');
-  const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'bwp-voice-'));
-  try {
     const parts = [];
+    let outputFormat;
     for (let i = 0; i < segments.length; i++) {
-      const source = path.join(temp, `source-${i}.wav`);
-      const padded = path.join(temp, `padded-${i}.wav`);
-      await fs.writeFile(source, await synthesize(segments[i]));
-      const speechSeconds = Number(execFileSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', source], {encoding: 'utf8'}).trim());
+      const {format,data}=readWav(await synthesize(segments[i]));
+      if (outputFormat && (format.rate!==outputFormat.rate || format.channels!==outputFormat.channels)) throw new Error('TTS segments have incompatible WAV formats');
+      outputFormat=format;
+      const speechSeconds = data.length / (format.rate * format.channels * 2);
       if (!Number.isFinite(speechSeconds) || speechSeconds <= 0) throw new Error(`Invalid voice duration in scene ${i}`);
       const holdFrames = Math.max(6, Number(spec.scenes[i].postSpeechFrames || 6));
       if (!Number.isInteger(holdFrames) || holdFrames > 90) throw new Error(`Invalid postSpeechFrames in scene ${i}`);
       const frames = Math.ceil(speechSeconds * 30) + holdFrames;
       spec.scenes[i].durationFrames = frames;
-      execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-i', source, '-af', `apad=whole_dur=${frames / 30}`, '-t', String(frames / 30), '-ac', '1', '-ar', '24000', '-c:a', 'pcm_s16le', padded]);
+      const targetBytes=Math.ceil(frames*format.rate/30)*format.channels*2;
+      const padded=Buffer.alloc(targetBytes);
+      data.copy(padded,0,0,Math.min(data.length,targetBytes));
       parts.push(padded);
     }
-    const list = path.join(temp, 'concat.txt');
-    await fs.writeFile(list, parts.map((part) => `file '${part}'`).join('\n') + '\n');
-    execFileSync('ffmpeg', ['-hide_banner', '-loglevel', 'error', '-y', '-f', 'concat', '-safe', '0', '-i', list, '-c:a', 'pcm_s16le', 'public/generated-voice.wav']);
+    await fs.writeFile('public/generated-voice.wav',writeWav(outputFormat,Buffer.concat(parts)));
     spec.captions = [];
     spec.ttsTimingMode = 'measured-per-scene';
     console.log(`Generated ${parts.length} timed voice beats (${spec.scenes.reduce((n, s) => n + s.durationFrames, 0) / 30}s).`);
-  } finally {
-    await fs.rm(temp, {recursive: true, force: true});
-  }
 } else {
   await fs.writeFile('public/generated-voice.wav', await synthesize(text));
 }
