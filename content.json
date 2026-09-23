@@ -8,12 +8,62 @@
   "musicStyle": "warm-playful",
   "musicVolume": 0.026,
   "scenes": [
-    {"type":"game","stage":"doodle","durationFrames":165,"postSpeechFrames":15,"headline":"I DREW THIS FROG." ,"voiceText":"I drew this frog in ten seconds. Could AI turn it into a playable game?"},
-    {"type":"game","stage":"rules","durationFrames":170,"postSpeechFrames":18,"headline":"THREE SIMPLE RULES.","voiceText":"I gave it three rules: tap to jump, dodge the rocks, and collect stars."},
-    {"type":"game","stage":"jump","durationFrames":180,"postSpeechFrames":15,"headline":"DOES THE JUMP WORK?","voiceText":"Here is the test. One tap makes the frog jump. The rock passes underneath."},
-    {"type":"game","stage":"star","durationFrames":150,"postSpeechFrames":15,"headline":"A STAR ADDS TEN.","voiceText":"Catch a star, and the score goes up by ten."},
-    {"type":"game","stage":"hit","durationFrames":180,"postSpeechFrames":15,"headline":"MISS THE JUMP...","voiceText":"Miss the jump, and the run ends. The restart button lets you try again."},
-    {"type":"game","stage":"final","durationFrames":190,"postSpeechFrames":24,"headline":"THE DOODLE WAS THE START.","voiceText":"The drawing was the easy part. A playable game needed rules I could actually test."}
+    {
+      "type": "game",
+      "stage": "doodle",
+      "durationFrames": 150,
+      "postSpeechFrames": 15,
+      "headline": "BUILD A GAME\nFROM A DOODLE",
+      "voiceText": "Here is how I turned a frog doodle into a playable browser game with AI."
+    },
+    {
+      "type": "game",
+      "stage": "prompt",
+      "durationFrames": 210,
+      "postSpeechFrames": 18,
+      "headline": "STEP 1: GIVE AI\nTHE DRAWING + RULES",
+      "voiceText": "I gave AI the drawing and asked for a browser game: tap to jump, dodge rocks, collect stars for ten points, and restart after a hit."
+    },
+    {
+      "type": "game",
+      "stage": "rules",
+      "durationFrames": 120,
+      "postSpeechFrames": 12,
+      "headline": "STEP 2: RUN\nTHE GAME",
+      "voiceText": "Then I opened the generated game in my browser."
+    },
+    {
+      "type": "game",
+      "stage": "jump",
+      "durationFrames": 155,
+      "postSpeechFrames": 12,
+      "headline": "STEP 3: TEST\nTHE JUMP",
+      "voiceText": "I tested the controls. A tap makes the frog jump over a rock."
+    },
+    {
+      "type": "game",
+      "stage": "star",
+      "durationFrames": 155,
+      "postSpeechFrames": 18,
+      "headline": "TEST THE SCORE:\n000 → 010",
+      "voiceText": "Collecting a star changes the score from zero to ten."
+    },
+    {
+      "type": "game",
+      "stage": "hit",
+      "durationFrames": 145,
+      "postSpeechFrames": 12,
+      "headline": "TEST GAME OVER\n+ RESTART",
+      "voiceText": "A collision ends the run, and Play Again starts a fresh one."
+    },
+    {
+      "type": "game",
+      "stage": "final",
+      "durationFrames": 150,
+      "postSpeechFrames": 18,
+      "headline": "SKETCH. PROMPT.\nTEST. IMPROVE.",
+      "voiceText": "That is the workflow. I put the exact starter prompt in the caption so you can try it."
+    }
   ],
   "captions": []
 }
