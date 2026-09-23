@@ -12,6 +12,7 @@ const token = process.env.PRIVATE_MEDIA_TOKEN;
 const privateRefs = [];
 for (const scene of spec.scenes || []) {
   if (scene.assetId) privateRefs.push({kind: 'scene', target: scene});
+  if (scene.assetId2) privateRefs.push({kind: 'scene2', target: scene});
 }
 if (spec.audioAssetId) privateRefs.push({kind: 'audio', target: spec});
 
@@ -41,9 +42,9 @@ const downloadAsset = async (assetId, extensionHint = 'bin') => {
 };
 
 for (const scene of spec.scenes || []) {
-  if (!scene.assetId) continue;
   const hint = scene.mediaKind === 'video' ? 'mp4' : scene.mediaKind === 'image' ? 'png' : 'bin';
-  scene.mediaSrc = await downloadAsset(scene.assetId, hint);
+  if (scene.assetId) scene.mediaSrc = await downloadAsset(scene.assetId, hint);
+  if (scene.assetId2) scene.mediaSrc2 = await downloadAsset(scene.assetId2, hint);
 }
 if (spec.audioAssetId) spec.audioSrc = await downloadAsset(spec.audioAssetId, 'mp3');
 
