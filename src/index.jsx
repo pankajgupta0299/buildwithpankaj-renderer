@@ -184,7 +184,63 @@ const MeetingBeat = ({scene}) => {
   </AbsoluteFill>;
 };
 
+const Frog = ({x=0,y=0,scale=1}) => <g transform={`translate(${x} ${y}) scale(${scale})`} stroke="#202020" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round">
+  <ellipse rx="37" ry="31" fill="#B9C477"/><circle cx="-19" cy="-25" r="13" fill="#B9C477"/><circle cx="19" cy="-25" r="13" fill="#B9C477"/>
+  <circle cx="-17" cy="-27" r="3" fill="#202020"/><circle cx="21" cy="-27" r="3" fill="#202020"/>
+  <path d="M-10 8 Q0 17 13 6 M-26 22 L-38 35 L-17 30 M25 22 L39 35 L15 30" fill="none"/>
+</g>;
+
+const GameBeat = ({scene}) => {
+  const frame=useCurrentFrame();
+  const {fps,durationInFrames}=useVideoConfig();
+  const seconds=frame/fps;
+  const stage=scene.stage;
+  const isIntro=stage==='doodle';
+  const isRules=stage==='rules';
+  const isJump=stage==='jump';
+  const isStar=stage==='star';
+  const isHit=stage==='hit';
+  const isFinal=stage==='final';
+  const bounce=isJump||isStar ? Math.max(0, Math.sin((((seconds+0.6)%2.5)/2.5)*Math.PI))*130 : 0;
+  const rockX=isHit?Math.max(155,760-seconds*175):isJump?550-seconds*300:720;
+  const starX=isStar?Math.max(185,650-seconds*160):720;
+  const gotStar=isStar && seconds>2.9;
+  const score=gotStar?10:0;
+  const paper=<g>
+    <rect x="65" y="385" width="950" height="900" rx="25" fill="#FFFDF6" stroke="#DEDCCE" strokeWidth="3"/>
+    {Array.from({length:18},(_,i)=><path key={i} d={`M65 ${450+i*47} H1015`} stroke="#DDE0D5" strokeWidth="2"/>)}
+    <path d="M195 390 V1285" stroke="#E1A7A7" strokeWidth="3"/>
+    <g transform="rotate(-7 550 760)"><Frog x={550} y={745} scale={4}/></g>
+    <text x="235" y="1110" fontSize="64" fill="#6B6F2A" fontFamily="Arial">frog?</text>
+  </g>;
+  return <AbsoluteFill style={{backgroundColor:'#F4F4EE',fontFamily:'Arial,sans-serif',overflow:'hidden'}}>
+    <div style={{position:'absolute',top:105,left:65,right:65,fontSize:isIntro?86:67,lineHeight:1.04,fontWeight:900,whiteSpace:'pre-line',color:'#202020'}}>{scene.headline}</div>
+    {isIntro ? <svg width="1080" height="1920" viewBox="0 0 1080 1920" style={{position:'absolute',inset:0}}>{paper}</svg> : null}
+    {!isIntro && <div style={{position:'absolute',left:65,right:65,top:340,height:1190,borderRadius:36,border:'5px solid #202020',overflow:'hidden',background:'#F6F7EF',boxShadow:'0 30px 70px rgba(0,0,0,.14)'}}>
+      <svg width="100%" height="100%" viewBox="0 0 950 1190">
+        <rect width="950" height="1190" fill="#F5F6EE"/>
+        <text x="45" y="85" fontSize="50" fontWeight="900" fill="#6B6F2A" fontFamily="Arial">DOODLE DASH</text>
+        <text x="45" y="145" fontSize="35" fontWeight="800" fill="#202020" fontFamily="Arial">SCORE {String(score).padStart(3,'0')}</text>
+        <text x="715" y="145" fontSize="25" fill="#565A4A" fontFamily="Arial">TAP TO JUMP</text>
+        <ellipse cx="265" cy="775" rx="150" ry="48" fill="#DFE6CE"/>
+        <ellipse cx="745" cy="650" rx="140" ry="40" fill="#DFE6CE"/>
+        <rect x="0" y="920" width="950" height="270" fill="#E2E8D5"/><path d="M0 920 H950" stroke="#6B6F2A" strokeWidth="8"/>
+        {(!isRules && !isFinal) && <path d={`M${rockX-45} 920 L${rockX-28} 835 Q${rockX} 810 ${rockX+37} 848 L${rockX+50} 920 Z`} fill="#59604F" stroke="#202020" strokeWidth="6"/>}
+        {(isStar||isRules) && !gotStar && <text x={starX} y="700" fontSize="86" fill="#D9AB42">★</text>}
+        <Frog x={185} y={862-bounce} scale={1.6}/>
+        {isHit && seconds>3.0 && <g><rect x="70" y="325" width="810" height="340" rx="32" fill="#FFFFFFE8"/><text x="150" y="470" fontSize="76" fontWeight="900" fill="#202020">THE FROG FELL.</text><rect x="300" y="520" width="350" height="95" rx="20" fill="#6B6F2A"/><text x="365" y="585" fontSize="45" fontWeight="800" fill="white">PLAY AGAIN</text></g>}
+        {isFinal && <g><text x="340" y="720" fontSize="120" fill="#D9AB42">★</text><text x="75" y="1070" fontSize="38" fontWeight="800" fill="#202020">A sketch + rules + testing = a game</text></g>}
+      </svg>
+    </div>}
+    {isRules && <div style={{position:'absolute',bottom:235,left:85,right:85,fontSize:47,fontWeight:900,color:'#6B6F2A',textAlign:'center'}}>JUMP  ·  DODGE  ·  COLLECT</div>}
+    {isIntro && <div style={{position:'absolute',bottom:240,left:72,right:72,color:'#6B6F2A',fontSize:45,fontWeight:900}}>CAN AI MAKE IT PLAYABLE?</div>}
+    {(isFinal||isHit) && <div style={{position:'absolute',bottom:205,left:72,right:72,fontSize:37,fontWeight:800,color:'#6B6F2A',textAlign:'center'}}>{isFinal?'EXACT BUILD PROMPT IN CAPTION':'A HIT ENDS THE RUN'}</div>}
+    <div style={{position:'absolute',bottom:90,left:65,fontSize:27,color:'#555'}}>@buildwith_pankaj · PRIVATE REVIEW</div>
+  </AbsoluteFill>;
+};
+
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='game') return <GameBeat scene={scene}/>;
   if(scene.type==='meeting') return <MeetingBeat scene={scene}/>;
   if(scene.type==='workflow') return <WorkflowBeat scene={scene}/>;
   if(scene.type==='fullImage') return <Fade fast><FullImage scene={scene}/></Fade>;
