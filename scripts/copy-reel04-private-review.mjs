@@ -2,7 +2,7 @@ const required = ['PRIVATE_MEDIA_BASE_URL','PRIVATE_MEDIA_TOKEN','DROPBOX_APP_KE
 for (const key of required) if (!process.env[key]) throw new Error('Missing required private configuration: ' + key);
 const key = 'draft-run-35863604573.mp4';
 const destination = '/BUILDWITHPANKAJ/Instagram-Staging/Reel-04-Private-Review.mp4';
-const source = await fetch(process.env.PRIVATE_MEDIA_BASE_URL.replace(/\\/$/, '') + '/media/' + key, {headers:{Authorization:'Bearer ' + process.env.PRIVATE_MEDIA_TOKEN}});
+const source = await fetch(process.env.PRIVATE_MEDIA_BASE_URL.replace(/[/]$/, '') + '/media/' + key, {headers:{Authorization:'Bearer ' + process.env.PRIVATE_MEDIA_TOKEN}});
 if (!source.ok) throw new Error('Private draft fetch failed: HTTP ' + source.status);
 const bytes = Buffer.from(await source.arrayBuffer());
 if (bytes.length < 100000 || bytes.length > 150000000) throw new Error('Unexpected draft size');
