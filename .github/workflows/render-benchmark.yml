@@ -30,7 +30,7 @@ jobs:
         id: tts
         shell: bash
         run: |
-          NEED=$(node -e "const fs=require('fs'); const c=JSON.parse(fs.readFileSync('resolved-content.json','utf8')); process.stdout.write(String(Boolean((c.voiceoverText||'').trim())))")
+          NEED=$(node -e "const fs=require('fs'); const c=JSON.parse(fs.readFileSync('resolved-content.json','utf8')); process.stdout.write(String(Boolean((c.voiceoverText||'').trim() || c.scenes?.some(s => (s.voiceText||'').trim()))))")
           echo "needed=$NEED" >> "$GITHUB_OUTPUT"
       - name: Authenticate to Google Cloud with Workload Identity Federation
         if: steps.tts.outputs.needed == 'true'
@@ -50,10 +50,10 @@ jobs:
           MODE=$(node -p "require('./content.json').musicMode || ''")
           if [ "$MODE" = "generated-original" ]; then
             mkdir -p public
-            DURATION=$(node -e "const c=require('./content.json'); console.log(c.scenes.reduce((s,x)=>s+x.durationFrames,0)/30)")
+            DURATION=$(node -e "const c=require('./resolved-content.json'); console.log(c.scenes.reduce((s,x)=>s+x.durationFrames,0)/30)")
             STYLE=$(node -p "require('./content.json').musicStyle || 'default'")
             python3 scripts/generate-original-music.py public/generated-music.wav "$DURATION" "$STYLE"
-            node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('resolved-content.json','utf8')); if ((p.voiceoverText||'').trim()) p.musicSrc='generated-music.wav'; else p.audioSrc='generated-music.wav'; fs.writeFileSync('resolved-content.json',JSON.stringify(p,null,2));"
+            node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('resolved-content.json','utf8')); if (p.audioSrc) p.musicSrc='generated-music.wav'; else p.audioSrc='generated-music.wav'; fs.writeFileSync('resolved-content.json',JSON.stringify(p,null,2));"
           fi
       - name: Render 1080x1920 Reel
         run: |
