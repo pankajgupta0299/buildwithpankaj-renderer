@@ -1,74 +1,60 @@
 {
   "footer": "@buildwith_pankaj",
-  "badge": "",
+  "badge": "PRIVATE TTS TEST • NOT FOR PUBLISHING",
   "audioSrc": null,
-  "musicMode": "generated-original",
-  "musicStyle": "spark-agentic",
+  "musicMode": "none",
+  "voiceoverText": "Seen this 1980s AI photo trend? Here’s how it’s made. Upload your photo to ChatGPT. Ask it to preserve your face, move the scene to 1985, and change the styling, background and camera look. Add film grain, direct flash and a date stamp. The exact prompt is in the caption.",
+  "ttsVoice": "en-IN-Wavenet-B",
+  "ttsLanguageCode": "en-IN",
+  "ttsSpeakingRate": 1.2,
+  "ttsPitch": 0,
   "scenes": [
     {
       "type": "title",
       "durationFrames": 150,
-      "eyebrow": "INDIA • AI UPDATE",
-      "headline": "Google just launched an AI agent\\nthat keeps working after you log off.",
-      "body": "It’s called Gemini Spark — and it’s now rolling out in India."
+      "eyebrow": "BUILDWITHPANKAJ • TTS PIPELINE TEST",
+      "headline": "1980s AI photo trend",
+      "body": "Testing Google Cloud TTS authentication before final visual assembly."
     },
     {
       "type": "text",
       "durationFrames": 150,
-      "headline": "This is not just another chatbot.",
-      "body": "Spark can keep working in the background even when your laptop is closed or your phone is locked."
-    },
-    {
-      "type": "text",
-      "durationFrames": 165,
-      "headline": "What can it actually do?",
-      "body": "Track tasks, scan information, work across Gmail, Docs and Sheets, and keep scheduled workflows running for you."
+      "headline": "Google Cloud TTS",
+      "body": "Indian-English WaveNet voice • keyless GitHub OIDC authentication"
     },
     {
       "type": "text",
       "durationFrames": 150,
-      "headline": "Example for professionals",
-      "body": "Ask it to review your inbox every Monday, pull the important updates, build a priority list and help block time for deep work."
-    },
-    {
-      "type": "text",
-      "durationFrames": 150,
-      "headline": "The bigger shift",
-      "body": "AI is moving from answering questions to taking actions across your workflow — under your direction."
-    },
-    {
-      "type": "text",
-      "durationFrames": 150,
-      "headline": "Who gets it in India?",
-      "body": "Google says Spark is available to AI Pro and Ultra subscribers, with rollout expanding across supported users."
+      "headline": "Production check",
+      "body": "This test is private and cannot publish to Instagram."
     },
     {
       "type": "cta",
       "durationFrames": 150,
-      "headline": "Would you trust an AI to run work in the background?",
-      "body": "Follow @buildwith_pankaj for practical AI updates that matter at work."
+      "headline": "Next: final 18s edit",
+      "body": "Real before/after transformations + fast visual pacing."
     }
   ],
   "captions": [
     {
-      "startFrame": 12,
-      "endFrame": 115,
-      "text": "AI THAT WORKS AFTER YOU LOG OFF"
+      "startFrame": 10,
+      "endFrame": 100,
+      "text": "2026 → 1985"
+    },
+    {
+      "startFrame": 160,
+      "endFrame": 280,
+      "text": "GOOGLE CLOUD TTS"
     },
     {
       "startFrame": 320,
-      "endFrame": 430,
-      "text": "NOT JUST CHAT — IT TAKES ACTION"
+      "endFrame": 440,
+      "text": "PRIVATE TEST"
     },
     {
-      "startFrame": 500,
-      "endFrame": 620,
-      "text": "GMAIL • DOCS • SHEETS • SCHEDULES"
-    },
-    {
-      "startFrame": 785,
-      "endFrame": 900,
-      "text": "FROM ASSISTANT → AGENT"
+      "startFrame": 480,
+      "endFrame": 590,
+      "text": "EXACT PROMPT ↓ IN CAPTION"
     }
   ]
 }
