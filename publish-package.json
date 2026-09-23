@@ -2,51 +2,22 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-india-ai-workforce-carousel-20260920-v1",
+  "approvalId": "bwp-reel03-1980s-ai-photo-20260923-v1-1",
   "approved": true,
   "status": "approved",
-  "postType": "carousel",
+  "postType": "reel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "India isn’t just using AI more.\n\nIt’s starting to redesign work around it. 🇮🇳\n\nMicrosoft’s 2026 Work Trend Index found that 32% of Indian AI users now qualify as “Frontier Professionals” — people using AI agents for multi-step workflows and rethinking how work gets done.\n\nThat’s:\n\n32% in India\nvs\n16% globally.\n\nBut the part I found more interesting is this:\n\n63% of Indian respondents prioritize quality control of AI output.\n\n59% rank critical thinking as a top skill.\n\nAnd 87% say humans still remain responsible for the thinking — treating AI output as a starting point, not the final answer.\n\nThere’s another big signal:\n\n78% of Indian AI users say AI is helping them do work that wasn’t possible a year ago.\n\nThe lesson for professionals is becoming clearer:\n\nDon’t stop at learning prompts.\n\nLearn how to break work into systems.\nLearn what to delegate to AI agents.\nLearn how to verify the output.\nAnd keep ownership of the final decision.\n\nThat’s where the real advantage is.\n\nSave this if you’re building AI into your work.\n\nShare it with someone who still thinks AI is only about asking better questions.\n\nFollow @buildwith_pankaj for practical AI for professionals.\n\nSource: Microsoft Work Trend Index 2026 — India\n\n#AIForWork #FutureOfWork #AgenticAI #MicrosoftAI #BuildWithPankaj",
+  "caption": "Copy this prompt 👇\n\nWant to try the 1980s AI photo trend yourself?\n\nUpload a clear photo to ChatGPT and paste this:\n\nUsing my uploaded photo, show me what I would have looked like around 1985.\n\nPreserve my identity, facial features, skin tone, age, and recognizable appearance.\n\nReimagine my hair, clothing, accessories, and surroundings with unmistakably mid-1980s styling — expressive silhouettes, statement accessories, layered details, distinctive colors, and period-appropriate textures.\n\nMake the environment look authentic to 1985 with no modern objects or technology visible.\n\nMake the final image feel like a genuine photograph taken in 1985 using analog film: natural film grain, slightly faded colors, subtle softness, direct flash, minor photographic imperfections, and a period-accurate red-orange date stamp in the lower corner.\n\nKeep the pose and overall identity recognizable while changing the styling and environment naturally.\n\nNo modern text, objects, clothing, or accessories.\n\nSave this for later and follow @buildwith_pankaj for practical AI content for professionals.\n\n#ChatGPT #AIPrompt #AIPhotos #AITools #BuildWithPankaj",
   "firstComment": "",
   "shouldShareToFeed": true,
-  "isAiGenerated": false,
+  "isAiGenerated": true,
   "assets": [
     {
-      "type": "image",
-      "key": "india-ai-workforce-01-cover.png",
-      "altText": ""
-    },
-    {
-      "type": "image",
-      "key": "india-ai-workforce-02-frontier-meaning.png",
-      "altText": ""
-    },
-    {
-      "type": "image",
-      "key": "india-ai-workforce-03-india-vs-global.png",
-      "altText": ""
-    },
-    {
-      "type": "image",
-      "key": "india-ai-workforce-04-human-judgment.png",
-      "altText": ""
-    },
-    {
-      "type": "image",
-      "key": "india-ai-workforce-05-new-work.png",
-      "altText": ""
-    },
-    {
-      "type": "image",
-      "key": "india-ai-workforce-06-takeaway.png",
-      "altText": ""
-    },
-    {
-      "type": "image",
-      "key": "india-ai-workforce-07-cta.png",
-      "altText": ""
+      "type": "video",
+      "key": "draft-run-35855532769.mp4",
+      "altText": "A short Reel showing how to turn a modern photo into a 1985-style AI image in ChatGPT using before-and-after transformations and an exact prompt provided in the caption.",
+      "thumbnailOffset": 0
     }
   ]
 }
