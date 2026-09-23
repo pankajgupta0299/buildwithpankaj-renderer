@@ -1,6 +1,6 @@
 {
   "footer": "@buildwith_pankaj",
-  "badge": "PRIVATE DRAFT \u2022 NOT FOR PUBLISHING",
+  "badge": "PRIVATE DRAFT • NOT FOR PUBLISHING",
   "audioSrc": null,
   "musicMode": "generated-original",
   "musicStyle": "default",
@@ -60,9 +60,9 @@
       "headline": "The gaps are\nnow visible.",
       "voiceText": "Now the team can see what needs a decision.",
       "postSpeechFrames": 6,
-      "progress": 1.0
+      "progress": 1
     }
   ],
   "captions": [],
-  "renderRevision": "reel04-meeting-notes-charon-private-v1"
+  "renderRevision": "reel04-meeting-notes-charon-private-v2-audio-timing"
 }
