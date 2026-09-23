@@ -164,7 +164,7 @@ const Reel = (props) => {
       return <Sequence key={index} from={from} durationInFrames={scene.durationFrames}><Scene scene={scene} footer={spec.footer} badge={spec.badge}/></Sequence>;
     })}
     <CaptionLayer captions={spec.captions}/>
-    {spec.audioSrc ? <Audio src={staticFile(spec.audioSrc)}/> : null}
+    {spec.audioSrc ? <Audio src={staticFile(spec.audioSrc)}/> : null}\n    {spec.musicSrc ? <Audio src={staticFile(spec.musicSrc)} volume={spec.musicVolume ?? 0.08}/> : null}
   </AbsoluteFill>;
 };
 
