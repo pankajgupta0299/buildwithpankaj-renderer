@@ -46,7 +46,6 @@ jobs:
         if: steps.tts.outputs.needed == 'true'
         run: node scripts/generate-google-tts.mjs
       - name: Generate original royalty-free music when requested
-        if: steps.tts.outputs.needed != 'true'
         run: |
           MODE=$(node -p "require('./content.json').musicMode || ''")
           if [ "$MODE" = "generated-original" ]; then
@@ -54,7 +53,7 @@ jobs:
             DURATION=$(node -e "const c=require('./content.json'); console.log(c.scenes.reduce((s,x)=>s+x.durationFrames,0)/30)")
             STYLE=$(node -p "require('./content.json').musicStyle || 'default'")
             python3 scripts/generate-original-music.py public/generated-music.wav "$DURATION" "$STYLE"
-            node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('resolved-content.json','utf8')); p.audioSrc='generated-music.wav'; fs.writeFileSync('resolved-content.json',JSON.stringify(p,null,2));"
+            node -e "const fs=require('fs'); const p=JSON.parse(fs.readFileSync('resolved-content.json','utf8')); if ((p.voiceoverText||'').trim()) p.musicSrc='generated-music.wav'; else p.audioSrc='generated-music.wav'; fs.writeFileSync('resolved-content.json',JSON.stringify(p,null,2));"
           fi
       - name: Render 1080x1920 Reel
         run: |
