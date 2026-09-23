@@ -155,7 +155,37 @@ const WorkflowBeat = ({scene}) => {
   </AbsoluteFill>;
 };
 
+const MeetingBeat = ({scene}) => {
+  const frame=useCurrentFrame();
+  const {fps,durationInFrames}=useVideoConfig();
+  const enter=spring({frame,fps,config:{damping:18,stiffness:160}});
+  const drift=interpolate(frame,[0,Math.max(1,durationInFrames-1)],[0,-24]);
+  const stage=scene.stage;
+  const dark=stage==='result';
+  const bg=dark?BRAND.charcoal:'#F5F5EF';
+  const ink=dark?BRAND.white:BRAND.charcoal;
+  const card={backgroundColor:BRAND.white,border:'2px solid #DEDFD4',borderRadius:28,boxShadow:'0 16px 50px rgba(20,20,20,.1)'};
+  const note=(text,i,active=false)=> <div key={i} style={{padding:'22px 24px',borderBottom:i===2?'none':'2px solid #E8E9DE',fontSize:38,lineHeight:1.25,color:BRAND.charcoal,fontWeight:active?800:500,backgroundColor:active?'#EFF0D7':'transparent'}}>{text}</div>;
+  const pill=(text,emphasis=false)=> <span style={{display:'inline-block',padding:'10px 16px',borderRadius:12,backgroundColor:emphasis?BRAND.olive:'#ECEDE5',color:emphasis?'white':BRAND.charcoal,fontSize:27,fontWeight:900}}>{text}</span>;
+  const trackerRow=(task,owner,due,index,highlight=false)=> <div key={index} style={{display:'grid',gridTemplateColumns:'1.7fr 1fr 1fr',gap:10,alignItems:'center',padding:'22px 18px',borderTop:'2px solid #E5E6DC',backgroundColor:highlight?'#F0F1DA':'transparent',fontSize:31,color:BRAND.charcoal}}><b>{task}</b><span>{owner}</span><span>{due}</span></div>;
+  return <AbsoluteFill style={{backgroundColor:bg,fontFamily:'Arial,sans-serif',padding:'110px 68px 170px',overflow:'hidden'}}>
+    <div style={{color:dark?'#D5D99E':BRAND.olive,fontSize:27,fontWeight:900,letterSpacing:3,marginBottom:38}}>BUILDWITHPANKAJ  /  AI AT WORK</div>
+    <div style={{color:ink,fontSize:stage==='result'?78:76,lineHeight:1.02,fontWeight:900,letterSpacing:-2,whiteSpace:'pre-line',transform:`translateY(${(1-enter)*45}px)`,opacity:enter}}>{scene.headline}</div>
+    <div style={{marginTop:55,transform:`translateY(${drift}px)`,opacity:interpolate(frame,[0,6],[0,1],{extrapolateRight:'clamp'})}}>
+      {stage==='notes' && <div style={{...card,overflow:'hidden'}}><div style={{padding:'23px 25px',fontSize:28,color:BRAND.olive,fontWeight:900}}>MONDAY TEAM MEETING  /  NOTES</div>{note('Send revised proposal to Priya by Friday',0)}{note('Arjun to review the Q4 budget',1)}{note('Neha to check client sample approval',2)}</div>}
+      {stage==='owner' && <div style={{...card,padding:30}}><div style={{fontSize:27,color:'#777',fontWeight:800,marginBottom:23}}>FROM MEETING NOTES</div><div style={{fontSize:48,fontWeight:900,color:BRAND.charcoal,lineHeight:1.17}}>Send revised proposal<br/>to Priya by Friday</div><div style={{marginTop:46}}>{pill('OWNER: MISSING',true)}</div></div>}
+      {stage==='deadline' && <div style={{...card,padding:30}}><div style={{fontSize:27,color:'#777',fontWeight:800,marginBottom:23}}>FROM MEETING NOTES</div><div style={{fontSize:49,fontWeight:900,color:BRAND.charcoal,lineHeight:1.2}}>Arjun to review<br/>the Q4 budget</div><div style={{marginTop:46}}>{pill('DUE DATE: MISSING',true)}</div></div>}
+      {stage==='before' && <div style={{...card,overflow:'hidden'}}><div style={{padding:24,fontSize:28,fontWeight:900,color:BRAND.olive}}>CURRENT ACTION TRACKER</div><div style={{padding:'18px 18px',display:'grid',gridTemplateColumns:'1.7fr 1fr 1fr',fontSize:25,fontWeight:800,color:'#777'}}><span>TASK</span><span>OWNER</span><span>DUE</span></div>{trackerRow('Proposal','—','Friday',0)}{trackerRow('Budget review','Arjun','—',1)}<div style={{padding:22,fontSize:29,fontWeight:900,color:'#A33B2E',backgroundColor:'#FFF0EB'}}>Client follow-up: NOT HERE</div></div>}
+      {stage==='extract' && <div style={{...card,padding:34}}><div style={{fontSize:29,fontWeight:900,color:BRAND.olive,marginBottom:28}}>NOTES → ACTION LIST</div>{['Extract each commitment','Keep names and dates from the notes','Flag blanks; never invent them'].map((x,i)=><div key={i} style={{padding:'22px 0',borderTop:'2px solid #E5E6DC',fontSize:37,fontWeight:700,color:BRAND.charcoal}}><span style={{color:BRAND.olive,marginRight:18}}>✓</span>{x}</div>)}</div>}
+      {stage==='result' && <div style={{...card,overflow:'hidden'}}><div style={{padding:24,fontSize:28,fontWeight:900,color:BRAND.olive}}>ACTION LIST  /  REVIEW THE GAPS</div><div style={{padding:'16px 18px',display:'grid',gridTemplateColumns:'1.7fr 1fr 1fr',fontSize:25,fontWeight:800,color:'#777'}}><span>TASK</span><span>OWNER</span><span>DUE</span></div>{trackerRow('Proposal','MISSING','Friday',0,true)}{trackerRow('Budget review','Arjun','MISSING',1,true)}{trackerRow('Client follow-up','Neha','MISSING',2,true)}</div>}
+    </div>
+    {stage==='result' && <div style={{color:'white',fontSize:38,fontWeight:900,marginTop:40}}>AI finds the gaps. You decide.</div>}
+    <div style={{position:'absolute',bottom:100,left:68,right:68,height:7,backgroundColor:dark?'#5A5A53':'#E2E4D2',borderRadius:7}}><div style={{height:'100%',width:`${Math.round((scene.progress||.1)*100)}%`,backgroundColor:dark?'#D6DB97':BRAND.olive,borderRadius:7}}/></div>
+  </AbsoluteFill>;
+};
+
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='meeting') return <MeetingBeat scene={scene}/>;
   if(scene.type==='workflow') return <WorkflowBeat scene={scene}/>;
   if(scene.type==='fullImage') return <Fade fast><FullImage scene={scene}/></Fade>;
   if(scene.type==='split') return <Fade fast><SplitReveal scene={scene}/></Fade>;
