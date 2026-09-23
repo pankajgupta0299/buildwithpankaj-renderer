@@ -1,59 +1,119 @@
 {
   "footer": "@buildwith_pankaj",
-  "badge": "PRIVATE TTS TEST • NOT FOR PUBLISHING",
+  "badge": "",
   "audioSrc": null,
-  "musicMode": "none",
+  "musicMode": "generated-original",
+  "musicStyle": "default",
+  "musicVolume": 0.07,
   "voiceoverText": "Seen this 1980s AI photo trend? Here’s how it’s made. Upload your photo to ChatGPT. Ask it to preserve your face, move the scene to 1985, and change the styling, background and camera look. Add film grain, direct flash and a date stamp. The exact prompt is in the caption.",
   "ttsVoice": "en-IN-Wavenet-B",
   "ttsLanguageCode": "en-IN",
-  "ttsSpeakingRate": 1.2,
+  "ttsSpeakingRate": 1.3,
   "ttsPitch": 0,
   "scenes": [
     {
-      "type": "title",
-      "durationFrames": 150,
-      "eyebrow": "BUILDWITHPANKAJ • TTS PIPELINE TEST",
-      "headline": "1980s AI photo trend",
-      "body": "Testing Google Cloud TTS authentication before final visual assembly."
+      "type": "fullImage",
+      "durationFrames": 15,
+      "assetId": "reel03-modern-overlook.jpg",
+      "mediaKind": "image",
+      "kicker": "Seen this 1980s AI photo trend?"
     },
     {
-      "type": "text",
-      "durationFrames": 150,
-      "headline": "Google Cloud TTS",
-      "body": "Indian-English WaveNet voice • keyless GitHub OIDC authentication"
+      "type": "fullImage",
+      "durationFrames": 27,
+      "assetId": "reel03-1985-overlook.png",
+      "mediaKind": "image",
+      "label": "1985"
     },
     {
-      "type": "text",
-      "durationFrames": 150,
-      "headline": "Production check",
-      "body": "This test is private and cannot publish to Instagram."
+      "type": "split",
+      "durationFrames": 33,
+      "assetId": "reel03-modern-overlook.jpg",
+      "mediaKind": "image",
+      "assetId2": "reel03-1985-overlook.png",
+      "label": "2026 → 1985"
     },
     {
-      "type": "cta",
-      "durationFrames": 150,
-      "headline": "Next: final 18s edit",
-      "body": "Real before/after transformations + fast visual pacing."
+      "type": "promptUI",
+      "durationFrames": 57,
+      "assetId": "reel03-modern-overlook.jpg",
+      "mediaKind": "image",
+      "eyebrow": "Upload your photo",
+      "headline": "Add a clear photo to ChatGPT"
+    },
+    {
+      "type": "promptUI",
+      "durationFrames": 102,
+      "eyebrow": "Prompt it",
+      "headline": "Preserve my face.\\nMove the scene to 1985.",
+      "body": "Change the styling, background and camera look.",
+      "pills": [
+        "Preserve face",
+        "1985",
+        "Styling",
+        "Setting"
+      ]
+    },
+    {
+      "type": "fullImage",
+      "durationFrames": 30,
+      "assetId": "reel03-modern-roadside.jpg",
+      "mediaKind": "image",
+      "kicker": "Try a second photo"
+    },
+    {
+      "type": "fullImage",
+      "durationFrames": 48,
+      "assetId": "reel03-1985-roadside.png",
+      "mediaKind": "image",
+      "label": "Same idea. Different scene."
+    },
+    {
+      "type": "detail",
+      "durationFrames": 93,
+      "assetId": "reel03-1985-roadside.png",
+      "mediaKind": "image",
+      "pills": [
+        "Film grain",
+        "Direct flash",
+        "Date stamp"
+      ]
+    },
+    {
+      "type": "split",
+      "durationFrames": 69,
+      "assetId": "reel03-modern-overlook.jpg",
+      "mediaKind": "image",
+      "assetId2": "reel03-1985-overlook.png",
+      "label": "Keep the identity. Change the era."
+    },
+    {
+      "type": "fullImage",
+      "durationFrames": 72,
+      "assetId": "reel03-1985-overlook.png",
+      "mediaKind": "image",
+      "label": "EXACT PROMPT ↓ IN CAPTION"
     }
   ],
   "captions": [
     {
-      "startFrame": 10,
-      "endFrame": 100,
+      "startFrame": 45,
+      "endFrame": 75,
       "text": "2026 → 1985"
     },
     {
-      "startFrame": 160,
-      "endFrame": 280,
-      "text": "GOOGLE CLOUD TTS"
+      "startFrame": 145,
+      "endFrame": 230,
+      "text": "Preserve face • 1985 • Styling • Setting"
     },
     {
-      "startFrame": 320,
-      "endFrame": 440,
-      "text": "PRIVATE TEST"
+      "startFrame": 315,
+      "endFrame": 405,
+      "text": "Grain • Flash • Date stamp"
     },
     {
-      "startFrame": 480,
-      "endFrame": 590,
+      "startFrame": 475,
+      "endFrame": 545,
       "text": "EXACT PROMPT ↓ IN CAPTION"
     }
   ]
