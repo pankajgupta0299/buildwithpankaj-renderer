@@ -8,7 +8,7 @@
   "voiceoverText": "Seen this 1980s AI photo trend? Here’s how it’s made. Upload your photo to ChatGPT. Ask it to preserve your face, move the scene to 1985, and change the styling, background and camera look. Add film grain, direct flash and a date stamp. The exact prompt is in the caption.",
   "ttsVoice": "en-IN-Wavenet-B",
   "ttsLanguageCode": "en-IN",
-  "ttsSpeakingRate": 1.3,
+  "ttsSpeakingRate": 1.1,
   "ttsPitch": 0,
   "scenes": [
     {
@@ -117,5 +117,5 @@
       "text": "EXACT PROMPT ↓ IN CAPTION"
     }
   ],
-  "renderRevision": "reel03-v2"
+  "renderRevision": "reel03-v3-approved-1.1"
 }
