@@ -3,38 +3,23 @@
   "brand": "BuildWithPankaj",
   "files": [
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/01_cover.png",
-      "r2Key": "india-ai-workforce-01-cover.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel03-modern-overlook.jpg",
+      "r2Key": "reel03-modern-overlook.jpg",
+      "contentType": "image/jpeg"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel03-1985-overlook.png",
+      "r2Key": "reel03-1985-overlook.png",
       "contentType": "image/png"
     },
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/02_frontier_meaning.png",
-      "r2Key": "india-ai-workforce-02-frontier-meaning.png",
-      "contentType": "image/png"
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel03-modern-roadside.jpg",
+      "r2Key": "reel03-modern-roadside.jpg",
+      "contentType": "image/jpeg"
     },
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/03_india_vs_global.png",
-      "r2Key": "india-ai-workforce-03-india-vs-global.png",
-      "contentType": "image/png"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/04_human_judgment.png",
-      "r2Key": "india-ai-workforce-04-human-judgment.png",
-      "contentType": "image/png"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/05_new_work.png",
-      "r2Key": "india-ai-workforce-05-new-work.png",
-      "contentType": "image/png"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/06_takeaway.png",
-      "r2Key": "india-ai-workforce-06-takeaway.png",
-      "contentType": "image/png"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/07_cta.png",
-      "r2Key": "india-ai-workforce-07-cta.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel03-1985-roadside.png",
+      "r2Key": "reel03-1985-roadside.png",
       "contentType": "image/png"
     }
   ]
