@@ -137,12 +137,19 @@ const WorkflowBeat = ({scene}) => {
   const dark = danger || success;
   const bg = danger ? BRAND.charcoal : success ? BRAND.olive : BRAND.white;
   const ink = dark ? BRAND.white : BRAND.charcoal;
+  const phase = interpolate(frame,[0,Math.max(1,durationInFrames-1)],[0,1],{extrapolateRight:'clamp'});
   return <AbsoluteFill style={{backgroundColor:bg,fontFamily:'Arial,sans-serif',padding:'165px 80px 190px',justifyContent:'center',overflow:'hidden'}}>
     <div style={{position:'absolute',top:120,left:80,color:dark?'#E9EBD4':BRAND.olive,fontWeight:800,fontSize:29,letterSpacing:3}}>{scene.eyebrow || 'BUILDWITHPANKAJ / REAL WORKFLOW'}</div>
     <div style={{transform:`translateY(${lift}px)`,opacity:progress}}>
       <div style={{color:ink,fontSize:scene.small ? 70 : 88,lineHeight:1.06,fontWeight:900,whiteSpace:'pre-line',letterSpacing:-3}}>{scene.headline}</div>
       {scene.body ? <div style={{color:dark?'#EEE':'#494949',fontSize:35,lineHeight:1.3,marginTop:40,maxWidth:840}}>{scene.body}</div> : null}
-      {scene.steps?.length ? <div style={{display:'flex',flexWrap:'wrap',gap:14,marginTop:58}}>{scene.steps.map((s,i)=><div key={i} style={{backgroundColor:dark?'rgba(255,255,255,.16)':i===scene.active?BRAND.olive:BRAND.soft,color:dark?BRAND.white:i===scene.active?BRAND.white:BRAND.charcoal,borderRadius:18,padding:'18px 24px',fontSize:31,fontWeight:800}}>{s}</div>)}</div> : null}
+      {scene.panelTitle ? <div style={{marginTop:66,backgroundColor:dark?'rgba(255,255,255,.12)':BRAND.soft,border:dark?'2px solid rgba(255,255,255,.25)':'2px solid #E1E1D7',borderRadius:28,padding:'30px 32px',boxShadow:dark?'none':'0 18px 50px rgba(0,0,0,.06)'}}>
+        <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',gap:18}}><div style={{fontSize:29,fontWeight:800,color:ink,letterSpacing:1}}>{scene.panelTitle}</div><div style={{fontSize:27,fontWeight:900,color:dark?'#EDEFCF':BRAND.olive}}>{scene.panelState || '● ACTIVE'}</div></div>
+        <div style={{height:2,backgroundColor:dark?'rgba(255,255,255,.25)':'#D9D9CE',margin:'24px 0'}}/>
+        {(scene.panelLines || []).map((line,i)=><div key={i} style={{display:'flex',alignItems:'center',gap:20,margin:'15px 0',fontSize:33,color:ink,fontWeight:i===0?800:600,opacity:i===0?1:.82}}><span style={{width:17,height:17,borderRadius:20,backgroundColor:dark?'#F2F5CE':BRAND.olive,flexShrink:0}}/>{line}</div>)}
+        {scene.panelProgress ? <div style={{height:11,backgroundColor:dark?'rgba(255,255,255,.22)':'#DADBCB',borderRadius:10,marginTop:30,overflow:'hidden'}}><div style={{height:'100%',width:`${Math.min(100,(phase*.6+.35)*100)}%`,backgroundColor:dark?'#F2F5CE':BRAND.olive}}/></div> : null}
+      </div> : null}
+      {!scene.panelTitle && scene.steps?.length ? <div style={{display:'flex',flexWrap:'wrap',gap:14,marginTop:58}}>{scene.steps.map((s,i)=><div key={i} style={{backgroundColor:dark?'rgba(255,255,255,.16)':i===scene.active?BRAND.olive:BRAND.soft,color:dark?BRAND.white:i===scene.active?BRAND.white:BRAND.charcoal,borderRadius:18,padding:'18px 24px',fontSize:31,fontWeight:800}}>{s}</div>)}</div> : null}
     </div>
     <div style={{position:'absolute',bottom:145,left:80,right:80,height:8,borderRadius:8,backgroundColor:dark?'rgba(255,255,255,.2)':'#E5E5DC'}}><div style={{width:`${Math.round((scene.progress || 0.1)*100)}%`,height:'100%',backgroundColor:dark?'#fff':BRAND.olive,borderRadius:8}}/></div>
   </AbsoluteFill>;
