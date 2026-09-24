@@ -3,24 +3,10 @@
   "brand": "BuildWithPankaj",
   "files": [
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel03-modern-overlook.jpg",
-      "r2Key": "reel03-modern-overlook.jpg",
-      "contentType": "image/jpeg"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel03-1985-overlook.png",
-      "r2Key": "reel03-1985-overlook.png",
-      "contentType": "image/png"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel03-modern-roadside.jpg",
-      "r2Key": "reel03-modern-roadside.jpg",
-      "contentType": "image/jpeg"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel03-1985-roadside.png",
-      "r2Key": "reel03-1985-roadside.png",
-      "contentType": "image/png"
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/Reel-06-Movie-Pitch-Charon-v2.mp4",
+      "r2Key": "reel06-movie-pitch-final-v2.mp4",
+      "contentType": "video/mp4",
+      "expectedSha256": "2ed084e64753afc40c20b002f4a02f72aa9ee5ce0f8afe48d8ec46bd7c4663d9"
     }
   ]
 }
