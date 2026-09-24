@@ -1,5 +1,6 @@
 import React from 'react';
 import {sampleRows, summarize} from '../reel05/model.mjs';
+import {generatePitch} from '../reel06/model.mjs';
 import {
   AbsoluteFill,
   Audio,
@@ -283,7 +284,35 @@ const DashboardBeat = ({scene}) => {
   </AbsoluteFill>;
 };
 
+const MovieBeat = ({scene}) => {
+  const frame=useCurrentFrame();
+  const {fps}=useVideoConfig();
+  const stage=scene.stage;
+  const bollywood=generatePitch('I missed the last train','bollywood');
+  const hollywood=generatePitch('I missed the last train','hollywood');
+  const isResult=['bollywood','hollywood','compare','outro'].includes(stage);
+  const card=(pitch,small=false)=> <div style={{background:`linear-gradient(145deg,${pitch.palette[0]},${pitch.palette[1]})`,color:'#fff',borderRadius:32,padding:small?'28px 26px':'45px 40px',height:small?650:950,display:'flex',flexDirection:'column',justifyContent:'space-between',boxShadow:'0 20px 45px #0002',overflow:'hidden'}}>
+    <div><div style={{display:'inline-block',fontSize:small?25:31,fontWeight:900,border:'2px solid #fff8',borderRadius:40,padding:'9px 15px',letterSpacing:2}}>{pitch.label}</div><div style={{fontSize:small?46:72,lineHeight:1.02,fontWeight:900,marginTop:32,letterSpacing:-2}}>{pitch.title}</div><div style={{fontSize:small?24:32,marginTop:20}}>{pitch.genre}</div></div>
+    <div><div style={{fontSize:small?26:36,lineHeight:1.32,fontWeight:700}}>{pitch.logline}</div><div style={{marginTop:25,fontSize:small?22:27,letterSpacing:1,textTransform:'uppercase'}}>{pitch.motif}</div></div>
+  </div>;
+  const panel={backgroundColor:'#fff',border:'3px solid #DDE1D0',borderRadius:30,padding:35,boxShadow:'0 20px 50px #19220814'};
+  return <AbsoluteFill style={{backgroundColor:'#F5F6EF',color:'#202020',fontFamily:'Arial,sans-serif',padding:'100px 58px 160px',overflow:'hidden'}}>
+    <div style={{fontSize:27,letterSpacing:3,fontWeight:900,color:'#6B6F2A'}}>BUILDWITHPANKAJ / BUILD A MOVIE PITCH APP</div>
+    <div style={{fontSize:65,lineHeight:1.03,fontWeight:900,marginTop:42,whiteSpace:'pre-line',letterSpacing:-2}}>{scene.headline}</div>
+    <div style={{marginTop:60}}>
+      {stage==='hook' && <div style={{...panel,fontSize:49,fontWeight:900,lineHeight:1.28}}><div style={{fontSize:27,color:'#6B6F2A'}}>THE INPUT</div><div style={{margin:'35px 0'}}>“I missed the last train.”</div><div style={{color:'#6B6F2A'}}>BOLLYWOOD  ↔  HOLLYWOOD</div><div style={{fontSize:30,marginTop:70,fontWeight:600}}>One moment. Two original movie pitches.</div></div>}
+      {stage==='spec' && <div style={{...panel}}><div style={{fontSize:29,color:'#6B6F2A',fontWeight:900}}>STEP 1 / ASK AI TO BUILD THE PAGE</div><div style={{fontSize:44,lineHeight:1.3,fontWeight:800,marginTop:35}}>“Make a small page with a text input and two movie style cards.”</div><div style={{fontSize:30,color:'#666',marginTop:45}}>One input · Two cards · One button</div></div>}
+      {stage==='rules' && <div style={{...panel}}><div style={{fontSize:29,color:'#6B6F2A',fontWeight:900}}>STEP 2 / DEFINE THE STORY RULES</div>{['Everyday situation → fictional pitch','Different genre, title and logline','Original characters, no film clips'].map((x,i)=><div key={i} style={{fontSize:36,padding:'32px 0',borderBottom:'2px solid #E6E8DD',fontWeight:800}}>{i+1}. {x}</div>)}</div>}
+      {stage==='test' && <div style={{...panel}}><div style={{fontSize:29,color:'#6B6F2A',fontWeight:900}}>STEP 3 / TEST THE BUTTON</div><div style={{fontSize:40,fontWeight:800,marginTop:40}}>Everyday situation</div><div style={{fontSize:41,border:'2px solid #CCD1BC',borderRadius:20,padding:28,marginTop:25}}>I missed the last train</div><div style={{backgroundColor:'#6B6F2A',color:'white',borderRadius:20,padding:26,marginTop:32,fontSize:35,fontWeight:900,textAlign:'center'}}>Make the movies →</div><div style={{fontSize:27,color:'#606356',marginTop:32}}>Click → both cards appear with distinct stories.</div></div>}
+      {isResult && (stage==='compare'||stage==='outro'?<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:18}}>{card(bollywood,true)}{card(hollywood,true)}</div>:card(stage==='bollywood'?bollywood:hollywood))}
+    </div>
+    {isResult && <div style={{position:'absolute',bottom:162,left:65,right:65,fontSize:29,fontWeight:900,color:'#6B6F2A',textAlign:'center'}}>{stage==='outro'?'TRY YOUR OWN EVERYDAY MOMENT':'ORIGINAL FICTION · ILLUSTRATED DEMO'}</div>}
+    <div style={{position:'absolute',bottom:85,left:62,fontSize:25,color:'#606456'}}>@buildwith_pankaj · PRIVATE REVIEW · AI ASSISTED BUILD</div>
+  </AbsoluteFill>;
+};
+
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='movie') return <MovieBeat scene={scene}/>;
   if(scene.type==='dashboard') return <DashboardBeat scene={scene}/>;
   if(scene.type==='game') return <GameBeat scene={scene}/>;
   if(scene.type==='meeting') return <MeetingBeat scene={scene}/>;
