@@ -1,0 +1,21 @@
+{
+  "footer":"@buildwith_pankaj",
+  "badge":"PRIVATE REVIEW",
+  "audioSrc":null,
+  "musicMode":"generated-original",
+  "musicStyle":"default",
+  "musicVolume":0.035,
+  "ttsVoice":"en-IN-Chirp3-HD-Charon",
+  "ttsLanguageCode":"en-IN",
+  "scenes":[
+    {"type":"movie","stage":"hook","headline":"What if missing a train\nbecame a movie?","voiceText":"What if missing the last train became two different movies? Let's build an app that makes the pitch.","postSpeechFrames":12,"durationFrames":150},
+    {"type":"movie","stage":"spec","headline":"First, tell AI\nwhat to build.","voiceText":"First, I asked AI to build a page with one situation box, a button, and two movie cards.","postSpeechFrames":15,"durationFrames":160},
+    {"type":"movie","stage":"rules","headline":"Then define\nthe story rules.","voiceText":"Then I gave each style its own original title, genre, and story rules. No borrowed films or actors.","postSpeechFrames":14,"durationFrames":160},
+    {"type":"movie","stage":"test","headline":"Now test\nthe button.","voiceText":"I entered: I missed the last train. When I tap Make the movies, both cards appear.","postSpeechFrames":14,"durationFrames":150},
+    {"type":"movie","stage":"bollywood","headline":"Bollywood:\na musical mystery.","voiceText":"In the Bollywood version, a missed train leads Mira into a rainy night of music and family secrets.","postSpeechFrames":16,"durationFrames":165},
+    {"type":"movie","stage":"hollywood","headline":"Hollywood:\na night thriller.","voiceText":"In the Hollywood version, a phone on the platform warns that another train will disappear.","postSpeechFrames":17,"durationFrames":160},
+    {"type":"movie","stage":"outro","headline":"One idea.\nTwo movie worlds.","voiceText":"Same everyday moment, two original pitches. What situation would you turn into a movie? The starter build is in the caption.","postSpeechFrames":25,"durationFrames":170}
+  ],
+  "captions":[],
+  "renderRevision":"reel06-movie-pitch-charon-private-v1"
+}
