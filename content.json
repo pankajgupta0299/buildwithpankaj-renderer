@@ -1,20 +1,21 @@
 {
-  "footer": "@buildwith_pankaj",
-  "badge": "PRIVATE DRAFT • NOT FOR PUBLISHING",
-  "audioSrc": null,
-  "ttsVoice": "en-IN-Chirp3-HD-Charon",
-  "ttsLanguageCode": "en-IN",
-  "musicMode": "generated-original",
-  "musicStyle": "warm-playful",
-  "musicVolume": 0.024,
-  "scenes": [
-    {"type":"dashboard","stage":"hook","durationFrames":170,"postSpeechFrames":13,"headline":"CAN AI BUILD A\nUSEFUL DASHBOARD?","voiceText":"Can AI turn a sheet of café orders into a dashboard I can actually use?"},
-    {"type":"dashboard","stage":"data","durationFrames":150,"postSpeechFrames":15,"headline":"START WITH\nA SMALL CSV.","voiceText":"I started with fictional orders: date, product, quantity, and revenue."},
-    {"type":"dashboard","stage":"prompt","durationFrames":210,"postSpeechFrames":20,"headline":"ASK FOR THE\nRIGHT CONTROLS.","voiceText":"My prompt asked for revenue by product, a day filter, and totals that update when the filter changes."},
-    {"type":"dashboard","stage":"all","durationFrames":155,"postSpeechFrames":15,"headline":"LOAD THE CSV.\nREAD THE TOTAL.","voiceText":"Across all twelve orders, revenue is four thousand four hundred and eighty rupees. Matcha is on top."},
-    {"type":"dashboard","stage":"filter","durationFrames":175,"postSpeechFrames":20,"headline":"FILTER TO\nSEPTEMBER SECOND.","voiceText":"Select September second: revenue changes to two thousand three hundred and twenty rupees, and Cold Brew moves to the top."},
-    {"type":"dashboard","stage":"check","durationFrames":220,"postSpeechFrames":18,"headline":"NOW CHECK\nTHE MATH.","voiceText":"I added the six source rows for that day. They total two thousand three hundred and twenty rupees, matching the dashboard."},
-    {"type":"dashboard","stage":"end","durationFrames":145,"postSpeechFrames":18,"headline":"BUILD. FILTER.\nVERIFY.","voiceText":"Try the starter prompt in the caption, and always check a number before sharing the result."}
+  "footer":"@buildwith_pankaj",
+  "badge":"PRIVATE REVIEW",
+  "audioSrc":null,
+  "musicMode":"generated-original",
+  "musicStyle":"default",
+  "musicVolume":0.035,
+  "ttsVoice":"en-IN-Chirp3-HD-Charon",
+  "ttsLanguageCode":"en-IN",
+  "scenes":[
+    {"type":"movie","stage":"hook","headline":"What if missing a train\nbecame a movie?","voiceText":"What if missing the last train became two different movies? Let's build an app that makes the pitch.","postSpeechFrames":12,"durationFrames":150},
+    {"type":"movie","stage":"spec","headline":"First, tell AI\nwhat to build.","voiceText":"First, I asked AI to build a page with one situation box, a button, and two movie cards.","postSpeechFrames":15,"durationFrames":160},
+    {"type":"movie","stage":"rules","headline":"Then define\nthe story rules.","voiceText":"Then I gave each style its own original title, genre, and story rules. No borrowed films or actors.","postSpeechFrames":14,"durationFrames":160},
+    {"type":"movie","stage":"test","headline":"Now test\nthe button.","voiceText":"I entered: I missed the last train. When I tap Make the movies, both cards appear.","postSpeechFrames":14,"durationFrames":150},
+    {"type":"movie","stage":"bollywood","headline":"Bollywood:\na musical mystery.","voiceText":"In the Bollywood version, a missed train leads Mira into a rainy night of music and family secrets.","postSpeechFrames":16,"durationFrames":165},
+    {"type":"movie","stage":"hollywood","headline":"Hollywood:\na night thriller.","voiceText":"In the Hollywood version, a phone on the platform warns that another train will disappear.","postSpeechFrames":17,"durationFrames":160},
+    {"type":"movie","stage":"outro","headline":"One idea.\nTwo movie worlds.","voiceText":"Same everyday moment, two original pitches. What situation would you turn into a movie? The starter build is in the caption.","postSpeechFrames":25,"durationFrames":170}
   ],
-  "captions": []
+  "captions":[],
+  "renderRevision":"reel06-movie-pitch-charon-private-v1"
 }
