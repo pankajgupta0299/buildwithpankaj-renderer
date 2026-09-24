@@ -2,22 +2,22 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-reel05-cafe-dashboard-20260924-v1",
+  "approvalId": "bwp-reel06-movie-pitch-20260924-v2",
   "approved": true,
   "status": "approved",
   "postType": "reel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "Can a CSV become a useful dashboard? Here’s a starter prompt 👇\n\nUse a sample CSV with columns: date, item, quantity, unit_price, and revenue. The Reel uses fictional café orders and an illustrated walkthrough; the totals come from the sample rows.\n\nPaste this into your AI coding tool with the CSV attached:\n\n“Build a mobile-friendly sales dashboard from this CSV. Show total revenue, order count, and revenue by product. Add a day filter that updates every number and chart. Display the underlying rows for the selected day. Validate that revenue equals quantity × unit price for each row, and explain how I can run the page locally.”\n\nThen test it: all 12 sample orders total ₹4,480. Filter to September 2 and the six rows total ₹2,320. Check the rows yourself before sharing any result.\n\nSave this prompt and follow @buildwith_pankaj for practical AI builds.\n\n#BuildWithAI #VibeCoding #DataDashboard #AIPrompt #BuildWithPankaj",
+  "caption": "One missed train. Two completely different movies. 🎬\n\nI built a tiny movie pitch app with an AI coding assistant. Type an everyday situation, tap a button, and compare two ORIGINAL fictional story worlds: a Bollywood-inspired musical mystery and a Hollywood-inspired night thriller.\n\nWant to build your own? Copy this prompt into an AI coding tool:\n\n“Create a mobile-friendly movie pitch generator using HTML, CSS, and JavaScript. Add one input for an everyday situation, a ‘Make the movies’ button, and two distinct cards. Each card should display an original title, genre, one-sentence plot, and visual motif. Start with local story templates that work without an API key. Make the button update both cards when the input changes. Use fictional characters and original stories, with no film clips or celebrity likenesses.”\n\nThe starter shown here uses transparent local templates; it does not call AI at runtime. Source: github.com/pankajgupta0299/buildwithpankaj-renderer/tree/main/reel06\n\nWhat ordinary moment should become a movie? Drop yours below. Save this to try the build later.\n\n#BuildWithAI #CreativeCoding #MovieIdeas #AIBuilds #BuildWithPankaj",
   "firstComment": "",
   "shouldShareToFeed": true,
   "isAiGenerated": true,
   "assets": [
     {
       "type": "video",
-      "key": "draft-run-36014165858.mp4",
-      "altText": "An illustrated tutorial using fictional café sales rows to show a CSV-to-dashboard prompt, revenue by product, a day filter changing the total from ₹4,480 to ₹2,320, and a source-row sum check.",
-      "thumbnailOffset": 0
+      "key": "reel06-movie-pitch-final-v2.mp4",
+      "altText": "An original movie pitch generator tutorial. An everyday missed-train idea becomes a Bollywood-inspired musical mystery and a Hollywood-inspired night thriller, with the page build steps shown.",
+      "thumbnailOffset": 40500
     }
   ]
 }
