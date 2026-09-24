@@ -1,0 +1,13 @@
+date,item,quantity,unit_price,revenue
+2026-09-01,Cold Brew,3,150,450
+2026-09-01,Iced Latte,2,180,360
+2026-09-01,Matcha,1,220,220
+2026-09-01,Cold Brew,1,150,150
+2026-09-01,Iced Latte,3,180,540
+2026-09-01,Matcha,2,220,440
+2026-09-02,Cold Brew,2,150,300
+2026-09-02,Iced Latte,1,180,180
+2026-09-02,Matcha,3,220,660
+2026-09-02,Cold Brew,4,150,600
+2026-09-02,Iced Latte,2,180,360
+2026-09-02,Matcha,1,220,220
