@@ -1,12 +1,12 @@
 # BuildWithPankaj — Reel Production Process
 
-**Version:** 2.2  
-**Updated:** 2026-09-23  
+**Version:** 2.3  
+**Updated:** 2026-09-24  
 **Status:** Active process; every individual Reel still needs its own approval.
 
 ## Scope and editorial rules
 
-BuildWithPankaj may cover AI, building with AI, useful tools, experiments, and relevant new technology. Workplace examples are one option, not the default or a requirement. Choose a topic because it gives the viewer a clear insight, useful demonstration, or reason to try something. Do not make a Reel about Pankaj's private publishing or automation setup unless he explicitly asks to share it.
+BuildWithPankaj teaches anyone to build anything with AI through clear, practical projects. See `docs/Channel-Positioning.md` for the current mission, audience, profile copy, and content pillars. Projects may include apps, games, websites, automations, personal tools, and creative experiments. Workplace examples are one option, not the default or a requirement. Choose a topic because it gives the viewer a clear insight, useful demonstration, or reason to try something. Open by stating what the viewer will learn or build, then show the essential creation steps and a working result. Do not make a Reel about Pankaj's private publishing or automation setup unless he explicitly asks to share it.
 
 Use the existing brand identity and design system: olive, white, charcoal; clear typography; purposeful, unhurried motion. Claims about products, features, availability, or current events need current source checks. Demonstrations must distinguish actual results from illustrative mockups. Do not imply Pankaj personally tested a tool unless he did.
 
