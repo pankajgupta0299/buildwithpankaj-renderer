@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
 
 const BASE = (process.env.PRIVATE_MEDIA_BASE_URL || '').trim();
 const MEDIA_TOKEN = (process.env.PRIVATE_MEDIA_TOKEN || '').trim();
@@ -71,6 +72,10 @@ for (const item of manifest.files) {
 
   const bytes = await dl.arrayBuffer();
   const contentType = item.contentType || dl.headers.get('content-type') || 'application/octet-stream';
+  if (item.expectedSha256) {
+    const actual = crypto.createHash('sha256').update(Buffer.from(bytes)).digest('hex');
+    if (actual !== item.expectedSha256) throw new Error(`Content SHA-256 mismatch for ${item.dropboxPath}`);
+  }
 
   const put = await fetch(`${BASE}/media/${encodeURIComponent(item.r2Key)}`, {
     method:'PUT',
