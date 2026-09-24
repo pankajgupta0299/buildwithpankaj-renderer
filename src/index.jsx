@@ -1,4 +1,5 @@
 import React from 'react';
+import {sampleRows, summarize} from '../reel05/model.mjs';
 import {
   AbsoluteFill,
   Audio,
@@ -243,7 +244,47 @@ const GameBeat = ({scene}) => {
   </AbsoluteFill>;
 };
 
+const DashboardBeat = ({scene}) => {
+  const frame=useCurrentFrame();
+  const {fps}=useVideoConfig();
+  const seconds=frame/fps;
+  const stage=scene.stage;
+  const money=n=>`₹${n.toLocaleString('en-IN')}`;
+  const activeDay=stage==='filter' && seconds>=1.8 || stage==='check' ? '2026-09-02':'all';
+  const summary=summarize(sampleRows,activeDay);
+  const all=summarize(sampleRows);
+  const sep2=summarize(sampleRows,'2026-09-02');
+  const isTable=stage==='hook'||stage==='data';
+  const isPrompt=stage==='prompt';
+  const board={position:'absolute',left:60,right:60,top:355,bottom:350,backgroundColor:'#FFF',border:'3px solid #D9DDCD',borderRadius:35,boxShadow:'0 26px 65px rgba(35,40,25,.10)',overflow:'hidden'};
+  const fg='#202020', olive='#6B6F2A', soft='#F3F5EB';
+  const tableRows=(stage==='hook'?sampleRows:sampleRows.slice(6)).slice(0,8);
+  return <AbsoluteFill style={{backgroundColor:'#F7F8F3',fontFamily:'Arial,sans-serif',color:fg,overflow:'hidden'}}>
+    <div style={{position:'absolute',top:70,left:60,right:60,color:olive,fontSize:27,fontWeight:900,letterSpacing:3}}>BUILDWITHPANKAJ  /  AI BUILDS</div>
+    <div style={{position:'absolute',top:130,left:60,right:60,fontSize:67,fontWeight:900,lineHeight:1.05,whiteSpace:'pre-line',letterSpacing:-2}}>{scene.headline}</div>
+    {isTable && <div style={board}>
+      <div style={{padding:'35px 40px',backgroundColor:soft,color:olive,fontSize:31,fontWeight:900}}>sample.csv  ·  12 FICTIONAL ORDERS</div>
+      <div style={{display:'grid',gridTemplateColumns:'1.2fr 1.8fr .7fr 1fr',padding:'24px 34px',fontSize:27,fontWeight:900,color:'#59634A',borderBottom:'2px solid #DDE1D1'}}><span>DATE</span><span>ITEM</span><span>QTY</span><span>REVENUE</span></div>
+      {tableRows.map((r,i)=><div key={i} style={{display:'grid',gridTemplateColumns:'1.2fr 1.8fr .7fr 1fr',padding:'23px 34px',fontSize:29,borderBottom:'2px solid #EDF0E7',backgroundColor:stage==='data'&&i<6?'#F6F8EA':'#FFF',opacity:Math.min(1,Math.max(.3,(frame-i*3)/12))}}><span>{r.date.slice(5)}</span><b>{r.item}</b><span>{r.quantity}</span><b>{money(r.revenue)}</b></div>)}
+      <div style={{padding:30,fontSize:29,fontWeight:800,color:olive}}>{stage==='hook'?'WHICH PRODUCT EARNED THE MOST?':'CLEAR COLUMNS → CHECKABLE MATH'}</div>
+    </div>}
+    {isPrompt && <div style={{...board,padding:50}}><div style={{display:'flex',justifyContent:'space-between',fontSize:31,fontWeight:900,color:olive}}><span>THE BUILD PROMPT</span><span>sample.csv ↑</span></div><div style={{fontSize:45,lineHeight:1.28,fontWeight:800,marginTop:75}}>“Create a dashboard from this CSV. Show revenue by product, a day filter, and totals that update when I change the day.”</div><div style={{display:'flex',gap:12,marginTop:60,flexWrap:'wrap'}}>{['Revenue by product','Day filter','Check totals'].map((s,i)=><span key={i} style={{backgroundColor:i===1?olive:soft,color:i===1?'white':fg,borderRadius:20,padding:'16px 20px',fontSize:27,fontWeight:800}}>{s}</span>)}</div><div style={{fontSize:28,color:'#62675A',marginTop:70}}>Use the full starter prompt in the caption.</div></div>}
+    {!isTable&&!isPrompt && <div style={{...board,padding:'32px 36px'}}>
+      <div style={{fontSize:29,fontWeight:900,color:olive}}>CAFÉ SALES  /  FICTIONAL DATA</div>
+      <div style={{display:'flex',gap:13,margin:'30px 0 35px'}}>{[['all','All days'],['2026-09-01','Sep 1'],['2026-09-02','Sep 2']].map(([day,label])=><div key={day} style={{backgroundColor:day===activeDay?olive:soft,color:day===activeDay?'white':fg,padding:'16px 22px',borderRadius:30,fontSize:27,fontWeight:900,border:day===activeDay?'3px solid '+olive:'3px solid #E2E5D9'}}>{label}</div>)}</div>
+      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:15}}><div style={{backgroundColor:soft,borderRadius:24,padding:'26px 25px'}}><div style={{fontSize:26,color:'#62685A',fontWeight:800}}>REVENUE</div><div style={{fontSize:62,fontWeight:900,marginTop:9,color:stage==='filter'&&seconds>=1.8?olive:fg}}>{money(summary.revenue)}</div></div><div style={{backgroundColor:soft,borderRadius:24,padding:'26px 25px'}}><div style={{fontSize:26,color:'#62685A',fontWeight:800}}>TOP PRODUCT</div><div style={{fontSize:42,fontWeight:900,marginTop:17}}>{summary.top?.item}</div></div></div>
+      <div style={{fontSize:32,fontWeight:900,margin:'45px 0 35px'}}>Revenue by product</div>
+      {summary.products.map((p,i)=><div key={p.item} style={{display:'grid',gridTemplateColumns:'175px 1fr 125px',gap:10,alignItems:'center',margin:'24px 0',fontSize:28,fontWeight:800}}><span>{p.item}</span><div style={{height:35,backgroundColor:'#ECEFDF',borderRadius:20,overflow:'hidden'}}><div style={{height:'100%',width:`${p.revenue/summary.products[0].revenue*100}%`,backgroundColor:i===0?olive:'#B7C58B',borderRadius:20,transition:'width .4s'}}/></div><span style={{textAlign:'right'}}>{money(p.revenue)}</span></div>)}
+      <div style={{marginTop:54,padding:'25px 28px',borderRadius:20,backgroundColor:soft,fontSize:28,fontWeight:800}}>{stage==='check'?<><span style={{color:olive}}>CHECK  ✓</span><br/>300 + 180 + 660 + 600 + 360 + 220<br/><span style={{fontSize:42,color:olive}}>= {money(sep2.revenue)}</span></>:stage==='end'?<>Build it. Filter it. Verify a number.</>:<>12 orders · {money(all.revenue)} across both days</>}</div>
+      {stage==='filter' && seconds>1.1&&seconds<2.5 && <div style={{position:'absolute',top:105,right:63,fontSize:52,transform:`translate(${(1.8-seconds)*160}px,${(1.8-seconds)*45}px)`}}>☝</div>}
+    </div>}
+    <div style={{position:'absolute',bottom:200,left:65,right:65,fontSize:33,fontWeight:900,color:olive,textAlign:'center'}}>{stage==='hook'?'ONE QUESTION · REAL NUMBERS':stage==='data'?'DATE  ·  ITEM  ·  QUANTITY  ·  REVENUE':stage==='prompt'?'PROMPT → DASHBOARD':stage==='all'?'ALL DAYS  ·  ₹4,480':stage==='filter'?'TAP SEP 2  ·  TOTAL UPDATES':stage==='check'?'VERIFY AGAINST SIX SOURCE ROWS':'EXACT PROMPT IN CAPTION'}</div>
+    <div style={{position:'absolute',bottom:95,left:65,fontSize:26,color:'#676C60'}}>@buildwith_pankaj · ILLUSTRATED DEMO · PRIVATE REVIEW</div>
+  </AbsoluteFill>;
+};
+
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='dashboard') return <DashboardBeat scene={scene}/>;
   if(scene.type==='game') return <GameBeat scene={scene}/>;
   if(scene.type==='meeting') return <MeetingBeat scene={scene}/>;
   if(scene.type==='workflow') return <WorkflowBeat scene={scene}/>;
