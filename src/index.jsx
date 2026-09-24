@@ -307,7 +307,7 @@ const MovieBeat = ({scene}) => {
       {isResult && (stage==='compare'||stage==='outro'?<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:18}}>{card(bollywood,true)}{card(hollywood,true)}</div>:card(stage==='bollywood'?bollywood:hollywood))}
     </div>
     {isResult && <div style={{position:'absolute',bottom:162,left:65,right:65,fontSize:29,fontWeight:900,color:'#6B6F2A',textAlign:'center'}}>{stage==='outro'?'TRY YOUR OWN EVERYDAY MOMENT':'ORIGINAL FICTION · ILLUSTRATED DEMO'}</div>}
-    <div style={{position:'absolute',bottom:85,left:62,fontSize:25,color:'#606456'}}>@buildwith_pankaj · PRIVATE REVIEW · AI ASSISTED BUILD</div>
+    <div style={{position:'absolute',bottom:85,left:62,fontSize:25,color:'#606456'}}>@buildwith_pankaj · ORIGINAL FICTION · AI ASSISTED BUILD</div>
   </AbsoluteFill>;
 };
 
