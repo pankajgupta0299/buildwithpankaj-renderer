@@ -6,64 +6,15 @@
   "ttsLanguageCode": "en-IN",
   "musicMode": "generated-original",
   "musicStyle": "warm-playful",
-  "musicVolume": 0.026,
+  "musicVolume": 0.024,
   "scenes": [
-    {
-      "type": "game",
-      "stage": "doodle",
-      "durationFrames": 150,
-      "postSpeechFrames": 15,
-      "headline": "BUILD A GAME\nFROM A DOODLE",
-      "voiceText": "Here is how I turned a frog doodle into a playable browser game with AI."
-    },
-    {
-      "type": "game",
-      "stage": "prompt",
-      "durationFrames": 210,
-      "postSpeechFrames": 18,
-      "headline": "STEP 1: GIVE AI\nTHE DRAWING + RULES",
-      "voiceText": "I gave AI the drawing and asked for a browser game: tap to jump, dodge rocks, collect stars for ten points, and restart after a hit."
-    },
-    {
-      "type": "game",
-      "stage": "rules",
-      "durationFrames": 120,
-      "postSpeechFrames": 12,
-      "headline": "STEP 2: RUN\nTHE GAME",
-      "voiceText": "Then I opened the generated game in my browser."
-    },
-    {
-      "type": "game",
-      "stage": "jump",
-      "durationFrames": 155,
-      "postSpeechFrames": 12,
-      "headline": "STEP 3: TEST\nTHE JUMP",
-      "voiceText": "I tested the controls. A tap makes the frog jump over a rock."
-    },
-    {
-      "type": "game",
-      "stage": "star",
-      "durationFrames": 155,
-      "postSpeechFrames": 18,
-      "headline": "TEST THE SCORE:\n000 → 010",
-      "voiceText": "Collecting a star changes the score from zero to ten."
-    },
-    {
-      "type": "game",
-      "stage": "hit",
-      "durationFrames": 145,
-      "postSpeechFrames": 12,
-      "headline": "TEST GAME OVER\n+ RESTART",
-      "voiceText": "A collision ends the run, and Play Again starts a fresh one."
-    },
-    {
-      "type": "game",
-      "stage": "final",
-      "durationFrames": 150,
-      "postSpeechFrames": 18,
-      "headline": "SKETCH. PROMPT.\nTEST. IMPROVE.",
-      "voiceText": "That is the workflow. I put the exact starter prompt in the caption so you can try it."
-    }
+    {"type":"dashboard","stage":"hook","durationFrames":170,"postSpeechFrames":13,"headline":"CAN AI BUILD A\nUSEFUL DASHBOARD?","voiceText":"Can AI turn a sheet of café orders into a dashboard I can actually use?"},
+    {"type":"dashboard","stage":"data","durationFrames":150,"postSpeechFrames":15,"headline":"START WITH\nA SMALL CSV.","voiceText":"I started with fictional orders: date, product, quantity, and revenue."},
+    {"type":"dashboard","stage":"prompt","durationFrames":210,"postSpeechFrames":20,"headline":"ASK FOR THE\nRIGHT CONTROLS.","voiceText":"My prompt asked for revenue by product, a day filter, and totals that update when the filter changes."},
+    {"type":"dashboard","stage":"all","durationFrames":155,"postSpeechFrames":15,"headline":"LOAD THE CSV.\nREAD THE TOTAL.","voiceText":"Across all twelve orders, revenue is four thousand four hundred and eighty rupees. Matcha is on top."},
+    {"type":"dashboard","stage":"filter","durationFrames":175,"postSpeechFrames":20,"headline":"FILTER TO\nSEPTEMBER SECOND.","voiceText":"Select September second: revenue changes to two thousand three hundred and twenty rupees, and Cold Brew moves to the top."},
+    {"type":"dashboard","stage":"check","durationFrames":220,"postSpeechFrames":18,"headline":"NOW CHECK\nTHE MATH.","voiceText":"I added the six source rows for that day. They total two thousand three hundred and twenty rupees, matching the dashboard."},
+    {"type":"dashboard","stage":"end","durationFrames":145,"postSpeechFrames":18,"headline":"BUILD. FILTER.\nVERIFY.","voiceText":"Try the starter prompt in the caption, and always check a number before sharing the result."}
   ],
   "captions": []
 }
