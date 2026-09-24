@@ -2,21 +2,21 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-reel04-doodle-dash-20260923-v2",
+  "approvalId": "bwp-reel05-cafe-dashboard-20260924-v1",
   "approved": true,
   "status": "approved",
   "postType": "reel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "A doodle can become a playable game. Here’s the starter prompt 👇\n\nAttach your character sketch to an AI coding tool and paste:\n\n“Build a simple mobile-friendly browser game using this frog drawing as the character reference. Put the HTML, CSS, and JavaScript in one runnable index.html file. The frog runs automatically. A tap or Space key makes it jump; rocks end the run if hit. Add collectible stars worth 10 points each, a visible score that updates immediately, a game-over screen, and a Play Again button that resets the score and starts a new run. Keep the controls simple. Tell me how to save and open the file in a browser.”\n\nThen test three things yourself: Does jumping clear a rock? Does a star change 000 to 010? Does Play Again reset the run? If one fails, describe the bug and ask AI to fix that specific behavior.\n\nSave this to try later. Follow @buildwith_pankaj for practical AI builds.\n\n#AIBuilding #VibeCoding #AIGameDev #BuildWithAI #BuildWithPankaj",
+  "caption": "Can a CSV become a useful dashboard? Here’s a starter prompt 👇\n\nUse a sample CSV with columns: date, item, quantity, unit_price, and revenue. The Reel uses fictional café orders and an illustrated walkthrough; the totals come from the sample rows.\n\nPaste this into your AI coding tool with the CSV attached:\n\n“Build a mobile-friendly sales dashboard from this CSV. Show total revenue, order count, and revenue by product. Add a day filter that updates every number and chart. Display the underlying rows for the selected day. Validate that revenue equals quantity × unit price for each row, and explain how I can run the page locally.”\n\nThen test it: all 12 sample orders total ₹4,480. Filter to September 2 and the six rows total ₹2,320. Check the rows yourself before sharing any result.\n\nSave this prompt and follow @buildwith_pankaj for practical AI builds.\n\n#BuildWithAI #VibeCoding #DataDashboard #AIPrompt #BuildWithPankaj",
   "firstComment": "",
   "shouldShareToFeed": true,
   "isAiGenerated": true,
   "assets": [
     {
       "type": "video",
-      "key": "draft-run-35893728504.mp4",
-      "altText": "A private-review approved tutorial reel showing a frog doodle, an AI game-building prompt, and animated checks of jumping, star scoring from 000 to 010, and game over with a Play Again button.",
+      "key": "draft-run-36014165858.mp4",
+      "altText": "An illustrated tutorial using fictional café sales rows to show a CSV-to-dashboard prompt, revenue by product, a day filter changing the total from ₹4,480 to ₹2,320, and a source-row sum check.",
       "thumbnailOffset": 0
     }
   ]
