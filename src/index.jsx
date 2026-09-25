@@ -337,7 +337,37 @@ const ScoreBeat = ({scene}) => {
   </AbsoluteFill>;
 };
 
+const ScoreHypeBeat = ({scene}) => {
+  const frame=useCurrentFrame();
+  const {fps,durationInFrames}=useVideoConfig();
+  const dark=['hook','end'].includes(scene.stage);
+  const bg=dark?'#1D2218':'#F7F8F0';
+  const ink=dark?'#FFFFFF':'#1D241B';
+  const acid='#D9E785',olive='#66732F';
+  const p=(n)=>spring({frame:Math.max(0,frame-n),fps,config:{damping:12,stiffness:225}});
+  const tag=(s)=> <div style={{fontSize:27,fontWeight:900,letterSpacing:1.8,color:dark?acid:olive}}>{s}</div>;
+  const bubble={background:'#FFFFFF',color:'#1D241B',borderRadius:31,boxShadow:'0 20px 58px #17201318',padding:34};
+  const card=(n,i)=> <div key={i} style={{...bubble,width:275,height:290,textAlign:'center',padding:'34px 12px',transform:`scale(${p(i*12)})`}}><div style={{color:olive,fontSize:28,fontWeight:900}}>जज {i+1}</div><div style={{fontSize:157,fontWeight:1000,lineHeight:1.3}}>{n}</div></div>;
+  return <AbsoluteFill style={{fontFamily:'ReelHindi,Arial,sans-serif',background:bg,color:ink,padding:'100px 56px 180px',overflow:'hidden'}}>
+    <style>{`@font-face{font-family:ReelHindi;src:url('${staticFile('fonts/NotoSansDevanagari.ttf')}') format('truetype');font-style:normal;font-weight:100 900;font-display:block}`}</style>
+    {tag(scene.stage==='hook'?'BUILDWITHPANKAJ / WHAT JUST HAPPENED?':scene.stage==='end'?'BUILDWITHPANKAJ / YOUR TURN':'BUILDWITHPANKAJ / AI से गेम बनाओ')}
+    {scene.stage==='hook' && <div style={{marginTop:95}}>
+      <div style={{fontSize:87,fontWeight:1000,lineHeight:1.11}}>भाई, ये क्या<br/>सीन है?!</div>
+      <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',marginTop:120}}><div style={{textAlign:'center',transform:`scale(${p(0)})`}}><div style={{fontSize:30,fontWeight:800}}>मैंने दिए</div><div style={{fontSize:260,fontWeight:1000,lineHeight:1,color:acid}}>9</div></div><div style={{fontSize:105,fontWeight:1000,color:acid,transform:`scale(${p(14)})`}}>→</div><div style={{textAlign:'center',transform:`scale(${p(22)})`}}><div style={{fontSize:30,fontWeight:800}}>जजों ने</div><div style={{fontSize:260,fontWeight:1000,lineHeight:1}}>6</div></div></div>
+      <div style={{background:acid,color:'#22291B',borderRadius:22,padding:'28px 34px',fontSize:38,fontWeight:950,marginTop:104,transform:`rotate(-2deg) scale(${p(27)})`}}>स्नूज़ करना टैलेंट है क्या? 😴</div>
+    </div>}
+    {scene.stage==='setup' && <div style={{marginTop:72}}><div style={{fontSize:78,fontWeight:1000,lineHeight:1.13}}>Latent वाली<br/>score-guess vibe?<br/><span style={{color:olive}}>अपना गेम बनाओ!</span></div><div style={{...bubble,marginTop:86,padding:44}}><div style={{fontSize:34,color:olive,fontWeight:900}}>GAME LOOP</div><div style={{fontSize:47,lineHeight:1.35,fontWeight:900,marginTop:35}}>टैलेंट चुनो → गेस करो<br/>→ 3 जज → औसत देखो</div></div><div style={{fontSize:28,marginTop:37,color:'#6F7768'}}>मूल शो की फुटेज या ब्रांडिंग नहीं</div></div>}
+    {scene.stage==='prompt' && <div style={{marginTop:72}}><div style={{fontSize:75,fontWeight:1000,lineHeight:1.18}}>AI को बस ये<br/>3 चीज़ें बोलो:</div><div style={{marginTop:75,display:'grid',gap:20}}>{['① टैलेंट चुनने का मेन्यू','② अपना स्कोर गेस करो','③ Reveal पर 3 जज कार्ड'].map((s,i)=><div key={i} style={{...bubble,fontSize:45,fontWeight:900,transform:`translateX(${(1-p(i*9))*130}px)`,borderLeft:`14px solid ${olive}`}}>{s}</div>)}</div><div style={{background:acid,borderRadius:18,padding:'26px 29px',fontWeight:900,fontSize:33,marginTop:57}}>HTML + CSS + JS · पूरा prompt कैप्शन में</div></div>}
+    {scene.stage==='build' && <div style={{marginTop:60}}><div style={{fontSize:72,fontWeight:1000,lineHeight:1.15}}>अब स्कोर का<br/>जुगाड़ सेट करो 👇</div><div style={{...bubble,marginTop:75}}><div style={{fontSize:33,color:olive,fontWeight:900}}>DEMO DATA</div><div style={{display:'flex',gap:13,marginTop:45}}>{[3,9,5].map((n,i)=><div key={i} style={{flex:1,borderRadius:23,background:'#EDF1DC',padding:'27px 0',textAlign:'center',fontSize:102,fontWeight:1000,transform:`scale(${p(i*10)})`}}>{n}</div>)}</div><div style={{fontSize:45,fontWeight:900,marginTop:60}}>(3 + 9 + 5) ÷ 3 = 5.67</div><div style={{fontSize:53,color:olive,fontWeight:1000,marginTop:32}}>राउंड करो → 6</div></div><div style={{fontSize:27,marginTop:42,color:'#66715D'}}>ये sample scores हैं, real AI judging नहीं।</div></div>}
+    {scene.stage==='play' && <div style={{marginTop:50}}><div style={{fontSize:78,fontWeight:1000,lineHeight:1.13}}>अब मेरा टैलेंट<br/>देखो ज़रा...</div><div style={{...bubble,marginTop:70}}><div style={{fontSize:30,color:olive,fontWeight:900}}>टैलेंट #1</div><div style={{fontSize:57,fontWeight:950,lineHeight:1.28,marginTop:32}}>5 अलार्म बंद करके<br/>फिर भी सो जाना 😴</div><div style={{height:3,background:'#E5E8DC',margin:'42px 0'}}/><div style={{fontSize:33,fontWeight:900}}>खुद को कितने?</div><div style={{display:'flex',alignItems:'baseline',gap:20,marginTop:17}}><div style={{fontSize:142,fontWeight:1000,color:olive}}>9</div><div style={{fontSize:42}}>/ 10</div></div><div style={{background:olive,color:'#fff',fontSize:38,fontWeight:950,borderRadius:20,padding:'28px 30px',textAlign:'center',marginTop:8,transform:`scale(${p(20)})`}}>REVEAL दबाओ →</div></div></div>}
+    {scene.stage==='reveal' && <div style={{marginTop:60}}><div style={{fontSize:78,fontWeight:1000,lineHeight:1.12}}>और जजों ने<br/>ये दे दिया! 👀</div><div style={{display:'flex',gap:16,marginTop:85}}>{[3,9,5].map(card)}</div><div style={{...bubble,marginTop:45,textAlign:'center',transform:`scale(${p(34)})`}}><div style={{fontSize:38,fontWeight:900,color:olive}}>औसत</div><div style={{fontSize:176,fontWeight:1000,lineHeight:1.2}}>6<span style={{fontSize:65}}>/10</span></div><div style={{fontSize:38,fontWeight:950}}>मेरा 9 वाला गेस... गया! 😂</div></div></div>}
+    {scene.stage==='end' && <div style={{marginTop:125}}><div style={{fontSize:92,fontWeight:1000,lineHeight:1.16}}>चल, अब<br/>तेरी बारी!</div><div style={{fontSize:48,fontWeight:850,lineHeight:1.35,marginTop:80}}>5 अलार्म वाला टैलेंट:<br/>तू कितने नंबर देगा?</div><div style={{background:acid,color:'#1D241B',borderRadius:28,padding:'35px 38px',fontSize:46,fontWeight:1000,marginTop:95,transform:`scale(${p(6)})`}}>कमेंट में स्कोर डाल 👇</div><div style={{fontSize:35,marginTop:66,color:'#DDE9AB'}}>गेम का पूरा prompt कैप्शन में</div></div>}
+    <div style={{position:'absolute',bottom:85,left:56,fontSize:26,color:dark?'#CBD1BF':'#737969'}}>@buildwith_pankaj  ·  PRIVATE REVIEW</div>
+  </AbsoluteFill>;
+};
+
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='score2') return <ScoreHypeBeat scene={scene}/>;
   if(scene.type==='score') return <ScoreBeat scene={scene}/>;
   if(scene.type==='movie') return <MovieBeat scene={scene}/>;
   if(scene.type==='dashboard') return <DashboardBeat scene={scene}/>;
