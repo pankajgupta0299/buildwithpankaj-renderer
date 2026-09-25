@@ -1,7 +1,7 @@
 # BuildWithPankaj — Reel Production Process
 
-**Version:** 2.3  
-**Updated:** 2026-09-24  
+**Version:** 2.4  
+**Updated:** 2026-09-25  
 **Status:** Active process; every individual Reel still needs its own approval.
 
 ## Scope and editorial rules
@@ -9,6 +9,10 @@
 BuildWithPankaj teaches anyone to build anything with AI through clear, practical projects. See `docs/Channel-Positioning.md` for the current mission, audience, profile copy, and content pillars. Projects may include apps, games, websites, automations, personal tools, and creative experiments. Workplace examples are one option, not the default or a requirement. Choose a topic because it gives the viewer a clear insight, useful demonstration, or reason to try something. Open by stating what the viewer will learn or build, then show the essential creation steps and a working result. Do not make a Reel about Pankaj's private publishing or automation setup unless he explicitly asks to share it.
 
 Use the existing brand identity and design system: olive, white, charcoal; clear typography; purposeful, unhurried motion. Claims about products, features, availability, or current events need current source checks. Demonstrations must distinguish actual results from illustrative mockups. Do not imply Pankaj personally tested a tool unless he did.
+
+## New short-form experiment (from 2026-09-25)
+
+The next Reel/Short tests Hindi narration, an immediate visual payoff in the first 2–5 seconds, and a final runtime of **40 seconds or less**. Start with the surprising output or audience challenge, then state what viewers will learn to build and demonstrate the essential steps. Measure voice segments, keep speech natural, and cut unnecessary setup rather than speeding the voice. Choose an original entertainment build tied to a verified current cultural reference when appropriate; do not reuse show footage, identity, or branding or imply affiliation. Compare comparable-age post metrics when access to @buildwith_pankaj insights exists; the currently connected Metricool brand is a separate account, so it is not evidence of this channel's performance. This is a content experiment, not a guarantee of reach.
 
 ## One Reel, from idea to publication
 
