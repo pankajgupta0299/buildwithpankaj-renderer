@@ -1,21 +1,21 @@
 {
-  "footer": "@buildwith_pankaj",
-  "badge": "PRIVATE REVIEW",
-  "audioSrc": null,
-  "musicMode": "generated-original",
-  "musicStyle": "spark-agentic",
-  "musicVolume": 0.035,
-  "ttsVoice": "hi-IN-Chirp3-HD-Charon",
-  "ttsLanguageCode": "hi-IN",
-  "scenes": [
-    {"type":"score","stage":"hook","headline":"मैंने दिए 9.\nजजों ने 6!","voiceText":"मैंने खुद को नौ दिए। जजों ने छह! ऐसा गेम AI से कैसे बनाएं?","postSpeechFrames":6,"durationFrames":105},
-    {"type":"score","stage":"promise","headline":"आज बनाएँगे\nस्कोर गेसिंग गेम","voiceText":"आज बनाते हैं अपना स्कोर गेसिंग गेम, समय के शो के आइडिया से प्रेरित।","postSpeechFrames":6,"durationFrames":135},
-    {"type":"score","stage":"prompt","headline":"पहले AI को\nये prompt दो","voiceText":"AI को बोलो: टैलेंट चुनने का मेन्यू, अपना अनुमान, और रिवील बटन बनाओ।","postSpeechFrames":6,"durationFrames":165},
-    {"type":"score","stage":"build","headline":"फिर स्कोर का\nनियम जोड़ो","voiceText":"तीन काल्पनिक जजों के सैंपल स्कोर रखो। तीन, नौ, पाँच। औसत राउंड होकर छह।","postSpeechFrames":6,"durationFrames":165},
-    {"type":"score","stage":"tap","headline":"अब गेम\nचलाकर देखो","voiceText":"मैंने चुना: पाँच अलार्म बंद करके फिर सो जाना। अपना अनुमान नौ डाला।","postSpeechFrames":6,"durationFrames":150},
-    {"type":"score","stage":"reveal","headline":"रिवील दबाया।\nस्कोर बदल गया!","voiceText":"बटन दबाते ही तीन कार्ड खुले। औसत छह निकला। मेरा नौ वाला गेस गलत!","postSpeechFrames":8,"durationFrames":170},
-    {"type":"score","stage":"outro","headline":"तुम कितने\nनंबर दोगे?","voiceText":"अब तुम्हारी बारी। अपने टैलेंट का स्कोर कमेंट करो। पूरा बिल्ड प्रॉम्प्ट कैप्शन में है।","postSpeechFrames":10,"durationFrames":170}
+  "footer":"@buildwith_pankaj",
+  "badge":"PRIVATE REVIEW",
+  "audioSrc":null,
+  "musicMode":"generated-original",
+  "musicStyle":"score-hype",
+  "musicVolume":0.11,
+  "ttsVoice":"hi-IN-Chirp3-HD-Puck",
+  "ttsLanguageCode":"hi-IN",
+  "scenes":[
+    {"type":"score2","stage":"hook","voiceText":"नौ दिए थे... छह मिले! भाई, ये क्या सीन है?!","postSpeechFrames":3,"durationFrames":105},
+    {"type":"score2","stage":"setup","voiceText":"Latent वाली स्कोर गेसिंग vibe याद है? चल, AI से अपना गेम बनाते हैं।","postSpeechFrames":3,"durationFrames":130},
+    {"type":"score2","stage":"prompt","voiceText":"AI को बोलो: टैलेंट चुनो, अपना स्कोर गेस करो, फिर रिवील पर तीन जज कार्ड दिखाओ।","postSpeechFrames":3,"durationFrames":150},
+    {"type":"score2","stage":"build","voiceText":"अब sample scores रखो: तीन, नौ, पाँच। एवरेज राउंड करो, तो छः। बस!","postSpeechFrames":3,"durationFrames":145},
+    {"type":"score2","stage":"play","voiceText":"मेरा टैलेंट? पाँच अलार्म snooze करके फिर भी सो जाना। खुद को नौ दे दिए!","postSpeechFrames":3,"durationFrames":145},
+    {"type":"score2","stage":"reveal","voiceText":"रिवील दबाया... तीन, नौ, पाँच! एवरेज छः। मेरा नौ वाला गेस तो गया!","postSpeechFrames":3,"durationFrames":145},
+    {"type":"score2","stage":"end","voiceText":"अब तू बता, इस टैलेंट को कितने देगा? कमेंट में स्कोर डाल। पूरा प्रॉम्प्ट कैप्शन में!","postSpeechFrames":5,"durationFrames":145}
   ],
-  "captions": [],
-  "renderRevision": "reel07-score-game-hindi-private-v2-font"
+  "captions":[],
+  "renderRevision":"reel07-score-game-hinglish-hype-private-v3"
 }
