@@ -1,0 +1,39 @@
+name: Inspect official talent clip for Reel 07
+on:
+  push:
+    paths:
+      - clip-inspect-trigger.txt
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install video inspection tools
+        run: python3 -m pip install --break-system-packages yt-dlp pillow
+      - name: Retrieve public clip from verified show channel
+        run: |
+          mkdir -p clip-inspect
+          yt-dlp --no-playlist -f 'bv*[height<=720]+ba/b[height<=720]' --merge-output-format mp4 -o 'clip-inspect/source.%(ext)s' 'https://www.youtube.com/watch?v=YZPV7U-mhMM'
+          ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1 clip-inspect/source.mp4
+      - name: Make visual contact sheet
+        run: |
+          ffmpeg -y -loglevel error -i clip-inspect/source.mp4 -vf 'fps=1/10,scale=240:135,tile=6x4' -frames:v 1 clip-inspect/contact.png
+          python3 - <<'PY'
+          from PIL import Image,ImageDraw
+          p='clip-inspect/contact.png'
+          im=Image.open(p).convert('RGB')
+          d=ImageDraw.Draw(im)
+          for i in range(24):
+              x=(i%6)*240+5;y=(i//6)*135+5
+              d.rectangle((x,y,x+56,y+22),fill='black')
+              d.text((x+3,y+2),str(i*10)+'s',fill='white')
+          im.save(p)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: reel07-official-clip-contact-sheet
+          path: clip-inspect/contact.png
+          retention-days: 1
