@@ -14,7 +14,16 @@ DURATION = float(sys.argv[2]) if len(sys.argv) > 2 else 36.0
 STYLE = sys.argv[3] if len(sys.argv) > 3 else "default"
 SR = 44100
 
-if STYLE == "spark-agentic":
+if STYLE == "score-hype":
+    BPM = 128.0
+    random.seed(20260925)
+    CHORDS = [
+        (164.81, [0, 3, 7, 10]),
+        (196.00, [0, 4, 7, 11]),
+        (146.83, [0, 2, 7, 9]),
+        (174.61, [0, 4, 7, 11]),
+    ]
+elif STYLE == "spark-agentic":
     BPM = 112.0
     random.seed(20260729)
     # Brighter, forward-moving tech bed for agentic/productivity content.
@@ -83,7 +92,7 @@ with wave.open(OUT, "wb") as wf:
             bar_t = t - bar_index * BAR
 
             # Global fade and gentle mid-reel lift.
-            fade_in = smoothstep(t / 0.8)
+            fade_in = smoothstep(t / (0.06 if STYLE == "score-hype" else 0.8))
             fade_out = smoothstep((DURATION - t) / 1.2)
             lift = 0.92 + 0.08 * smoothstep((t - DURATION*0.42) / (DURATION*0.18))
             master = fade_in * fade_out * lift
@@ -124,8 +133,15 @@ with wave.open(OUT, "wb") as wf:
             h = hat(t, off_phase) * 0.018
 
             # Small stereo width on arp / hat.
-            left = (pad_l + bass + k + arp*0.94 + h*0.80) * master
-            right = (pad_r + bass + k + arp*1.06 + h) * master
+            accent = 0.0
+            if STYLE == "score-hype":
+                # Short original synth hits for the opening score reveal and late result.
+                for hit in (0.0, 1.25, 2.05, DURATION * .74):
+                    age = t-hit
+                    if 0 <= age < .38:
+                        accent += math.sin(2*math.pi*(610-280*age)*age) * math.exp(-13*age) * .20
+            left = (pad_l + bass + k + arp*0.94 + h*0.80 + accent) * master
+            right = (pad_r + bass + k + arp*1.06 + h + accent) * master
 
             # Soft saturation / limiting.
             left = math.tanh(left * 1.25) * 0.78
