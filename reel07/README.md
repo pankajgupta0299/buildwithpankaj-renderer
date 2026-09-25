@@ -10,13 +10,15 @@ Ask an AI coding assistant for a mobile page with a talent selector, self-score 
 
 > एक मोबाइल-फ्रेंडली वेब गेम बनाओ। यूज़र एक मज़ेदार काल्पनिक टैलेंट चुने, 0 से 10 तक अपना स्कोर गेस करे, फिर Reveal दबाए। तीन काल्पनिक जजों के पहले से तय sample scores अलग कार्ड में दिखाओ, उनका औसत निकालकर nearest integer पर round करो, और यूज़र के अनुमान से फर्क बताओ। कम से कम तीन एक्ट डालो। HTML, CSS और JavaScript की तीन सरल फ़ाइलों में बनाओ; बिना API key के चलना चाहिए। UI में स्पष्ट लिखो कि scores sample हैं, live AI judging नहीं। मोबाइल पर बड़े readable text और button रखो।
 
-## Review caption draft
+## Review caption draft — entertainment cut
 
-मैंने खुद को 9 दिए। जजों का औसत 6 निकला! 😅
+भाई, मैंने खुद को **9/10** दे दिए। जजों का average निकला **6**. ये क्या सीन है? 😭
 
-AI से अपना **Guess The Score** mini game बनाने के लिए ऊपर वाला prompt इस्तेमाल करो। पहले एक talent picker, 0–10 guess और Reveal button बनाओ। फिर sample scores 3, 9, 5 जोड़कर rounded average दिखाओ। इस demo में scores पहले से तय हैं; AI कोई real performance judge नहीं कर रहा।
+AI से अपना mini score-guessing game बनाओ: एक talent picker, खुद का guess, Reveal button, तीन fictional judge cards, और rounded average. इस demo में 3, 9, 5 sample scores हैं—कोई real contestant या live AI judging नहीं।
 
-तुम्हारा ऐसा कौन-सा टैलेंट है और कितने नंबर दोगे? 👇
+**Copy-paste prompt:** ऊपर दिया हुआ पूरा prompt AI coding assistant में डालो, page चलाओ, अपना talent जोड़ो, और score logic बदलकर test करो.
+
+अब सच बोल: 5 alarm snooze करके भी सो जाने पर कितने नंबर? 👇
 
 #BuildWithPankaj #BuildWithAI #AIGame #CreativeCoding #HindiTech
 
