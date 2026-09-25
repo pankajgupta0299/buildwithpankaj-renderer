@@ -16,7 +16,7 @@ jobs:
       - name: Retrieve public show video for review
         run: |
           mkdir -p clip-inspect
-          yt-dlp --no-playlist -f 'bv*[height<=720]+ba/b[height<=720]' --merge-output-format mp4 -o 'clip-inspect/source.%(ext)s' 'https://www.dailymotion.com/video/xa0nzng'
+          yt-dlp --no-playlist -f 'bv*[height<=720]+ba/b[height<=720]' --merge-output-format mp4 -o 'clip-inspect/source.%(ext)s' 'https://www.dailymotion.com/video/x9qh48i'
           ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1 clip-inspect/source.mp4
       - name: Make visual contact sheet
         run: |
