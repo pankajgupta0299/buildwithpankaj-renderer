@@ -25,3 +25,9 @@ AI से अपना mini score-guessing game बनाओ: एक talent pick
 ## Demo
 
 From this repository root, run `python3 -m http.server 8000` and visit `/reel07/`.
+
+## Visual-first footage cut (pending source media)
+
+Use three very brief moments from one genuine show sequence: (1) the contestant doing the act, (2) the judge reaction, (3) the actual score reveal. They must belong to the same contestant and should be shown in chronological order. Crop for vertical without cutting off the act or score, retain a small source credit, and keep the original sequence's score distinct from our fictional game's 3/9/5 average 6. Do not label the game's sample numbers as actual show scores.
+
+Editorial map: 0–2 s actual act under “इस टैलेंट को कितने?”, 2–4 s judge reaction and real score, 4–6 s quick “चल, अपना score-guess game बनाते हैं”, 6–14 s AI prompt visualized as three interface parts, 14–22 s original game screen with the 9/10 guess, 22–28 s animated fictional 3/9/5 reveal and rounded average 6, 28–33 s audience score question. Keep total under 40 s and test the full audiovisual render. Source clip credit and chosen seconds must be recorded after footage is supplied.
