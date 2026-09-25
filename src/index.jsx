@@ -1,6 +1,7 @@
 import React from 'react';
 import {sampleRows, summarize} from '../reel05/model.mjs';
 import {generatePitch} from '../reel06/model.mjs';
+import {judge} from '../reel07/model.mjs';
 import {
   AbsoluteFill,
   Audio,
@@ -307,11 +308,36 @@ const MovieBeat = ({scene}) => {
       {isResult && (stage==='compare'||stage==='outro'?<div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:18}}>{card(bollywood,true)}{card(hollywood,true)}</div>:card(stage==='bollywood'?bollywood:hollywood))}
     </div>
     {isResult && <div style={{position:'absolute',bottom:162,left:65,right:65,fontSize:29,fontWeight:900,color:'#6B6F2A',textAlign:'center'}}>{stage==='outro'?'TRY YOUR OWN EVERYDAY MOMENT':'ORIGINAL FICTION · ILLUSTRATED DEMO'}</div>}
-    <div style={{position:'absolute',bottom:85,left:62,fontSize:25,color:'#606456'}}>@buildwith_pankaj · ORIGINAL FICTION · AI ASSISTED BUILD</div>
+    <div style={{position:'absolute',bottom:85,left:62,fontSize:25,color:'#606456'}}>@buildwith_pankaj · PRIVATE REVIEW · AI ASSISTED BUILD</div>
+  </AbsoluteFill>;
+};
+
+const ScoreBeat = ({scene}) => {
+  const frame = useCurrentFrame();
+  const stage = scene.stage;
+  const result = judge('alarm', 9);
+  const olive = '#6B6F2A';
+  const pop = (at) => spring({frame:Math.max(0,frame-at),fps:30,config:{damping:12,stiffness:190}});
+  const card = {background:'#fff',border:'2px solid #DFE2D1',borderRadius:32,padding:34,boxShadow:'0 20px 55px #1B271A12'};
+  const pill = (label,active=false) => <span style={{display:'inline-block',borderRadius:99,padding:'14px 22px',fontSize:27,fontWeight:850,background:active?olive:'#EDF0E6',color:active?'#fff':'#303429'}}>{label}</span>;
+  const scoreCards = (reveal=true) => <div style={{display:'flex',gap:18,marginTop:38}}>{result.scores.map((n,i)=><div key={i} style={{...card,flex:1,height:190,textAlign:'center',padding:'26px 10px',transform:`scale(${reveal?pop(i*12):1})`}}><div style={{fontSize:24,color:'#68705A',fontWeight:800}}>जज {i+1}</div><div style={{fontSize:93,fontWeight:950,lineHeight:1.2,color:olive}}>{n}</div></div>)}</div>;
+  const gamePanel = <div style={{...card,marginTop:48}}><div style={{fontSize:27,color:olive,fontWeight:900}}>GUESS THE SCORE · ORIGINAL MINI GAME</div><div style={{fontSize:40,fontWeight:800,marginTop:26}}>मेरा टैलेंट</div><div style={{fontSize:43,fontWeight:800,lineHeight:1.23,background:'#F4F5EE',padding:'28px 25px',borderRadius:20,marginTop:15}}>पाँच अलार्म बंद करके<br/>फिर सो जाना</div><div style={{fontSize:32,fontWeight:800,marginTop:38}}>मैं खुद को दूँगा</div><div style={{display:'flex',alignItems:'center',gap:24,marginTop:13}}><div style={{fontSize:120,fontWeight:950,color:olive,lineHeight:1}}>9</div><div style={{fontSize:43,color:'#62695C'}}>/ 10</div></div><div style={{background:olive,color:'#fff',borderRadius:19,padding:'22px 30px',marginTop:20,fontSize:34,fontWeight:900,textAlign:'center'}}>जजों का स्कोर दिखाओ →</div></div>;
+  return <AbsoluteFill style={{background:stage==='hook'||stage==='outro'?'#20241C':'#F7F8F2',color:stage==='hook'||stage==='outro'?'#fff':'#20241C',fontFamily:'"Noto Sans Devanagari",Arial,sans-serif',padding:'120px 62px 180px',overflow:'hidden'}}>
+    <div style={{fontSize:28,fontWeight:900,letterSpacing:2,color:stage==='hook'||stage==='outro'?'#D7DF9B':olive}}>BUILDWITHPANKAJ  /  AI से बनाओ</div>
+    <div style={{fontSize:scene.headlineSize||74,fontWeight:950,lineHeight:1.16,marginTop:48,whiteSpace:'pre-line',letterSpacing:-1}}>{scene.headline}</div>
+    {stage==='hook' && <div style={{marginTop:95}}><div style={{fontSize:28,color:'#C8D1BB',fontWeight:850}}>मैंने दिए</div><div style={{fontSize:260,lineHeight:1.05,fontWeight:1000,color:'#DBE59B',transform:`scale(${pop(0)})`}}>9</div><div style={{fontSize:36,fontWeight:900,margin:'12px 0'}}>जजों का औसत</div><div style={{fontSize:275,lineHeight:1.02,fontWeight:1000,color:'#fff',transform:`scale(${pop(20)})`}}>6<span style={{fontSize:84}}>/10</span></div><div style={{fontSize:34,color:'#DAE09D',marginTop:65,fontWeight:800}}>अपना ऐसा गेम AI से कैसे बनाएं? →</div></div>}
+    {stage==='promise' && <div style={{...card,marginTop:88,padding:44}}><div style={{fontSize:33,color:olive,fontWeight:900}}>हम आज क्या बनाएँगे?</div><div style={{fontSize:58,lineHeight:1.24,fontWeight:900,marginTop:32}}>एक टैलेंट चुनो।<br/>स्कोर गेस करो।<br/>तीन जजों का औसत देखो।</div><div style={{display:'flex',gap:13,marginTop:62}}>{pill('चुनो')}{pill('गेस करो')}{pill('रिज़ल्ट',true)}</div></div>}
+    {stage==='prompt' && <div style={{...card,marginTop:68,padding:42}}><div style={{fontSize:29,color:olive,fontWeight:900}}>AI CODING PROMPT</div><div style={{fontSize:49,lineHeight:1.37,fontWeight:820,marginTop:38}}>“एक मोबाइल गेम बनाओ:<br/>टैलेंट चुनो,<br/>0–10 स्कोर गेस करो,<br/>Reveal पर 3 जज कार्ड<br/>और औसत दिखाओ।”</div><div style={{fontSize:27,color:'#66705D',marginTop:72}}>HTML  +  CSS  +  JavaScript</div></div>}
+    {stage==='build' && <div style={{marginTop:60}}><div style={{...card}}><div style={{fontSize:31,color:olive,fontWeight:900}}>STEP 2 · LOGIC</div><div style={{fontFamily:'monospace',fontSize:37,lineHeight:1.55,fontWeight:800,marginTop:35,color:'#232924'}}>scores = [3, 9, 5]<br/>average = round(<br/>  (3+9+5) / 3<br/>)</div><div style={{fontSize:35,fontWeight:850,color:olive,marginTop:42}}>औसत = 6</div></div><div style={{fontSize:31,lineHeight:1.3,marginTop:47,color:'#4F584C'}}>ये काल्पनिक जज और sample scores हैं।<br/>रनटाइम में AI जजिंग नहीं करता।</div></div>}
+    {stage==='tap' && <div style={{transform:`translateY(${(1-pop(0))*48}px)`}}>{gamePanel}</div>}
+    {stage==='reveal' && <div style={{marginTop:55}}><div style={{fontSize:34,fontWeight:900}}>टैप करते ही 3 कार्ड खुलते हैं</div>{scoreCards()}<div style={{...card,marginTop:32,padding:'38px 35px',textAlign:'center',transform:`scale(${pop(35)})`}}><div style={{fontSize:37,fontWeight:800,color:'#5E6659'}}>औसत स्कोर</div><div style={{fontSize:142,fontWeight:950,lineHeight:1.1,color:olive}}>6/10</div><div style={{fontSize:33,fontWeight:800}}>मेरा अंदाज़ा 9 · चूक गया!</div></div></div>}
+    {stage==='outro' && <div style={{marginTop:110}}><div style={{fontSize:58,fontWeight:900,lineHeight:1.3}}>तुम किस टैलेंट को<br/>कितने नंबर दोगे?</div><div style={{background:'#D9E39D',color:'#20241C',padding:'30px 36px',fontSize:39,fontWeight:950,borderRadius:26,marginTop:85}}>पूरा prompt कैप्शन में ↓</div><div style={{marginTop:75,fontSize:29,color:'#D5D7CC'}}>शो से संबद्ध नहीं · स्वतंत्र काल्पनिक गेम</div></div>}
+    <div style={{position:'absolute',bottom:88,left:62,right:62,fontSize:26,color:stage==='hook'||stage==='outro'?'#C8CEBC':'#737969'}}>@buildwith_pankaj · PRIVATE REVIEW · 9:16</div>
   </AbsoluteFill>;
 };
 
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='score') return <ScoreBeat scene={scene}/>;
   if(scene.type==='movie') return <MovieBeat scene={scene}/>;
   if(scene.type==='dashboard') return <DashboardBeat scene={scene}/>;
   if(scene.type==='game') return <GameBeat scene={scene}/>;
