@@ -17,6 +17,11 @@ jobs:
       GOOGLE_CLOUD_PROJECT_ID: project-f4392ec4-4015-402b-9b8
     steps:
       - uses: actions/checkout@v4
+      - name: Decode original Reel 08 poster artwork
+        run: |
+          mkdir -p public
+          base64 -d reel08/poster.b64 > public/reel08-poster.jpg
+          file public/reel08-poster.jpg
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
