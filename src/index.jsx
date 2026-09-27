@@ -2,6 +2,7 @@ import React from 'react';
 import {sampleRows, summarize} from '../reel05/model.mjs';
 import {generatePitch} from '../reel06/model.mjs';
 import {judge} from '../reel07/model.mjs';
+import {pitchFor} from '../reel08/model.mjs';
 import {
   AbsoluteFill,
   Audio,
@@ -366,7 +367,32 @@ const ScoreHypeBeat = ({scene}) => {
   </AbsoluteFill>;
 };
 
+const MovieMashupBeat = ({scene}) => {
+  const frame=useCurrentFrame();
+  const {fps,durationInFrames}=useVideoConfig();
+  const p=(delay=0)=>spring({frame:Math.max(0,frame-delay),fps,config:{damping:13,stiffness:190}});
+  const movie=pitchFor('shaadi','horror');
+  const poster=staticFile('reel08-poster.jpg');
+  const base={fontFamily:'ReelHindi,Arial,sans-serif',background:'#172017',color:'#fff',overflow:'hidden'};
+  const label={fontSize:28,fontWeight:900,letterSpacing:2,color:'#D9E785'};
+  const movieArt=<Img src={poster} style={{width:'100%',height:'100%',objectFit:'cover'}}/>;
+  const gradient=<AbsoluteFill style={{background:'linear-gradient(180deg,rgba(0,0,0,.45) 0%,transparent 30%,rgba(0,0,0,.10) 55%,rgba(0,0,0,.92) 100%)'}}/>;
+  const footer=<div style={{position:'absolute',bottom:65,left:54,right:54,fontSize:26,fontWeight:800,color:'#D9E785'}}>BUILDWITHPANKAJ · PRIVATE REVIEW</div>;
+  const phone=(children)=> <div style={{position:'absolute',left:96,right:96,top:270,bottom:270,border:'11px solid #080B08',borderRadius:65,background:'#F6F7EF',color:'#1D241A',boxShadow:'0 40px 100px #0008',overflow:'hidden',padding:'76px 44px 38px'}}><div style={{position:'absolute',top:19,left:'38%',width:'24%',height:25,borderRadius:30,background:'#101710'}}/>{children}</div>;
+  return <AbsoluteFill style={base}>
+    <style>{`@font-face{font-family:ReelHindi;src:url('${staticFile('fonts/NotoSansDevanagari.ttf')}') format('truetype');font-style:normal;font-weight:100 900;font-display:block}`}</style>
+    {scene.stage==='hook' && <><AbsoluteFill style={{transform:`scale(${interpolate(frame,[0,durationInFrames],[1.12,1.02],{extrapolateRight:'clamp'})})`}}>{movieArt}</AbsoluteFill>{gradient}<div style={{position:'absolute',top:115,left:55,right:55,...label,color:'#fff'}}>2 GENRES → 1 WILD MOVIE</div><div style={{position:'absolute',bottom:280,left:55,right:55,transform:`translateY(${(1-p())*75}px)`}}><div style={{fontSize:46,fontWeight:900,color:'#D9E785'}}>SHAADI × HORROR</div><div style={{fontSize:111,lineHeight:1.01,fontWeight:1000,textShadow:'0 6px 25px #000'}}>BHOOT KI<br/>BARAAT</div></div><div style={{position:'absolute',bottom:185,left:55,right:55,fontSize:42,fontWeight:800}}>ये फिल्म है ही नहीं... मैंने AI से गेम बनाया!</div></>}
+    {scene.stage==='choose' && <><div style={{position:'absolute',top:100,left:58,right:58,...label}}>ACTUAL WORKING DEMO</div>{phone(<><div style={{fontSize:34,color:'#687434',fontWeight:900}}>MOVIE MASHUP</div><div style={{fontSize:77,lineHeight:1.03,fontWeight:1000,marginTop:35}}>2 genres.<br/>1 wild movie.</div><div style={{fontSize:37,marginTop:70}}>Tonight’s mashup</div><div style={{background:'#E8EDD9',borderRadius:24,padding:'29px 28px',fontSize:43,fontWeight:950,marginTop:19,boxShadow:'inset 0 0 0 3px #687434'}}>Shaadi × Horror ⌄</div><div style={{background:'#687434',color:'#fff',borderRadius:25,padding:'32px',fontSize:40,fontWeight:1000,textAlign:'center',marginTop:45,transform:`scale(${1+0.06*p(36)})`}}>MAKE MY MOVIE →</div><div style={{fontSize:32,color:'#69745E',marginTop:50}}>Original fictional stories</div></>)}<div style={{position:'absolute',top:1300,right:138,fontSize:100,transform:`translateY(${(1-p(35))*250}px)`}}>☝️</div></>}
+    {scene.stage==='reveal' && <><div style={{position:'absolute',top:100,left:58,right:58,...label}}>TAP → REVEAL</div>{phone(<><div style={{height:730,borderRadius:30,overflow:'hidden',position:'relative'}}>{movieArt}<div style={{position:'absolute',inset:0,background:'linear-gradient(transparent 48%,rgba(0,0,0,.88))'}}/><div style={{position:'absolute',bottom:25,left:25,right:20,fontSize:72,lineHeight:1.04,fontWeight:1000,color:'#fff'}}>BHOOT KI<br/>BARAAT</div></div><div style={{fontSize:30,fontWeight:900,color:'#687434',marginTop:28}}>THE PLOT</div><div style={{fontSize:43,fontWeight:900,lineHeight:1.22,marginTop:12}}>दूल्हा आया...<br/>बाराती 100 साल पुराने!</div></>)}<div style={{position:'absolute',top:190,right:60,fontSize:37,background:'#D9E785',color:'#1C2819',padding:'18px 28px',borderRadius:60,fontWeight:1000,transform:`scale(${p(8)})`}}>FICTIONAL</div></>}
+    {scene.stage==='twist' && <><AbsoluteFill style={{transform:'scale(1.45) translateX(9%)'}}>{movieArt}</AbsoluteFill>{gradient}<div style={{position:'absolute',top:110,left:60,right:60,...label,color:'#fff'}}>WAIT FOR THE TWIST...</div><div style={{position:'absolute',bottom:260,left:58,right:58,fontSize:74,lineHeight:1.16,fontWeight:1000,transform:`translateY(${(1-p(8))*110}px)`}}>दुल्हन ही<br/><span style={{color:'#D9E785'}}>GHOST HUNTER</span><br/>निकली! 👀</div></>}
+    {scene.stage==='build' && <><div style={{position:'absolute',top:130,left:60,right:60,...label}}>HOW I MADE IT</div>{phone(<><div style={{fontSize:34,color:'#687434',fontWeight:900}}>AI PROMPT → WORKING PAGE</div><div style={{fontSize:69,fontWeight:1000,lineHeight:1.12,marginTop:45}}>“Movie Mashup<br/>गेम बनाओ”</div><div style={{display:'grid',gap:20,marginTop:65}}>{['① 2 genres चुनो','② Movie + plot दिखाओ','③ एक funny twist जोड़ो'].map((s,i)=><div key={i} style={{padding:'24px 22px',borderRadius:24,background:'#E8EDD9',fontSize:43,fontWeight:900,transform:`translateX(${(1-p(12+i*11))*110}px)`}}>{s}</div>)}</div><div style={{marginTop:70,fontSize:30,color:'#626B5E'}}>HTML · CSS · JavaScript<br/>3 preset sample outcomes</div></>)}</>}
+    {scene.stage==='end' && <><AbsoluteFill style={{opacity:.4}}>{movieArt}</AbsoluteFill><AbsoluteFill style={{background:'linear-gradient(180deg,#17201755,#172017 78%)'}}/><div style={{position:'absolute',top:240,left:60,right:60,...label}}>YOUR TURN</div><div style={{position:'absolute',top:330,left:60,right:60,fontSize:91,lineHeight:1.12,fontWeight:1000}}>अगली फिल्म<br/>किस combo पर?</div><div style={{position:'absolute',top:750,left:60,right:60,display:'grid',gap:22}}>{['CRICKET × MYSTERY?','OFFICE × SCI-FI?'].map((s,i)=><div key={s} style={{background:'#F6F7EF',color:'#1D241A',padding:'34px 36px',borderRadius:30,fontSize:44,fontWeight:950,transform:`scale(${p(i*12)})`}}>{s}</div>)}</div><div style={{position:'absolute',bottom:285,left:60,right:60,background:'#D9E785',color:'#1D241A',borderRadius:26,padding:'31px 28px',fontSize:42,fontWeight:1000,textAlign:'center'}}>पूरा build prompt caption में ↓</div></>}
+    {footer}
+  </AbsoluteFill>;
+};
+
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='movie8') return <MovieMashupBeat scene={scene}/>;
   if(scene.type==='score2') return <ScoreHypeBeat scene={scene}/>;
   if(scene.type==='score') return <ScoreBeat scene={scene}/>;
   if(scene.type==='movie') return <MovieBeat scene={scene}/>;
