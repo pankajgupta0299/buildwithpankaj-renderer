@@ -8,13 +8,13 @@
   "ttsVoice":"hi-IN-Chirp3-HD-Puck",
   "ttsLanguageCode":"hi-IN",
   "scenes":[
-    {"type":"movie8","stage":"hook","voiceText":"शादी और हॉरर मिलाओ... भूत की बारात! ये फिल्म नहीं, मेरा AI वाला गेम है।","postSpeechFrames":1,"durationFrames":125},
-    {"type":"movie8","stage":"choose","voiceText":"दो genres चुनो, और बस इस बटन पर tap करो।","postSpeechFrames":1,"durationFrames":100},
+    {"type":"movie8","stage":"hook","voiceText":"शादी प्लस हॉरर? भूत की बारात!","postSpeechFrames":1,"durationFrames":75},
+    {"type":"movie8","stage":"choose","voiceText":"AI से ये गेम बनाया। दो genres चुनो, और बटन दबाओ।","postSpeechFrames":1,"durationFrames":120},
     {"type":"movie8","stage":"reveal","voiceText":"दूल्हा आ गया... पर बाराती सौ साल पुराने निकले!","postSpeechFrames":1,"durationFrames":110},
     {"type":"movie8","stage":"twist","voiceText":"और plot twist? दुल्हन खुद ghost hunter है!","postSpeechFrames":1,"durationFrames":105},
     {"type":"movie8","stage":"build","voiceText":"AI से बोला: दो genres लो, movie का plot दिखाओ, और एक funny twist जोड़ो।","postSpeechFrames":1,"durationFrames":140},
     {"type":"movie8","stage":"end","voiceText":"अगला combo तू बता। पूरा build prompt caption में है!","postSpeechFrames":2,"durationFrames":105}
   ],
   "captions":[],
-  "renderRevision":"reel08-movie-mashup-result-first-private-v1"
+  "renderRevision":"reel08-movie-mashup-result-first-private-v2"
 }
