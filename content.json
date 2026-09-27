@@ -4,18 +4,17 @@
   "audioSrc":null,
   "musicMode":"generated-original",
   "musicStyle":"score-hype",
-  "musicVolume":0.11,
+  "musicVolume":0.08,
   "ttsVoice":"hi-IN-Chirp3-HD-Puck",
   "ttsLanguageCode":"hi-IN",
   "scenes":[
-    {"type":"score2","stage":"hook","voiceText":"नौ दिए थे... छह मिले! भाई, ये क्या सीन है?!","postSpeechFrames":3,"durationFrames":105},
-    {"type":"score2","stage":"setup","voiceText":"Latent वाली स्कोर गेसिंग vibe याद है? चल, AI से अपना गेम बनाते हैं।","postSpeechFrames":3,"durationFrames":130},
-    {"type":"score2","stage":"prompt","voiceText":"AI को बोलो: टैलेंट चुनो, अपना स्कोर गेस करो, फिर रिवील पर तीन जज कार्ड दिखाओ।","postSpeechFrames":3,"durationFrames":150},
-    {"type":"score2","stage":"build","voiceText":"अब sample scores रखो: तीन, नौ, पाँच। एवरेज राउंड करो, तो छः। बस!","postSpeechFrames":3,"durationFrames":145},
-    {"type":"score2","stage":"play","voiceText":"मेरा टैलेंट? पाँच अलार्म snooze करके फिर भी सो जाना। खुद को नौ दे दिए!","postSpeechFrames":3,"durationFrames":145},
-    {"type":"score2","stage":"reveal","voiceText":"रिवील दबाया... तीन, नौ, पाँच! एवरेज छः। मेरा नौ वाला गेस तो गया!","postSpeechFrames":3,"durationFrames":145},
-    {"type":"score2","stage":"end","voiceText":"अब तू बता, इस टैलेंट को कितने देगा? कमेंट में स्कोर डाल। पूरा प्रॉम्प्ट कैप्शन में!","postSpeechFrames":5,"durationFrames":145}
+    {"type":"movie8","stage":"hook","voiceText":"शादी और हॉरर मिलाओ... भूत की बारात! ये फिल्म नहीं, मेरा AI वाला गेम है।","postSpeechFrames":1,"durationFrames":125},
+    {"type":"movie8","stage":"choose","voiceText":"दो genres चुनो, और बस इस बटन पर tap करो।","postSpeechFrames":1,"durationFrames":100},
+    {"type":"movie8","stage":"reveal","voiceText":"दूल्हा आ गया... पर बाराती सौ साल पुराने निकले!","postSpeechFrames":1,"durationFrames":110},
+    {"type":"movie8","stage":"twist","voiceText":"और plot twist? दुल्हन खुद ghost hunter है!","postSpeechFrames":1,"durationFrames":105},
+    {"type":"movie8","stage":"build","voiceText":"AI से बोला: दो genres लो, movie का plot दिखाओ, और एक funny twist जोड़ो।","postSpeechFrames":1,"durationFrames":140},
+    {"type":"movie8","stage":"end","voiceText":"अगला combo तू बता। पूरा build prompt caption में है!","postSpeechFrames":2,"durationFrames":105}
   ],
   "captions":[],
-  "renderRevision":"reel07-score-game-hinglish-hype-private-v3"
+  "renderRevision":"reel08-movie-mashup-result-first-private-v1"
 }
