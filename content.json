@@ -1,20 +1,56 @@
 {
-  "footer":"@buildwith_pankaj",
-  "badge":"PRIVATE REVIEW",
-  "audioSrc":null,
-  "musicMode":"generated-original",
-  "musicStyle":"warm-bounce",
-  "musicVolume":0.06,
-  "ttsVoice":"hi-IN-Chirp3-HD-Puck",
-  "ttsLanguageCode":"hi-IN",
-  "scenes":[
-    {"type":"fridge9","stage":"hook","voiceText":"फ्रिज खोला, और फिर वही सवाल: आज डिनर में क्या बनाऊँ?","postSpeechFrames":2,"durationFrames":110},
-    {"type":"fridge9","stage":"inventory","voiceText":"तो AI की मदद से ये छोटा ऐप बनाया। फ्रिज में जो है, वो यहाँ एडिट करो।","postSpeechFrames":2,"durationFrames":150},
-    {"type":"fridge9","stage":"filter","voiceText":"मैंने वेजिटेरियन और बीस मिनट चुना। अब देखो!","postSpeechFrames":2,"durationFrames":120},
-    {"type":"fridge9","stage":"options","voiceText":"ये तीन डिनर आइडिया दिखाता है, और बताता है क्या घर में नहीं है।","postSpeechFrames":3,"durationFrames":150},
-    {"type":"fridge9","stage":"cook","voiceText":"रैप चुनकर cooked मार्क किया, तो पालक, पनीर, टमाटर और रोटी लिस्ट से हट गए।","postSpeechFrames":3,"durationFrames":160},
-    {"type":"fridge9","stage":"end","voiceText":"फिर बची चीज़ों से दोबारा प्लान करो। अपना ऐसा ऐप बनाना है? प्रॉम्प्ट कैप्शन में है!","postSpeechFrames":5,"durationFrames":160}
+  "footer": "@buildwith_pankaj",
+  "badge": "PRIVATE REVIEW",
+  "audioSrc": null,
+  "musicMode": "generated-original",
+  "musicStyle": "warm-bounce",
+  "musicVolume": 0.06,
+  "ttsVoice": "hi-IN-Chirp3-HD-Puck",
+  "ttsLanguageCode": "hi-IN",
+  "scenes": [
+    {
+      "type": "fridge9",
+      "stage": "hook",
+      "voiceText": "फ्रिज खोला, और फिर वही सवाल: आज डिनर में क्या बनाऊँ?",
+      "postSpeechFrames": 2,
+      "durationFrames": 110
+    },
+    {
+      "type": "fridge9",
+      "stage": "inventory",
+      "voiceText": "तो AI की मदद से ये छोटा ऐप बनाया। फ्रिज में जो है, वो यहाँ एडिट करो।",
+      "postSpeechFrames": 2,
+      "durationFrames": 150
+    },
+    {
+      "type": "fridge9",
+      "stage": "filter",
+      "voiceText": "मैंने वेजिटेरियन और बीस मिनट चुना। अब देखो!",
+      "postSpeechFrames": 2,
+      "durationFrames": 120
+    },
+    {
+      "type": "fridge9",
+      "stage": "options",
+      "voiceText": "ये तीन डिनर आइडिया दिखाता है, और बताता है क्या घर में नहीं है।",
+      "postSpeechFrames": 3,
+      "durationFrames": 150
+    },
+    {
+      "type": "fridge9",
+      "stage": "cook",
+      "voiceText": "रैप चुनकर cooked मार्क किया, तो पालक, पनीर, टमाटर और रोटी लिस्ट से हट गए।",
+      "postSpeechFrames": 3,
+      "durationFrames": 160
+    },
+    {
+      "type": "fridge9",
+      "stage": "end",
+      "voiceText": "फिर बची चीज़ों से दोबारा प्लान करो। अपना ऐसा ऐप बनाना है? प्रॉम्प्ट कैप्शन में है!",
+      "postSpeechFrames": 5,
+      "durationFrames": 160
+    }
   ],
-  "captions":[],
-  "renderRevision":"reel09-fridge-to-plate-private-v1"
+  "captions": [],
+  "renderRevision": "reel09-fridge-to-plate-private-v2"
 }
