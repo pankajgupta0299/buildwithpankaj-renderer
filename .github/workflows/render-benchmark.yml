@@ -22,6 +22,10 @@ jobs:
           mkdir -p public
           base64 -d reel08/poster.b64 > public/reel08-poster.jpg
           file public/reel08-poster.jpg
+      - name: Decode original Reel 09 food artwork
+        run: |
+          base64 -d reel09/fridge-art.b64 > public/reel09-fridge.jpg
+          base64 -d reel09/wrap-art.b64 > public/reel09-wrap.jpg
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
