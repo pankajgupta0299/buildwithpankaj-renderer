@@ -2,22 +2,22 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-reel06-movie-pitch-20260924-v2",
+  "approvalId": "bwp-reel08-movie-mashup-20260928-v2-caption1",
   "approved": true,
   "status": "approved",
   "postType": "reel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "One missed train. Two completely different movies. 🎬\n\nI built a tiny movie pitch app with an AI coding assistant. Type an everyday situation, tap a button, and compare two ORIGINAL fictional story worlds: a Bollywood-inspired musical mystery and a Hollywood-inspired night thriller.\n\nWant to build your own? Copy this prompt into an AI coding tool:\n\n“Create a mobile-friendly movie pitch generator using HTML, CSS, and JavaScript. Add one input for an everyday situation, a ‘Make the movies’ button, and two distinct cards. Each card should display an original title, genre, one-sentence plot, and visual motif. Start with local story templates that work without an API key. Make the button update both cards when the input changes. Use fictional characters and original stories, with no film clips or celebrity likenesses.”\n\nThe starter shown here uses transparent local templates; it does not call AI at runtime. Source: github.com/pankajgupta0299/buildwithpankaj-renderer/tree/main/reel06\n\nWhat ordinary moment should become a movie? Drop yours below. Save this to try the build later.\n\n#BuildWithAI #CreativeCoding #MovieIdeas #AIBuilds #BuildWithPankaj",
+  "caption": "Shaadi + horror = Bhoot Ki Baraat 👻🪘\n\nSocha AI ko thoda filmy challenge dete hain: 2 bilkul alag genres milao aur dekho kaisi movie nikalti hai. Dulha toh aa gaya... par baraati 100 saal purane hain. Aur dulhan? Ghost hunter. 😂\n\nIs idea ko maine ek chhote Movie Mashup game mein badla. Genre choose karo → button dabao → fictional movie ka plot aur twist dekho. Demo mein 3 preset examples hain; game live AI se stories generate nahi karta.\n\nKhud try karna hai? Ye prompt copy karke ChatGPT ya apne AI coding tool mein daalo 👇\n\n“Build a mobile-friendly Movie Mashup game using HTML, CSS and JavaScript. Let me choose between three pairs: Shaadi × Horror, Romance × Sci-fi, and Mystery × Comedy. When I tap a button, show an original fictional movie title, one-line plot and funny twist from local sample data. Add a Try Another button. Make it readable on a phone. Don't use API keys, real movie posters, actor likenesses or copyrighted characters. Tell me how to run it locally.”\n\nFictional poster art is AI-generated. Working starter: github.com/pankajgupta0299/buildwithpankaj-renderer/tree/main/reel08\n\nAb tum batao: next mashup Cricket × Mystery ya Office × Sci-fi? 👇\n\n#BuildWithPankaj #BuildWithAI #MovieMashup #CreativeCoding",
   "firstComment": "",
   "shouldShareToFeed": true,
   "isAiGenerated": true,
   "assets": [
     {
       "type": "video",
-      "key": "reel06-movie-pitch-final-v2.mp4",
-      "altText": "An original movie pitch generator tutorial. An everyday missed-train idea becomes a Bollywood-inspired musical mystery and a Hollywood-inspired night thriller, with the page build steps shown.",
-      "thumbnailOffset": 40500
+      "key": "draft-run-36306092984.mp4",
+      "altText": "A fictional ghost wedding poster opens a 22-second Hindi Reel demonstrating a working Movie Mashup game. Two genres are chosen, a button reveals Bhoot Ki Baraat and its plot twist, followed by a short build prompt.",
+      "thumbnailOffset": 500
     }
   ]
 }
