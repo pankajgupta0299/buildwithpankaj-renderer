@@ -3,6 +3,7 @@ import {sampleRows, summarize} from '../reel05/model.mjs';
 import {generatePitch} from '../reel06/model.mjs';
 import {judge} from '../reel07/model.mjs';
 import {pitchFor} from '../reel08/model.mjs';
+import {sampleInventory,suggestMeals,cookMeal} from '../reel09/model.mjs';
 import {
   AbsoluteFill,
   Audio,
@@ -391,7 +392,36 @@ const MovieMashupBeat = ({scene}) => {
   </AbsoluteFill>;
 };
 
+const FridgeBeat = ({scene}) => {
+  const frame=useCurrentFrame();
+  const {fps,durationInFrames}=useVideoConfig();
+  const phase=scene.stage;
+  const mint='#DFEB9E', olive='#657333', dark='#192219', cream='#F7F8F0';
+  const pop=(delay=0)=>spring({frame:Math.max(0,frame-delay),fps,config:{damping:15,stiffness:180}});
+  const photo=staticFile('reel09-fridge.jpg');
+  const mealPhoto=staticFile('reel09-wrap.jpg');
+  const options=suggestMeals(sampleInventory,{maxMinutes:20});
+  const remain=cookMeal(sampleInventory,'wrap');
+  const tag=(text,selected=false)=><span key={text} style={{display:'inline-block',padding:'12px 18px',borderRadius:99,margin:'5px 5px 5px 0',fontSize:29,fontWeight:900,background:selected?olive:'#E7ECD7',color:selected?'white':dark}}>{text}</span>;
+  const food=<Img src={photo} style={{width:'100%',height:'100%',objectFit:'cover',objectPosition:'center 52%'}}/>;
+  const card={background:'#fff',borderRadius:27,padding:'26px 28px',color:dark,boxShadow:'0 17px 45px #07150A22'};
+  const phone=(children)=><div style={{position:'absolute',top:270,left:86,right:86,bottom:225,border:'10px solid #090D08',borderRadius:58,overflow:'hidden',background:cream,color:dark,boxShadow:'0 30px 80px #0009'}}><div style={{height:31,width:180,borderRadius:20,background:'#0A1009',position:'absolute',zIndex:5,top:16,left:'calc(50% - 90px)'}}/><div style={{height:'100%',padding:'82px 32px 32px',overflow:'hidden'}}>{children}</div></div>;
+  const label=<div style={{position:'absolute',top:88,left:55,right:55,fontSize:27,fontWeight:900,letterSpacing:2.1,color:mint}}>BUILDWITHPANKAJ / AI SE BUILD</div>;
+  const footer=<div style={{position:'absolute',bottom:73,left:55,right:55,fontSize:25,fontWeight:800,color:mint}}>PRIVATE REVIEW · GENERAL MEAL IDEAS</div>;
+  return <AbsoluteFill style={{background:dark,color:'#fff',fontFamily:'ReelHindi,Arial,sans-serif',overflow:'hidden'}}>
+    <style>{`@font-face{font-family:ReelHindi;src:url('${staticFile('fonts/NotoSansDevanagari.ttf')}') format('truetype');font-style:normal;font-weight:100 900;font-display:block}`}</style>
+    {phase==='hook' && <><AbsoluteFill style={{transform:`scale(${interpolate(frame,[0,durationInFrames],[1.12,1.02],{extrapolateRight:'clamp'})})`}}>{food}</AbsoluteFill><AbsoluteFill style={{background:'linear-gradient(180deg,#101810AC 0%,#10181020 38%,#101810E8 88%)'}}/><div style={{position:'absolute',top:125,left:57,right:57,fontSize:80,lineHeight:1.07,fontWeight:1000}}>Fridge khola...<br/><span style={{color:mint}}>Dinner kya?</span></div><div style={{position:'absolute',bottom:265,left:57,right:57,...card,transform:`scale(${pop(9)})`}}><div style={{fontSize:27,color:olive,fontWeight:950}}>FRIDGE → PLATE</div><div style={{fontSize:50,fontWeight:1000,marginTop:12}}>🌯 Palak Paneer Wrap</div><div style={{fontSize:31,marginTop:12}}>20 min · Nothing missing ✓</div></div></>}
+    {phase==='inventory' && <>{label}{phone(<><div style={{fontSize:28,color:olive,fontWeight:900}}>FRIDGE TO PLATE 🥬</div><div style={{height:460,borderRadius:26,overflow:'hidden',marginTop:24}}>{food}</div><div style={{fontSize:34,fontWeight:950,marginTop:32}}>Mere fridge mein...</div><div style={{marginTop:16}}>{sampleInventory.map((x,i)=><span key={x} style={{display:'inline-block',transform:`scale(${pop(i*7)})`}}>{tag(x)}</span>)}</div><div style={{fontSize:24,color:'#6B7660',marginTop:38}}>Sample photo · ingredients editable</div></>)}</>}
+    {phase==='filter' && <>{label}{phone(<><div style={{fontSize:31,color:olive,fontWeight:900}}>CHOOSE YOUR PLAN</div><div style={{fontSize:59,fontWeight:1000,lineHeight:1.07,marginTop:33}}>Aaj kya<br/>banana hai?</div><div style={{...card,marginTop:55,border:'2px solid #E0E7D4'}}><div style={{fontSize:29,fontWeight:950}}>Available</div><div style={{marginTop:12}}>{sampleInventory.map(x=>tag(x))}</div></div><div style={{...card,marginTop:24,border:'2px solid #E0E7D4'}}><div style={{fontSize:29,fontWeight:950}}>Preference</div><div style={{marginTop:14}}>{tag('Vegetarian',true)}{tag('Vegan')}</div><div style={{fontSize:29,fontWeight:950,marginTop:38}}>How much time?</div><div style={{marginTop:14}}>{tag('20 min',true)}{tag('30 min')}</div></div><div style={{marginTop:35,borderRadius:24,background:olive,padding:28,fontSize:34,fontWeight:1000,textAlign:'center',transform:`scale(${1+.04*pop(18)})`}}>FIND DINNER IDEAS →</div></>)}</>}
+    {phase==='options' && <>{label}{phone(<><div style={{fontSize:30,color:olive,fontWeight:900}}>TONIGHT'S OPTIONS</div><div style={{fontSize:54,fontWeight:1000,margin:'25px 0 35px'}}>3 possible meals</div>{options.map((r,i)=><div key={r.id} style={{...card,margin:'16px 0',border:i===0?`4px solid ${olive}`:'2px solid #E3E9D9',transform:`translateX(${(1-pop(i*9))*130}px)`}}><div style={{fontSize:42,fontWeight:1000}}>{r.emoji} {r.name}</div><div style={{fontSize:28,color:'#5E6C52',marginTop:14}}>{r.minutes} min · Missing: {r.missing.join(', ')||'nothing ✓'}</div></div>)}<div style={{fontSize:25,color:'#66735D',marginTop:30}}>Based on editable sample ingredients</div></>)}</>}
+    {phase==='cook' && <>{label}{phone(<><div style={{fontSize:29,color:olive,fontWeight:900}}>MARK AS COOKED ✓</div><div style={{height:420,borderRadius:30,overflow:'hidden',marginTop:24,position:'relative'}}><Img src={mealPhoto} style={{width:'100%',height:'100%',objectFit:'cover'}}/><div style={{position:'absolute',inset:0,background:'linear-gradient(transparent,#131A12B9)'}}/><div style={{position:'absolute',bottom:24,left:20,right:20,fontSize:46,fontWeight:1000,color:'#fff'}}>Palak Paneer Wrap 🌯</div></div><div style={{...card,marginTop:28,transform:`scale(${pop(6)})`}}><div style={{fontSize:28,color:olive,fontWeight:900}}>USED IN DEMO</div><div style={{fontSize:33,fontWeight:900,marginTop:14}}>Palak · Paneer · Tomato · Roti</div></div><div style={{...card,marginTop:20,background:'#E7EED6',transform:`scale(${pop(25)})`}}><div style={{fontSize:28,color:olive,fontWeight:900}}>REMAINING</div><div style={{fontSize:41,fontWeight:1000,marginTop:15}}>{remain.join(' · ')}</div><div style={{fontSize:27,marginTop:14}}>Plan again with what's left ↗</div></div></>)}</>}
+    {phase==='end' && <>{label}<div style={{position:'absolute',top:265,left:62,right:62,fontSize:88,fontWeight:1000,lineHeight:1.13}}>Diet chart nahi.<br/><span style={{color:mint}}>A usable mini app.</span></div><div style={{position:'absolute',top:620,left:62,right:62,...card,fontSize:42,lineHeight:1.35,fontWeight:900}}><div style={{fontSize:29,color:olive,marginBottom:30}}>BUILD WITH AI</div>① Ingredients edit karo<br/>② Meals filter karo<br/>③ Cook → fridge update</div><div style={{position:'absolute',bottom:275,left:62,right:62,background:mint,color:dark,borderRadius:26,padding:'30px 32px',fontSize:39,fontWeight:1000}}>Build prompt caption mein ↓</div><div style={{position:'absolute',bottom:185,left:63,right:63,color:'#D5DCC7',fontSize:26}}>Sample recipe data · no live AI nutrition advice</div></>}
+    {footer}
+  </AbsoluteFill>;
+};
+
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='fridge9') return <FridgeBeat scene={scene}/>;
   if(scene.type==='movie8') return <MovieMashupBeat scene={scene}/>;
   if(scene.type==='score2') return <ScoreHypeBeat scene={scene}/>;
   if(scene.type==='score') return <ScoreBeat scene={scene}/>;
