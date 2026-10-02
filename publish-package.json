@@ -2,46 +2,46 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-ai-course-02-google-20261002-v1",
+  "approvalId": "bwp-ai-course-03-microsoft-20261002-v1",
   "approved": true,
   "status": "approved",
   "postType": "carousel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "Free AI course 2 of 5: Google Skills ⚡\n\nIf “AI,” “machine learning” and “generative AI” have started sounding like the same word, this is a good reset. Google’s Introduction to Generative AI is an introductory course listed at about 45 minutes. It explains what gen AI is, how it is used, how it differs from traditional ML, and introduces Google tools for gen AI apps.\n\nMake the 45 minutes count: pause after each section, explain the idea in your own words, then test a tiny example. Try turning a messy idea into three formats in an AI tool and check what it got right or wrong. That challenge is my suggested practice, not a course assignment.\n\nCourse: Introduction to Generative AI — Google Skills\nhttps://www.skills.google/course_templates/536\n\nSave this for your next learning break. Which AI term still feels confusing?\n\n#LearnAI #FreeAICourse #GoogleSkills #GenerativeAI #BuildWithAI",
+  "caption": "Free AI course 3 of 5: Microsoft Learn 🎯\n\n“Plan something fun” gets you one kind of answer. Add who it is for, your limits and the format you want—and you give AI a much clearer job.\n\nMicrosoft’s free learning module, Introduction to generative AI and agents, covers language models, prompts and the building blocks of AI agents. It has 7 units, including an exercise and an assessment. Basic familiarity with AI and machine learning is recommended.\n\nMy learning plan: explain each idea in your own words, do the chat-playground exercise, then compare a vague prompt with a specific one. Check whether the second answer actually follows your constraints.\n\nTry our game-night example: “Plan a 2-hour indoor game night for 4 friends. Use things we already own. Give a timeline and 3 games.” This is our practice suggestion, not a Microsoft assignment.\n\nCourse link:\nhttps://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/\n\nSave this for your next learning session. What would you ask an AI agent to help you do?\n\n#LearnAI #MicrosoftLearn #PromptEngineering #AIAgents #BuildWithAI",
   "firstComment": "",
   "shouldShareToFeed": true,
   "isAiGenerated": true,
   "assets": [
     {
       "type": "image",
-      "key": "ai-course-02-google-01.png",
-      "altText": "Cover: Free course two, Google Skills Introduction to Generative AI, about 45 minutes."
+      "key": "ai-course-03-microsoft-01.png",
+      "altText": "Free AI course three: Microsoft Learn. Learn what better prompts change."
     },
     {
       "type": "image",
-      "key": "ai-course-02-google-02.png",
-      "altText": "Course overview: what generative AI is, how it differs from traditional machine learning, and Google tools for applications."
+      "key": "ai-course-03-microsoft-02.png",
+      "altText": "Module overview: language models, prompts and AI agents; basic AI and ML knowledge recommended."
     },
     {
       "type": "image",
-      "key": "ai-course-02-google-03.png",
-      "altText": "Comparison of a traditional prediction example and a generative AI writing example."
+      "key": "ai-course-03-microsoft-03.png",
+      "altText": "A vague game-night prompt compared with one specifying audience, duration, constraints and format."
     },
     {
       "type": "image",
-      "key": "ai-course-02-google-04.png",
-      "altText": "Three-step learning method: watch, pause, and test an example."
+      "key": "ai-course-03-microsoft-04.png",
+      "altText": "Three components of an AI agent: model, instructions and tools."
     },
     {
       "type": "image",
-      "key": "ai-course-02-google-05.png",
-      "altText": "Suggested 10-minute practice challenge turning a movie-club idea into three formats."
+      "key": "ai-course-03-microsoft-05.png",
+      "altText": "Study plan: explain each idea, try the exercise, compare prompts and finish the assessment."
     },
     {
       "type": "image",
-      "key": "ai-course-02-google-06.png",
-      "altText": "Google Skills course title and invitation to save the post, with course link in caption."
+      "key": "ai-course-03-microsoft-06.png",
+      "altText": "Introduction to generative AI and agents on Microsoft Learn, with link in caption."
     }
   ]
 }
