@@ -1,1 +1,9 @@
-Live carousel https://www.instagram.com/p/Dd-7yfEmy0A/ confirmed sent. Delete the six ai-course-02-google-XX.png package assets and verify HEAD 404.
+Confirmed published-live: https://www.instagram.com/p/Dd_b9UnHDia/
+Approval: bwp-ai-course-03-microsoft-20261002-v1
+Delete only package media:
+ai-course-03-microsoft-01.png
+ai-course-03-microsoft-02.png
+ai-course-03-microsoft-03.png
+ai-course-03-microsoft-04.png
+ai-course-03-microsoft-05.png
+ai-course-03-microsoft-06.png
