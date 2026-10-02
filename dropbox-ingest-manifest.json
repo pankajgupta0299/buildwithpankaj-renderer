@@ -3,40 +3,40 @@
   "brand": "BuildWithPankaj",
   "files": [
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-02-google-01.png",
-      "r2Key": "ai-course-02-google-01.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-03-microsoft-01.png",
+      "r2Key": "ai-course-03-microsoft-01.png",
       "contentType": "image/png",
-      "expectedSha256": "f97a7dd949fdba3d22e9793af4af06a480ce6dcbc06848cfbc88aa2f6af6bc85"
+      "expectedSha256": "8f9d3acad1a9b69550cce2fe45bd7fb6481fd3b4b9bdf0cd8e3273ca86ab9af7"
     },
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-02-google-02.png",
-      "r2Key": "ai-course-02-google-02.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-03-microsoft-02.png",
+      "r2Key": "ai-course-03-microsoft-02.png",
       "contentType": "image/png",
-      "expectedSha256": "494cbe79f02d1f9ef6335f87d31162344d7897065d9987c47e3e1ef18187be4e"
+      "expectedSha256": "83d0df71a639e9919b130adb9171892c13033fc2a45e308bc026538f94dc22cf"
     },
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-02-google-03.png",
-      "r2Key": "ai-course-02-google-03.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-03-microsoft-03.png",
+      "r2Key": "ai-course-03-microsoft-03.png",
       "contentType": "image/png",
-      "expectedSha256": "dd1d39beb8a1ecf759fd864fe1ad1ec4dd215fab6f04d282087de1d150a59b79"
+      "expectedSha256": "b9b6eefa5f73450565d1ce3b1fac65102523770eada5db71c5f2797d7aeea550"
     },
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-02-google-04.png",
-      "r2Key": "ai-course-02-google-04.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-03-microsoft-04.png",
+      "r2Key": "ai-course-03-microsoft-04.png",
       "contentType": "image/png",
-      "expectedSha256": "01b47a9e94d93ff7fc113d3380fac1c1af94c9234f0a49622f6f810f8c5e2493"
+      "expectedSha256": "8fb39e7fb2038fae479ab2c029677640bbeae8aa4a9daead5ea9ea91050fab81"
     },
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-02-google-05.png",
-      "r2Key": "ai-course-02-google-05.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-03-microsoft-05.png",
+      "r2Key": "ai-course-03-microsoft-05.png",
       "contentType": "image/png",
-      "expectedSha256": "83b842b692950cfd2956919744954eb1e617ff2a37f809c790cb16c1037a38f1"
+      "expectedSha256": "168dddd290ae6aa365b0772f10b1c88eecdc58406a7945518a989c9d75da56a8"
     },
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-02-google-06.png",
-      "r2Key": "ai-course-02-google-06.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-03-microsoft-06.png",
+      "r2Key": "ai-course-03-microsoft-06.png",
       "contentType": "image/png",
-      "expectedSha256": "883990e9d322bbb00eb0906e42247767e633a33b20be4a3e58e78af96092e820"
+      "expectedSha256": "bb23e1c605b8d2007b8157e6998e206cecd615c611e8c71fe7e4f0d02f12bdc6"
     }
   ]
 }
