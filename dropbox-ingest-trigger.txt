@@ -1,1 +1,1 @@
-Ingest six approved Google Skills carousel PNGs from BuildWithPankaj staging to private R2, 2026-10-02.
+Ingest six approved Microsoft Learn carousel PNGs from BuildWithPankaj staging to private R2, 2026-10-02.
