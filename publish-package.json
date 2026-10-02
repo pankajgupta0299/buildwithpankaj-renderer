@@ -2,46 +2,46 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-ai-course-01-salesforce-20261002-v1",
+  "approvalId": "bwp-ai-course-02-google-20261002-v1",
   "approved": true,
   "status": "approved",
   "postType": "carousel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "Free AI course 1 of 5: Salesforce Trailhead 👀\n\nNo 47-tab rabbit hole today. This trail gives you a real starting point: AI basics, generative AI, language AI, data, responsible use and image generation. It has 8 steps and Salesforce estimates about 3h 15m.\n\nMy way to make it stick: do 2–3 lessons per sitting, explain one takeaway in your own words, then test it on a topic you actually care about. For the final mini project, make a study buddy that explains, gives an example and quizzes you—then check its answers.\n\nCourse: “Get Started with Artificial Intelligence” on Salesforce Trailhead\nhttps://trailhead.salesforce.com/content/learn/trails/get-started-with-ai-data\n\nSave this for your first session. What should course 2 cover: prompting, building or machine learning?\n\n#LearnAI #AICourses #FreeCourses #BuildWithAI #SalesforceTrailhead",
+  "caption": "Free AI course 2 of 5: Google Skills ⚡\n\nIf “AI,” “machine learning” and “generative AI” have started sounding like the same word, this is a good reset. Google’s Introduction to Generative AI is an introductory course listed at about 45 minutes. It explains what gen AI is, how it is used, how it differs from traditional ML, and introduces Google tools for gen AI apps.\n\nMake the 45 minutes count: pause after each section, explain the idea in your own words, then test a tiny example. Try turning a messy idea into three formats in an AI tool and check what it got right or wrong. That challenge is my suggested practice, not a course assignment.\n\nCourse: Introduction to Generative AI — Google Skills\nhttps://www.skills.google/course_templates/536\n\nSave this for your next learning break. Which AI term still feels confusing?\n\n#LearnAI #FreeAICourse #GoogleSkills #GenerativeAI #BuildWithAI",
   "firstComment": "",
   "shouldShareToFeed": true,
   "isAiGenerated": true,
   "assets": [
     {
       "type": "image",
-      "key": "ai-course-01-salesforce-01.png",
-      "altText": "Cover: free AI course #1, Salesforce Trailhead, eight steps in about three hours and fifteen minutes."
+      "key": "ai-course-02-google-01.png",
+      "altText": "Cover: Free course two, Google Skills Introduction to Generative AI, about 45 minutes."
     },
     {
       "type": "image",
-      "key": "ai-course-01-salesforce-02.png",
-      "altText": "Four topic groups: AI and generative AI, language AI, data and responsible use, image generation."
+      "key": "ai-course-02-google-02.png",
+      "altText": "Course overview: what generative AI is, how it differs from traditional machine learning, and Google tools for applications."
     },
     {
       "type": "image",
-      "key": "ai-course-01-salesforce-03.png",
-      "altText": "Three session study plan for the Salesforce AI trail."
+      "key": "ai-course-02-google-03.png",
+      "altText": "Comparison of a traditional prediction example and a generative AI writing example."
     },
     {
       "type": "image",
-      "key": "ai-course-01-salesforce-04.png",
-      "altText": "Practice after every lesson by explaining, testing, and checking an AI output."
+      "key": "ai-course-02-google-04.png",
+      "altText": "Three-step learning method: watch, pause, and test an example."
     },
     {
       "type": "image",
-      "key": "ai-course-01-salesforce-05.png",
-      "altText": "Mini project: create an AI study buddy that explains a concept, gives examples and quizzes you."
+      "key": "ai-course-02-google-05.png",
+      "altText": "Suggested 10-minute practice challenge turning a movie-club idea into three formats."
     },
     {
       "type": "image",
-      "key": "ai-course-01-salesforce-06.png",
-      "altText": "Course title and call to save the post, with link in caption."
+      "key": "ai-course-02-google-06.png",
+      "altText": "Google Skills course title and invitation to save the post, with course link in caption."
     }
   ]
 }
