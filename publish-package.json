@@ -2,46 +2,46 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-ai-course-03-microsoft-20261002-v1",
+  "approvalId": "bwp-ai-course-04-ibm-20261002-v1",
   "approved": true,
   "status": "approved",
   "postType": "carousel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "Free AI course 3 of 5: Microsoft Learn 🎯\n\n“Plan something fun” gets you one kind of answer. Add who it is for, your limits and the format you want—and you give AI a much clearer job.\n\nMicrosoft’s free learning module, Introduction to generative AI and agents, covers language models, prompts and the building blocks of AI agents. It has 7 units, including an exercise and an assessment. Basic familiarity with AI and machine learning is recommended.\n\nMy learning plan: explain each idea in your own words, do the chat-playground exercise, then compare a vague prompt with a specific one. Check whether the second answer actually follows your constraints.\n\nTry our game-night example: “Plan a 2-hour indoor game night for 4 friends. Use things we already own. Give a timeline and 3 games.” This is our practice suggestion, not a Microsoft assignment.\n\nCourse link:\nhttps://learn.microsoft.com/en-us/training/modules/fundamentals-generative-ai/\n\nSave this for your next learning session. What would you ask an AI agent to help you do?\n\n#LearnAI #MicrosoftLearn #PromptEngineering #AIAgents #BuildWithAI",
+  "caption": "Free AI course 4 of 5: IBM SkillsBuild 🎬\n\nYour movie app seems to know your taste. Your chatbot understands “something funny, under 2 hours.” Curious about the AI ideas behind experiences like these?\n\nArtificial Intelligence Fundamentals from IBM SkillsBuild covers machine learning, deep learning, neural networks, language processing, computer vision, AI ethics and applications.\n\nThe learning and digital credential are free. To earn the credential, you must complete the required courses, pass graded quizzes and final assessments, and complete practice simulations. A registered SkillsBuild account is required. IBM lists the credential as intermediate level, so basic familiarity with AI terms is useful.\n\nMy study approach: after each lesson, close your notes and explain one concept to a friend. Then pick an everyday example: what goes in, what comes out, and what could go wrong?\n\nThe movie-night example in this carousel is our illustration—not an IBM course assignment.\n\nStart here (official IBM credential page, with enrollment links):\nhttps://www.credly.com/org/ibm-skillsbuild/badge/artificial-intelligence-fundamentals\n\nSave this for your next study session. Which would you rather understand: how AI recommends movies or how it recognizes images?\n\n#LearnAI #IBMSkillsBuild #FreeAICourse #ArtificialIntelligence #BuildWithAI",
   "firstComment": "",
   "shouldShareToFeed": true,
   "isAiGenerated": true,
   "assets": [
     {
       "type": "image",
-      "key": "ai-course-03-microsoft-01.png",
-      "altText": "Free AI course three: Microsoft Learn. Learn what better prompts change."
+      "key": "ai-course-04-ibm-01.png",
+      "altText": "You use AI. But how does it learn? IBM SkillsBuild Artificial Intelligence Fundamentals."
     },
     {
       "type": "image",
-      "key": "ai-course-03-microsoft-02.png",
-      "altText": "Module overview: language models, prompts and AI agents; basic AI and ML knowledge recommended."
+      "key": "ai-course-04-ibm-02.png",
+      "altText": "Course topics: machine learning, language, images and responsible AI."
     },
     {
       "type": "image",
-      "key": "ai-course-03-microsoft-03.png",
-      "altText": "A vague game-night prompt compared with one specifying audience, duration, constraints and format."
+      "key": "ai-course-04-ibm-03.png",
+      "altText": "Movie-night app example: interpreting words, learning preferences and checking recommendations."
     },
     {
       "type": "image",
-      "key": "ai-course-03-microsoft-04.png",
-      "altText": "Three components of an AI agent: model, instructions and tools."
+      "key": "ai-course-04-ibm-04.png",
+      "altText": "Study method: explain, apply and question each concept."
     },
     {
       "type": "image",
-      "key": "ai-course-03-microsoft-05.png",
-      "altText": "Study plan: explain each idea, try the exercise, compare prompts and finish the assessment."
+      "key": "ai-course-04-ibm-05.png",
+      "altText": "Credential requirements: courses, quizzes, assessments and practice simulations."
     },
     {
       "type": "image",
-      "key": "ai-course-03-microsoft-06.png",
-      "altText": "Introduction to generative AI and agents on Microsoft Learn, with link in caption."
+      "key": "ai-course-04-ibm-06.png",
+      "altText": "Find Artificial Intelligence Fundamentals on IBM SkillsBuild."
     }
   ]
 }
