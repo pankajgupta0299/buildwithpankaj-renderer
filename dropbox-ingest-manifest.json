@@ -3,40 +3,10 @@
   "brand": "BuildWithPankaj",
   "files": [
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-04-ibm-01.png",
-      "r2Key": "ai-course-04-ibm-01.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel10-hill-traffic.png",
+      "r2Key": "reel10-hill-traffic.png",
       "contentType": "image/png",
-      "expectedSha256": "06fea1b450f6e4f52372fd702253d220294f4217eae5336018590a27f16b56c8"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-04-ibm-02.png",
-      "r2Key": "ai-course-04-ibm-02.png",
-      "contentType": "image/png",
-      "expectedSha256": "c727f541f4825da0282eaa4bc458efb342210902fa00afe55d258418ac1dd2ba"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-04-ibm-03.png",
-      "r2Key": "ai-course-04-ibm-03.png",
-      "contentType": "image/png",
-      "expectedSha256": "1038a5a1546ccc6379dd903bd92004261434a489cc5adbb8c4a88973c4d818a5"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-04-ibm-04.png",
-      "r2Key": "ai-course-04-ibm-04.png",
-      "contentType": "image/png",
-      "expectedSha256": "3a79836309261b400b13ab569d03490f8e00b39be3c3d1e83d8d834d50de4194"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-04-ibm-05.png",
-      "r2Key": "ai-course-04-ibm-05.png",
-      "contentType": "image/png",
-      "expectedSha256": "624b3137539afc7e3e3125dd56977571adf5fb680bca9f3e87d74a97a63b6578"
-    },
-    {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/ai-course-04-ibm-06.png",
-      "r2Key": "ai-course-04-ibm-06.png",
-      "contentType": "image/png",
-      "expectedSha256": "6a4fa173e8cc264514ba8cf71a5a8ebc7d70fbfd8ad9a7e2787e9a980ac2bc15"
+      "expectedSha256": "b4e840cfc72bd83950fa80d85499080e07bf0012bf1d4b83392b67f02a1626e4"
     }
   ]
 }
