@@ -420,7 +420,39 @@ const FridgeBeat = ({scene}) => {
   </AbsoluteFill>;
 };
 
+
+const HillTrafficBeat = ({scene}) => {
+ const f=useCurrentFrame(); const p=Math.min(1,f/Math.max(1,scene.durationFrames-1)); const pop=spring({frame:f,fps:30,config:{damping:16}});
+ const dark='#17231C',cream='#F6F5EC',lime='#DFEB9B';
+ const card={background:cream,color:dark,borderRadius:32,padding:'35px 40px',boxShadow:'0 16px 40px #0004'};
+ const labels={hook:['SUKOON LENE NIKLE…','JAM MEIN PHANS GAYE!'],plan:['AI TRIP CHECK','PLAN A + PLAN B'],verify:['AI PLAN ≠ LIVE TRAFFIC','NIKALNE SE PEHLE CHECK'],parking:['HOTEL BOOKED?','PARKING BHI CONFIRM!'],safe:['JUGAAD WALA SHORTCUT?','NAHI, BHAI.'],end:['GHUMNE JAO.','JAM MEIN MAT BASO.']};
+ const pair=labels[scene.stage]; 
+ return <AbsoluteFill style={{background:dark,color:cream,fontFamily:'Arial,sans-serif',overflow:'hidden'}}>
+  <Img src={mediaSrc(scene)} style={{position:'absolute',width:'100%',height:'100%',objectFit:'cover',transform:`scale(${scene.stage==='hook'?1.38-p*.30:1.05+p*.09})`,filter:scene.stage==='hook'||scene.stage==='end'?'brightness(.8)':'brightness(.32) blur(3px)'}}/>
+  <AbsoluteFill style={{background:'linear-gradient(#0005,transparent 35%,#000b)'}}/>
+  <div style={{position:'absolute',top:100,left:60,background:'#17231Cdd',borderRadius:16,padding:'14px 22px',fontSize:27,fontWeight:800}}>AI VISUALS · NOT REAL FOOTAGE</div>
+  <div style={{position:'absolute',top:225,left:65,right:80,fontSize:37,fontWeight:800,color:lime}}>{pair[0]}</div>
+  <div style={{position:'absolute',top:305,left:65,right:85,fontSize:83,lineHeight:1.02,fontWeight:900,transform:`translateY(${(1-pop)*45}px)`}}>{scene.stage==='hook'&&f<45?'WEEKEND IN THE HILLS':pair[1]}</div>
+  {scene.stage==='hook'&&<><div style={{position:'absolute',top:580,left:65,...card,fontSize:32,fontWeight:800}}>Mussoorie / Rishikesh weekend plans</div><div style={{position:'absolute',bottom:330,left:65,right:85,fontSize:55,fontWeight:900,background:'#B73B2E',padding:30,borderRadius:22,transform:`rotate(${Math.sin(f/4)*.5}deg)`}}>POV: Sabka same plan tha.</div></>}
+  {scene.stage==='plan'&&<div style={{position:'absolute',top:610,left:65,right:85,...card}}>
+   <div style={{fontSize:25,color:'#6B6F2A',fontWeight:800}}>ILLUSTRATIVE AI DEMO</div>
+   <div style={{fontSize:42,fontWeight:800,marginTop:30}}>Starting city + dates + budget</div>
+   <div style={{height:3,background:'#bbb',margin:'35px 0'}}/>
+   {['Plan A · Original trip','Plan B · Change the dates','Backup · Nearby day trip'].map((x,i)=><div key={x} style={{fontSize:35,background:i===1?lime:'#E9EBDD',padding:26,borderRadius:18,marginTop:16,opacity:f>15+i*18?1:.15,transform:`translateX(${f>15+i*18?0:35}px)`}}>{x}</div>)}
+   <div style={{fontSize:28,marginTop:30}}>Ask: What must I verify before booking?</div>
+  </div>}
+  {scene.stage==='verify'&&<div style={{position:'absolute',top:640,left:65,right:85}}>{[['LIVE TRAFFIC','Maps: fresh update'],['WEATHER','Official forecast'],['ROAD ADVISORY','Local traffic police']].map(([a,b],i)=><div key={a} style={{...card,marginBottom:28,transform:`translateX(${Math.max(0,1-(f-i*12)/15)*90}px)`}}><div style={{fontSize:41,fontWeight:900}}>{a}</div><div style={{fontSize:30,marginTop:16}}>{b}</div></div>)}</div>}
+  {scene.stage==='parking'&&<div style={{position:'absolute',top:630,left:65,right:85,...card}}><div style={{fontSize:135,fontWeight:900,textAlign:'center',color:'#6B6F2A'}}>P</div><div style={{fontSize:44,lineHeight:1.3,fontWeight:800}}>Hotel ko call karo.</div><div style={{fontSize:35,lineHeight:1.4,marginTop:30}}>Parking available?<br/>Entry restrictions?<br/>Arrival plan confirmed?</div></div>}
+  {scene.stage==='safe'&&<div style={{position:'absolute',top:645,left:65,right:85}}>{['Heavy jam? Shift the trip.','Unknown hill shortcuts? Skip.','Water rakho. Lane mat todo.'].map((x,i)=><div key={x} style={{...card,fontSize:38,fontWeight:800,marginBottom:28,borderLeft:'12px solid '+(i===1?'#B73B2E':lime)}}>{x}</div>)}</div>}
+  {scene.stage==='end'&&<div style={{position:'absolute',bottom:330,left:65,right:85,...card,fontSize:43,fontWeight:900,textAlign:'center'}}>SAVE BEFORE YOUR NEXT TRIP<br/><span style={{fontSize:30,fontWeight:500}}>AI planning prompt in caption ↓</span></div>}
+  <div style={{position:'absolute',left:65,right:85,bottom:185,fontSize:35,fontWeight:800,lineHeight:1.25,textAlign:'center',background:'#17231Cee',borderRadius:22,padding:25}}>{scene.sub}</div>
+  <div style={{position:'absolute',bottom:115,left:65,fontSize:28,fontWeight:800}}>@buildwith_pankaj</div>
+  <div style={{position:'absolute',bottom:85,left:65,width:930*p,height:5,background:lime}}/>
+ </AbsoluteFill>;
+};
+
 const Scene = ({scene, footer, badge}) => {
+  if(scene.type==='hill10') return <HillTrafficBeat scene={scene}/>;
   if(scene.type==='fridge9') return <FridgeBeat scene={scene}/>;
   if(scene.type==='movie8') return <MovieMashupBeat scene={scene}/>;
   if(scene.type==='score2') return <ScoreHypeBeat scene={scene}/>;
