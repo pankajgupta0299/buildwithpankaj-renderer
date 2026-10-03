@@ -3,54 +3,66 @@
   "badge": "PRIVATE REVIEW",
   "audioSrc": null,
   "musicMode": "generated-original",
-  "musicStyle": "warm-bounce",
-  "musicVolume": 0.06,
+  "musicStyle": "score-hype",
+  "musicVolume": 0.055,
   "ttsVoice": "hi-IN-Chirp3-HD-Puck",
   "ttsLanguageCode": "hi-IN",
   "scenes": [
     {
-      "type": "fridge9",
+      "type": "hill10",
       "stage": "hook",
-      "voiceText": "फ्रिज खोला, और फिर वही सवाल: आज डिनर में क्या बनाऊँ?",
-      "postSpeechFrames": 2,
-      "durationFrames": 110
+      "voiceText": "पहाड़ों में सुकून लेने निकले थे... भाई, जाम में वीकेंड निकल गया!",
+      "sub": "Sukoon chahiye tha… traffic mil gaya!",
+      "assetId": "reel10-hill-traffic.png",
+      "durationFrames": 170,
+      "postSpeechFrames": 2
     },
     {
-      "type": "fridge9",
-      "stage": "inventory",
-      "voiceText": "तो AI की मदद से ये छोटा ऐप बनाया। फ्रिज में जो है, वो यहाँ एडिट करो।",
-      "postSpeechFrames": 2,
-      "durationFrames": 150
+      "type": "hill10",
+      "stage": "plan",
+      "voiceText": "एआई को डेट, बजट और अपना शहर दो। दो प्लान और एक बैकअप माँगो।",
+      "sub": "Dates + budget + city → options",
+      "assetId": "reel10-hill-traffic.png",
+      "durationFrames": 170,
+      "postSpeechFrames": 2
     },
     {
-      "type": "fridge9",
-      "stage": "filter",
-      "voiceText": "मैंने वेजिटेरियन और बीस मिनट चुना। अब देखो!",
-      "postSpeechFrames": 2,
-      "durationFrames": 120
+      "type": "hill10",
+      "stage": "verify",
+      "voiceText": "लेकिन लाइव ट्रैफिक, मौसम और पुलिस एडवाइज़री खुद चेक करो।",
+      "sub": "AI ka plan, live update nahi.",
+      "assetId": "reel10-hill-traffic.png",
+      "durationFrames": 170,
+      "postSpeechFrames": 2
     },
     {
-      "type": "fridge9",
-      "stage": "options",
-      "voiceText": "ये तीन डिनर आइडिया दिखाता है, और बताता है क्या घर में नहीं है।",
-      "postSpeechFrames": 3,
-      "durationFrames": 150
+      "type": "hill10",
+      "stage": "parking",
+      "voiceText": "होटल से पार्किंग पहले कन्फर्म करो।",
+      "sub": "Booking ke saath parking bhi.",
+      "assetId": "reel10-hill-traffic.png",
+      "durationFrames": 170,
+      "postSpeechFrames": 2
     },
     {
-      "type": "fridge9",
-      "stage": "cook",
-      "voiceText": "रैप चुनकर cooked मार्क किया, तो पालक, पनीर, टमाटर और रोटी लिस्ट से हट गए।",
-      "postSpeechFrames": 3,
-      "durationFrames": 160
+      "type": "hill10",
+      "stage": "safe",
+      "voiceText": "भयंकर जाम? ट्रिप आगे खिसकाओ। अनजान पहाड़ी शॉर्टकट मत लो। पानी रखो, लेन मत तोड़ो।",
+      "sub": "Smart planning. Safe driving.",
+      "assetId": "reel10-hill-traffic.png",
+      "durationFrames": 170,
+      "postSpeechFrames": 2
     },
     {
-      "type": "fridge9",
+      "type": "hill10",
       "stage": "end",
-      "voiceText": "फिर बची चीज़ों से दोबारा प्लान करो। अपना ऐसा ऐप बनाना है? प्रॉम्प्ट कैप्शन में है!",
-      "postSpeechFrames": 5,
-      "durationFrames": 160
+      "voiceText": "ये एआई विज़ुअल हैं। घूमने जाना है, जाम में बसना नहीं!",
+      "sub": "Asli footage nahi · AI illustration",
+      "assetId": "reel10-hill-traffic.png",
+      "durationFrames": 170,
+      "postSpeechFrames": 2
     }
   ],
   "captions": [],
-  "renderRevision": "reel09-fridge-to-plate-private-v2"
+  "renderRevision": "reel10-hill-traffic-private-v1"
 }
