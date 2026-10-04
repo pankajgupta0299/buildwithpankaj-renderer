@@ -2,46 +2,20 @@
   "version": 2,
   "brand": "BuildWithPankaj",
   "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-ai-course-04-ibm-20261002-v1",
+  "approvalId": "bwp-reel10-hill-traffic-20261004-v1",
   "approved": true,
   "status": "approved",
-  "postType": "carousel",
+  "postType": "reel",
   "schedulingType": "automatic",
   "mode": "shareNow",
-  "caption": "Free AI course 4 of 5: IBM SkillsBuild 🎬\n\nYour movie app seems to know your taste. Your chatbot understands “something funny, under 2 hours.” Curious about the AI ideas behind experiences like these?\n\nArtificial Intelligence Fundamentals from IBM SkillsBuild covers machine learning, deep learning, neural networks, language processing, computer vision, AI ethics and applications.\n\nThe learning and digital credential are free. To earn the credential, you must complete the required courses, pass graded quizzes and final assessments, and complete practice simulations. A registered SkillsBuild account is required. IBM lists the credential as intermediate level, so basic familiarity with AI terms is useful.\n\nMy study approach: after each lesson, close your notes and explain one concept to a friend. Then pick an everyday example: what goes in, what comes out, and what could go wrong?\n\nThe movie-night example in this carousel is our illustration—not an IBM course assignment.\n\nStart here (official IBM credential page, with enrollment links):\nhttps://www.credly.com/org/ibm-skillsbuild/badge/artificial-intelligence-fundamentals\n\nSave this for your next study session. Which would you rather understand: how AI recommends movies or how it recognizes images?\n\n#LearnAI #IBMSkillsBuild #FreeAICourse #ArtificialIntelligence #BuildWithAI",
+  "caption": "Pahaadon mein sukoon book kiya tha… traffic ka subscription mil gaya 😭🚗\n\nTrying something funny + useful with AI: a weekend trip sanity check before we pack our bags.\n\nCopy this prompt:\n“I am travelling from [city] on [dates], with [people] and a budget of [amount]. Compare my original hill trip, a different-date option and a nearby day-trip backup. Ask about driving limits and flexibility. List what I must verify: current traffic, weather, official road advisories, hotel parking and cancellation terms. Do not invent live conditions, promise an empty road or suggest unverified mountain shortcuts.”\n\nUse AI to organize options. Check live traffic and official updates yourself before leaving, and have a passenger check while travelling. Call the hotel about parking. Carry water, stay in your lane and follow police directions.\n\nAI-generated illustrative scenery with animation—not real footage of Mussoorie or Rishikesh. The planner shown is an illustrative demo, not a live traffic service. Inspired by reports of the 2–4 October 2026 long-weekend rush.\n\nSave this before your next trip. Who in your group always says “bas nikalte hain”? 😂\n\n#BuildWithAI #AITravel #Uttarakhand #Mussoorie #Rishikesh",
   "firstComment": "",
   "shouldShareToFeed": true,
   "isAiGenerated": true,
   "assets": [
     {
-      "type": "image",
-      "key": "ai-course-04-ibm-01.png",
-      "altText": "You use AI. But how does it learn? IBM SkillsBuild Artificial Intelligence Fundamentals."
-    },
-    {
-      "type": "image",
-      "key": "ai-course-04-ibm-02.png",
-      "altText": "Course topics: machine learning, language, images and responsible AI."
-    },
-    {
-      "type": "image",
-      "key": "ai-course-04-ibm-03.png",
-      "altText": "Movie-night app example: interpreting words, learning preferences and checking recommendations."
-    },
-    {
-      "type": "image",
-      "key": "ai-course-04-ibm-04.png",
-      "altText": "Study method: explain, apply and question each concept."
-    },
-    {
-      "type": "image",
-      "key": "ai-course-04-ibm-05.png",
-      "altText": "Credential requirements: courses, quizzes, assessments and practice simulations."
-    },
-    {
-      "type": "image",
-      "key": "ai-course-04-ibm-06.png",
-      "altText": "Find Artificial Intelligence Fundamentals on IBM SkillsBuild."
+      "type": "video",
+      "key": "draft-run-37143456060.mp4"
     }
   ]
 }
