@@ -1,9 +1,5 @@
-Confirmed published-live: https://www.instagram.com/p/DeAERPgIPro/
-Approval: bwp-ai-course-04-ibm-20261002-v1
-Delete only package media:
-ai-course-04-ibm-01.png
-ai-course-04-ibm-02.png
-ai-course-04-ibm-03.png
-ai-course-04-ibm-04.png
-ai-course-04-ibm-05.png
-ai-course-04-ibm-06.png
+Verified published-live: https://www.instagram.com/reel/DeEBbVYDr82/
+Cleanup approved Reel 10 temporary R2 media:
+draft-run-37143456060.mp4
+reel10-hill-traffic.png
+2026-10-04
