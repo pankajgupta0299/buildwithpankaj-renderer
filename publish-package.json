@@ -17,5 +17,10 @@
       "type": "video",
       "key": "draft-run-37143456060.mp4"
     }
+  ],
+  "cleanupAssets": [
+    {
+      "key": "reel10-hill-traffic.png"
+    }
   ]
 }
