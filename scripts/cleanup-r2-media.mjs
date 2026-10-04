@@ -9,7 +9,7 @@ if(pkg.brand!=='BuildWithPankaj'||pkg.destination!=='@buildwith_pankaj') throw n
 if(!pkg.approved||pkg.status!=='approved') throw new Error('Package is not approved');
 
 const results=[];
-for(const asset of pkg.assets||[]){
+for(const asset of [...(pkg.assets||[]),...(pkg.cleanupAssets||[])]){
   const key=asset.key;
   const url=`${BASE}/media/${encodeURIComponent(key)}`;
   const r=await fetch(url,{method:'DELETE',headers:{Authorization:`Bearer ${TOKEN}`}});
