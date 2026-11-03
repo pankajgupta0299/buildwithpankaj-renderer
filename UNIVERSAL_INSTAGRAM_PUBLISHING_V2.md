@@ -1,3 +1,5 @@
+> Historical reference: the current CouplesConnect route is documented in [COUPLESCONNECT_PUBLISHING.md](COUPLESCONNECT_PUBLISHING.md). Do not use the old brand or destination checks for new posts.
+
 # Universal Instagram Publishing V2
 
 This extends the BuildWithPankaj publisher beyond Reels while preserving the existing approval gate.

@@ -1,21 +1,18 @@
-name: Check BuildWithPankaj Publish Status
+name: Check CouplesConnect Publish Status
 on:
-  push:
-    paths:
-      - "publish-status-check.txt"
+  workflow_dispatch:
 permissions:
   contents: read
 jobs:
   status:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     env:
       PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
       PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
     steps:
-      - name: Check approved asset status
-        run: |
-          RESPONSE=$(curl --fail-with-body --silent --show-error \
-            "${PRIVATE_MEDIA_BASE_URL}/publish/status?approvalId=791a11c93e7548588c8fe3e9d657e02e" \
-            -H "Authorization: Bearer ${PRIVATE_MEDIA_TOKEN}")
-          echo "$RESPONSE"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - run: node scripts/check-publish-status.mjs
