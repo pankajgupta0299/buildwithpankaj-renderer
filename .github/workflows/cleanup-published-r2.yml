@@ -5,20 +5,26 @@ on:
     paths:
       - "cleanup-r2-trigger.txt"
 
+concurrency:
+  group: couplesconnect-publishing
+  cancel-in-progress: false
+
 permissions:
   contents: read
 
 jobs:
   cleanup:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
       PRIVATE_MEDIA_BASE_URL: ${{ secrets.PRIVATE_MEDIA_BASE_URL }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
       PRIVATE_MEDIA_TOKEN: ${{ secrets.PRIVATE_MEDIA_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: "24"
       - name: Delete published package media from private R2
         run: node scripts/cleanup-r2-media.mjs

@@ -1,3 +1,5 @@
+> Historical reference: the current CouplesConnect route is documented in [COUPLESCONNECT_PUBLISHING.md](COUPLESCONNECT_PUBLISHING.md). Do not use the old brand or destination checks for new posts.
+
 # BuildWithPankaj Content Automation Process V1
 
 Status: **End-to-end publishing proven**

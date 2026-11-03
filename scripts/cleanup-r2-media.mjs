@@ -1,22 +1,54 @@
-import fs from 'node:fs/promises';
-
-const BASE=(process.env.PRIVATE_MEDIA_BASE_URL||'').trim();
-const TOKEN=(process.env.PRIVATE_MEDIA_TOKEN||'').trim();
-if(!BASE||!TOKEN) throw new Error('Missing private media secrets');
-
-const pkg=JSON.parse(await fs.readFile(process.env.PUBLISH_PACKAGE_PATH||'publish-package.json','utf8'));
-if(pkg.brand!=='BuildWithPankaj'||pkg.destination!=='@buildwith_pankaj') throw new Error('Wrong package identity');
-if(!pkg.approved||pkg.status!=='approved') throw new Error('Package is not approved');
-
-const results=[];
-for(const asset of [...(pkg.assets||[]),...(pkg.cleanupAssets||[])]){
-  const key=asset.key;
-  const url=`${BASE}/media/${encodeURIComponent(key)}`;
-  const r=await fetch(url,{method:'DELETE',headers:{Authorization:`Bearer ${TOKEN}`}});
-  const body=await r.text();
-  if(!r.ok && r.status!==404 && r.status!==405) throw new Error(`R2 delete failed for ${key}: HTTP ${r.status} ${body}`);
-  const verify=await fetch(url,{method:'HEAD',headers:{Authorization:`Bearer ${TOKEN}`}});
-  results.push({key,deleteStatus:r.status,headStatus:verify.status,deleted:verify.status===404});
-  if(verify.status!==404) throw new Error(`R2 cleanup verification failed for ${key}: HEAD ${verify.status}`);
+import fs from "node:fs/promises";
+import {
+  validatePackage,
+  requireSerializedAction,
+  validateChannel,
+  requireDelivered,
+  ledgerKey,
+} from "./publishing-safety.mjs";
+import { services, postQuery } from "./publishing-services.mjs";
+requireSerializedAction(process.env, "Cleanup Published R2 Media");
+const pkg = JSON.parse(
+  await fs.readFile(
+    process.env.PUBLISH_PACKAGE_PATH || "publish-package.json",
+    "utf8",
+  ),
+);
+validatePackage(pkg);
+const { storage, buffer, media, verifyAsset } = services();
+const record = await storage.read(ledgerKey(pkg));
+const lock = await storage.read("config-buffer-channel.json");
+const channels = await buffer(
+  "query Channels($organizationId: OrganizationId!) { channels(input:{organizationId:$organizationId}) {id name displayName service isLocked isDisconnected} }",
+  { organizationId: lock?.organizationId },
+);
+validateChannel(
+  channels.channels?.find((c) => c.id === record?.channelId),
+  lock,
+);
+const result = await buffer(postQuery, { id: record?.postId });
+requireDelivered(pkg, record, result.post);
+const assets = [...pkg.assets, ...(pkg.cleanupAssets || [])];
+// Validate all existing objects before deleting any. Missing objects permit cleanup retry.
+for (const a of assets) {
+  const r = await media(a.key, "HEAD");
+  if (r.status !== 404) {
+    if (!r.ok) throw Error("Media precheck failed");
+    await verifyAsset(a);
+  }
 }
-console.log(JSON.stringify({ok:true,count:results.length,results},null,2));
+for (const a of assets) {
+  const r = await media(a.key, "DELETE");
+  if (!r.ok && r.status !== 404) throw Error("Temporary media deletion failed");
+  const h = await media(a.key, "HEAD");
+  if (h.status !== 404) throw Error("Temporary media deletion not confirmed");
+}
+record.cleanedAt = new Date().toISOString();
+await storage.write(ledgerKey(pkg), record);
+console.log(
+  JSON.stringify({
+    ok: true,
+    status: "temporary-media-cleaned",
+    count: assets.length,
+  }),
+);

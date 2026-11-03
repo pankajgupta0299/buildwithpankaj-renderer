@@ -6,12 +6,16 @@ on:
       - "publish-package.json"
       - "universal-publish-command.json"
 
+concurrency:
+  group: couplesconnect-publishing
+  cancel-in-progress: false
+
 permissions:
   contents: read
 
 jobs:
   publish:
-    if: github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Publish approved universal Instagram package'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'workflow_dispatch' || github.event.head_commit.message == 'Publish approved universal Instagram package')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -22,7 +26,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '24'
+          node-version: "24"
       - name: Validate secrets
         run: |
           test -n "$PRIVATE_MEDIA_BASE_URL"
