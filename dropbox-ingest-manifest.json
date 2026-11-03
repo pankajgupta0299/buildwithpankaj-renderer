@@ -1,12 +1,36 @@
 {
   "version": 1,
-  "brand": "BuildWithPankaj",
+  "brand": "CouplesConnect",
   "files": [
     {
-      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/reel10-hill-traffic.png",
-      "r2Key": "reel10-hill-traffic.png",
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/cc-launch-v1-20261103-01.png",
+      "r2Key": "couplesconnect-temp-cc-launch-20261103-v1-01.png",
       "contentType": "image/png",
-      "expectedSha256": "b4e840cfc72bd83950fa80d85499080e07bf0012bf1d4b83392b67f02a1626e4"
+      "expectedSha256": "3dabfefc038865150b207d39a8dca90a130e21fea74cc4983274ac88d576b1a3"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/cc-launch-v1-20261103-02.png",
+      "r2Key": "couplesconnect-temp-cc-launch-20261103-v1-02.png",
+      "contentType": "image/png",
+      "expectedSha256": "c059c97c18af3db429d29099714a400cd431d7b66dbc24829417620b2d54365c"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/cc-launch-v1-20261103-03.png",
+      "r2Key": "couplesconnect-temp-cc-launch-20261103-v1-03.png",
+      "contentType": "image/png",
+      "expectedSha256": "6851a0bf6303cffb9da00277b5d10d67c03d4242375fbb672d3874e579db832a"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/cc-launch-v1-20261103-04.png",
+      "r2Key": "couplesconnect-temp-cc-launch-20261103-v1-04.png",
+      "contentType": "image/png",
+      "expectedSha256": "6d2dfe73e8dba1ff375efad9f30cf43791b92b8dfd438f1c015bff27ad2b5ae1"
+    },
+    {
+      "dropboxPath": "/BUILDWITHPANKAJ/Instagram-Staging/cc-launch-v1-20261103-05.png",
+      "r2Key": "couplesconnect-temp-cc-launch-20261103-v1-05.png",
+      "contentType": "image/png",
+      "expectedSha256": "b3ca6ef8fb9ed3a67cecf1d5762b106a73aef4b06d2bfe687519b03843d271ac"
     }
   ]
 }

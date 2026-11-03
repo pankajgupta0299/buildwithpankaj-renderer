@@ -1,5 +1,6 @@
 {
-  "approvalId": "bwp-reel10-hill-traffic-20261004-v1",
+  "approvalId": "cc-launch-20261103-v1",
   "userConfirmedPublish": true,
-  "confirmation": "PUBLISH_EXACT_APPROVED_PACKAGE"
+  "confirmation": "PUBLISH_EXACT_APPROVED_PACKAGE",
+  "packageHash": "d63a081de6d621535c9ab715603e25f30deaaa51571d56692bc78c19c051725e"
 }

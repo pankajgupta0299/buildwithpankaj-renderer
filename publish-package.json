@@ -1,26 +1,43 @@
 {
-  "version": 2,
-  "brand": "BuildWithPankaj",
-  "destination": "@buildwith_pankaj",
-  "approvalId": "bwp-reel10-hill-traffic-20261004-v1",
+  "brand": "CouplesConnect",
+  "destination": "@couplesconnectindia",
   "approved": true,
   "status": "approved",
-  "postType": "reel",
-  "schedulingType": "automatic",
+  "approvalId": "cc-launch-20261103-v1",
+  "postType": "carousel",
+  "caption": "Meet other couples. Make new friends.\n\nCouplesConnect helps you and your partner make platonic friends through small, shared Plans—for coffee, dinner, games and more.\n\nExplore a Plan or host your own. Send a short introduction to request a place; joining depends on approval and available space. Accepted couples coordinate through the Plan chat.\n\nJust 2 or 3 couples total, including the hosts.\n\nThe browser product is live in supported Indian cities. We’re in early beta, so local Plan availability will vary. No app download is needed.\n\nTry it at couplesconnect.site — link in bio.\n\nKnow a couple who might enjoy this? Share this with them. If you try it, we’d appreciate honest feedback on getting started.\n\n#CouplesConnect #CoupleFriends #MakeNewFriends #India",
   "mode": "shareNow",
-  "caption": "Pahaadon mein sukoon book kiya tha… traffic ka subscription mil gaya 😭🚗\n\nTrying something funny + useful with AI: a weekend trip sanity check before we pack our bags.\n\nCopy this prompt:\n“I am travelling from [city] on [dates], with [people] and a budget of [amount]. Compare my original hill trip, a different-date option and a nearby day-trip backup. Ask about driving limits and flexibility. List what I must verify: current traffic, weather, official road advisories, hotel parking and cancellation terms. Do not invent live conditions, promise an empty road or suggest unverified mountain shortcuts.”\n\nUse AI to organize options. Check live traffic and official updates yourself before leaving, and have a passenger check while travelling. Call the hotel about parking. Carry water, stay in your lane and follow police directions.\n\nAI-generated illustrative scenery with animation—not real footage of Mussoorie or Rishikesh. The planner shown is an illustrative demo, not a live traffic service. Inspired by reports of the 2–4 October 2026 long-weekend rush.\n\nSave this before your next trip. Who in your group always says “bas nikalte hain”? 😂\n\n#BuildWithAI #AITravel #Uttarakhand #Mussoorie #Rishikesh",
-  "firstComment": "",
-  "shouldShareToFeed": true,
-  "isAiGenerated": true,
+  "schedulingType": "automatic",
   "assets": [
     {
-      "type": "video",
-      "key": "draft-run-37143456060.mp4"
-    }
-  ],
-  "cleanupAssets": [
+      "type": "image",
+      "key": "couplesconnect-temp-cc-launch-20261103-v1-01.png",
+      "sha256": "3dabfefc038865150b207d39a8dca90a130e21fea74cc4983274ac88d576b1a3",
+      "altText": "CouplesConnect helps couples meet other couples for platonic friendship through small shared Plans in India."
+    },
     {
-      "key": "reel10-hill-traffic.png"
+      "type": "image",
+      "key": "couplesconnect-temp-cc-launch-20261103-v1-02.png",
+      "sha256": "c059c97c18af3db429d29099714a400cd431d7b66dbc24829417620b2d54365c",
+      "altText": "Discover an activity Plan or host your own. Request to join with a short introduction. Once accepted, coordinate in Plan chat."
+    },
+    {
+      "type": "image",
+      "key": "couplesconnect-temp-cc-launch-20261103-v1-03.png",
+      "sha256": "6851a0bf6303cffb9da00277b5d10d67c03d4242375fbb672d3874e579db832a",
+      "altText": "Plans include two or three couples total, including the hosts. Example only: Sunday coffee and conversation in Noida for two couples total. This is not a scheduled event."
+    },
+    {
+      "type": "image",
+      "key": "couplesconnect-temp-cc-launch-20261103-v1-04.png",
+      "sha256": "6d2dfe73e8dba1ff375efad9f30cf43791b92b8dfd438f1c015bff27ad2b5ae1",
+      "altText": "A request is not a confirmed place. Joining needs approval and room in the Plan. Accepted couples coordinate in Plan chat. Meet in public and keep sensitive details private."
+    },
+    {
+      "type": "image",
+      "key": "couplesconnect-temp-cc-launch-20261103-v1-05.png",
+      "sha256": "b3ca6ef8fb9ed3a67cecf1d5762b106a73aef4b06d2bfe687519b03843d271ac",
+      "altText": "Try CouplesConnect in your browser at couplesconnect.site. Explore Plans or host your own in supported Indian cities. Early beta; local Plan availability varies. Link in bio."
     }
   ]
 }
